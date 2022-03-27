@@ -81,3 +81,13 @@ class cocoDataSet(Dataset):
                               0.5, (0, 0, 0))
         cv2.imshow(str(img_Info[0]["id"]), img)
         cv2.waitKey(0)
+
+
+class coco_dataloader(BaseDataLoader):
+    def __init__(self, data_dir, batch_size, shuffle=True, validation_split=0.0, num_workers=1, training=True):
+        if training:
+            split = "train"
+        else:
+            split = "val"
+        data_set = cocoDataSet(data_dir, split)
+        super().__init__(self.dataset, batch_size, shuffle, validation_split, num_workers)
