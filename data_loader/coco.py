@@ -19,6 +19,7 @@ class cocoDataSet(Dataset):
         """
             @split: val or train
         """
+        self.root_dir = root_dir
         self.anno_path = os.path.join(root_dir, "annotations", 'instances_{}2017.json').format(split)
         self.imgDir_path = os.path.join(root_dir, "{}2017").format(split)
         self._coco = coco.COCO(annotation_file=self.anno_path)
@@ -30,16 +31,16 @@ class cocoDataSet(Dataset):
 
     def __getitem__(self, item):
         # get all annotations information of picture
-        annos = coco.COCO.getAnnIds(imgIds=self._ids[item])
+        annos = self._coco.getAnnIds(imgIds=self._ids[item])
         label_info = self._coco.loadAnns(annos)
         img_Info = self._coco.loadImgs(self._ids[item])
 
         img_abs_path = os.path.join(self.imgDir_path, img_Info[0]["file_name"])
         img = cv2.imread(img_abs_path)
-        bbox, label = self._get_format_bbox(label_info)
+        bboxAndlabel = self._get_format_bbox(label_info)
 
         # gt = self._get_gt(bbox, label)
-        return img, (bbox, label)
+        return img, bboxAndlabel
 
 
     def _get_format_bbox(self, label_info):
@@ -89,5 +90,5 @@ class coco_dataloader(BaseDataLoader):
             split = "train"
         else:
             split = "val"
-        data_set = cocoDataSet(data_dir, split)
-        super().__init__(self.dataset, batch_size, shuffle, validation_split, num_workers)
+        self.data_set = cocoDataSet(data_dir, split)
+        super().__init__(self.data_set, batch_size, shuffle, validation_split, num_workers)
