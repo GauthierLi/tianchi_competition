@@ -1,3 +1,8 @@
+"""
+    @author:gauthierLi
+    @data:03/27/2022
+    @func:test only
+"""
 import os
 import cv2
 import numpy as np
@@ -54,6 +59,4 @@ if __name__ == "__main__":
     dataLoader = coco_dataloader(f"/mnt/data/coco2017/", 1, training=None)
     for img, bboxAndlabel in dataLoader:
         img = img.squeeze().numpy()
-        # cv2.imshow("img", img)
-        # cv2.waitKey(0)
         draw_bbox(img, bboxAndlabel)
