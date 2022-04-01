@@ -199,9 +199,10 @@ you can change some of them using CLI flags.
   # simple class-like object having 3 attributes, `flags`, `type`, `target`.
   CustomArgs = collections.namedtuple('CustomArgs', 'flags type target')
   options = [
-      CustomArgs(['--lr', '--learning_rate'], type=float, target=('optimizer', 'args', 'lr')),
-      CustomArgs(['--bs', '--batch_size'], type=int, target=('data_loader', 'args', 'batch_size'))
       # options added here can be modified by command line flags.
+      CustomArgs(['--lr', '--learning_rate'], type=float, target=('optimizer', 'args', 'lr')),
+      CustomArgs(['--bs', '--batch_size'], type=int, target=('data_loader', 'args', 'batch_size')),
+      CustomArgs(['--ep', '--epochs'], type=int, target='trainer;epochs')
   ]
   ```
 `target` argument should be sequence of keys, which are used to access that option in the config dict. In this example, `target` 
