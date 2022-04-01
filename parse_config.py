@@ -28,11 +28,16 @@ class ConfigParser:
         exper_name = self.config['name']
         if run_id is None: # use timestamp as default run-id
             run_id = datetime.now().strftime(r'%m%d_%H%M%S')
+        if resume is not None:
+            resume_id = str(resume).split('/')[-2]
+            run_id = resume_id
         self._save_dir = save_dir / 'models' / exper_name / run_id
         self._log_dir = save_dir / 'log' / exper_name / run_id
 
         # make directory for saving checkpoints and log.
         exist_ok = run_id == ''
+        if resume is not None:
+            exist_ok = True
         self.save_dir.mkdir(parents=True, exist_ok=exist_ok)
         self.log_dir.mkdir(parents=True, exist_ok=exist_ok)
 
