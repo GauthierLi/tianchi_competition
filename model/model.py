@@ -21,3 +21,55 @@ class MnistModel(BaseModel):
         x = self.fc2(x)
         return F.log_softmax(x, dim=1)
 
+
+class convBlock(nn.Module):
+    def __init__(self, inchannel, outchannel, stride, pad):
+        super(convBlock, self).__init__()
+        self.conv = nn.Conv2d(inchannel, outchannel, kernel_size=3, stride=stride, padding=pad, bias=False)
+        self.bn = nn.BatchNorm2d(outchannel)
+        self.relu = nn.ReLU()
+
+    def forward(self, x):
+        oup = self.conv(x)
+        oup = self.bn(oup)
+        oup = self.relu(oup)
+        return oup
+
+
+class downSample(nn.Module):
+    def __init__(self, pading=1, kernel_size=3, stride=3):
+        super(downSample, self).__init__()
+        self.downsample = nn.MaxPool2d(kernel_size=kernel_size, stride=stride, padding=pading)
+
+    def forward(self, x):
+        return self.downsample(x)
+
+
+class simple_dla(nn.Module):
+    def __init__(self, inchannel, edge_size=6):
+        super(simple_dla, self).__init__()
+        self.inchannel = inchannel
+        self.basic_block = nn.Sequential()
+        self.edge_size = edge_size
+
+    def generate_dla_chains(self, len):
+        chains = []
+        for i in range(len):
+            tmp_seq_lst = [downSample() for j in range(i)]
+            tmp_seq = nn.Sequential(*tmp_seq_lst, self.stright_chain(len - i))
+            chains.append(tmp_seq)
+        return chains
+
+    def stright_chain(self, len):
+        seq_lst = [convBlock(inchannel=self.inchannel, outchannel=self.inchannel * (3 ** i), stride=3, pad=0) for i in
+                   range(len)]
+        return nn.Sequential(*seq_lst)
+
+    def forward(self, x):
+        heads = []
+        chains = self.generate_dla_chains(self.edge_size)
+        for chain in chains:
+            head = chain(x)
+            heads.append(head)
+
+
