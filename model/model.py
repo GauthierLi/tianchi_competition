@@ -1,3 +1,8 @@
+"""
+    @author: gauthierLi
+    @date: 04/02/2022
+"""
+import torch
 import torch.nn as nn
 import torch.nn.functional as F
 from base import BaseModel
@@ -45,24 +50,27 @@ class downSample(nn.Module):
         return self.downsample(x)
 
 
-class simple_dla(nn.Module):
-    def __init__(self, inchannel, edge_size=6):
-        super(simple_dla, self).__init__()
+class kernel_generator(nn.Module):
+    def __init__(self, inchannel, edge_size=5):
+        super(kernel_generator, self).__init__()
         self.inchannel = inchannel
         self.basic_block = nn.Sequential()
         self.edge_size = edge_size
 
-    def generate_dla_chains(self, len):
+    def generate_dla_chains(self, lent):
         chains = []
-        for i in range(len):
+        for i in range(lent + 1):
             tmp_seq_lst = [downSample() for j in range(i)]
-            tmp_seq = nn.Sequential(*tmp_seq_lst, self.stright_chain(len - i))
+            tmp_seq = nn.Sequential(*tmp_seq_lst, self.stright_chain(lent - i))
             chains.append(tmp_seq)
+        # print(f"num of chains:{len(chains)}, chains", chains)
         return chains
 
-    def stright_chain(self, len):
-        seq_lst = [convBlock(inchannel=self.inchannel, outchannel=self.inchannel * (3 ** i), stride=3, pad=0) for i in
-                   range(len)]
+    def stright_chain(self, lent):
+        seq_lst = [
+            convBlock(inchannel=self.inchannel * (3 ** i), outchannel=self.inchannel * (3 ** (i + 1)), stride=3, pad=0)
+            for i in
+            range(lent)]
         return nn.Sequential(*seq_lst)
 
     def forward(self, x):
@@ -72,4 +80,6 @@ class simple_dla(nn.Module):
             head = chain(x)
             heads.append(head)
 
+        oup = torch.cat(heads, 1)
 
+        return oup

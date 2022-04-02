@@ -10,6 +10,8 @@ import numpy as np
 import pycocotools.coco as coco
 from data_loader.coco import coco_dataloader
 
+from model.model import kernel_generator
+
 
 def _get_format_bbox(label_info):
     bbox_lst = []
@@ -36,10 +38,19 @@ def draw_bbox(img, bboxAndlabel):
     cv2.imshow("img", img)
     cv2.waitKey(0)
 
-
-if __name__ == "__main__":
+def tst_dataLoader():
     dataLoader = coco_dataloader(f"/mnt/data/coco/", 1, training=None)
     for img, bboxAndlabel in dataLoader:
-        print(bboxAndlabel[0].data.item)  # [[[tensor([73.5100], dtype=torch.float64), tensor([240.], dtype=torch.float64), tensor([70.2700], dtype=torch.float64), tensor([38.3800], dtype=torch.float64)], tensor([23])]]
+        print(bboxAndlabel[
+                  0].data.item)  # [[[tensor([73.5100], dtype=torch.float64), tensor([240.], dtype=torch.float64), tensor([70.2700], dtype=torch.float64), tensor([38.3800], dtype=torch.float64)], tensor([23])]]
         img = img.squeeze().numpy()
         draw_bbox(img, bboxAndlabel)
+
+def tst_backbone():
+    a = torch.ones([3, 3, 729, 729])
+    tst_net = kernel_generator(inchannel=3)
+    print(tst_net(a).size())
+
+if __name__ == "__main__":
+    # tst_dataLoader()
+    tst_backbone()
