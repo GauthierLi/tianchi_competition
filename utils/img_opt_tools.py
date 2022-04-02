@@ -1,28 +1,14 @@
-"""
-    @author:gauthierLi
-    @data:03/27/2022
-    @func:test only
-"""
 import os
 import cv2
 import torch
 import numpy as np
-import pycocotools.coco as coco
-from data_loader.coco import coco_dataloader
-
-
-def _get_format_bbox(label_info):
-    bbox_lst = []
-    for item in label_info:
-        category_id = item['category_id']
-        box = item["bbox"]
-        format_box = [(box[0] + box[2] / 2, box[1] + box[3] / 2, box[2] / 2, box[3] / 2), category_id]
-        bbox_lst.append(format_box)
-    return bbox_lst
-
 
 def draw_bbox(img, bboxAndlabel):
+    """
+        @bboxAndlabel: [[[centerx, centery, h, w], label], ... ...]
+    """
     for boxandlabel in bboxAndlabel:
+        print(type(boxandlabel[0][0]))
         box = [i.numpy()[0] if isinstance(i, torch.Tensor) else i for i in boxandlabel[0]]
         text_info = str(boxandlabel[1].numpy()[0]) if isinstance(boxandlabel[1][0], torch.Tensor) else str(boxandlabel[1])
         text_len = len(text_info)
@@ -35,11 +21,3 @@ def draw_bbox(img, bboxAndlabel):
                           0.5, (0, 0, 0))
     cv2.imshow("img", img)
     cv2.waitKey(0)
-
-
-if __name__ == "__main__":
-    dataLoader = coco_dataloader(f"/mnt/data/coco/", 1, training=None)
-    for img, bboxAndlabel in dataLoader:
-        print(bboxAndlabel[0].data.item)  # [[[tensor([73.5100], dtype=torch.float64), tensor([240.], dtype=torch.float64), tensor([70.2700], dtype=torch.float64), tensor([38.3800], dtype=torch.float64)], tensor([23])]]
-        img = img.squeeze().numpy()
-        draw_bbox(img, bboxAndlabel)

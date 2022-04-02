@@ -51,7 +51,7 @@ class cocoDataSet(Dataset):
         for item in label_info:
             category_id = item['category_id']
             box = item["bbox"]
-            format_box = [(box[0] + box[2] / 2, box[1] + box[3] / 2, box[2] / 2, box[3] / 2), category_id]
+            format_box = [[box[0] + box[2] / 2, box[1] + box[3] / 2, box[2] / 2, box[3] / 2], category_id]
             bbox_lst.append(format_box)
         return bbox_lst
 
