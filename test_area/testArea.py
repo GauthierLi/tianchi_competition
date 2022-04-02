@@ -10,7 +10,7 @@ import numpy as np
 import pycocotools.coco as coco
 from data_loader.coco import coco_dataloader
 
-from model.model import kernel_generator
+from model.model import kernel_extract_network
 
 
 def _get_format_bbox(label_info):
@@ -26,7 +26,8 @@ def _get_format_bbox(label_info):
 def draw_bbox(img, bboxAndlabel):
     for boxandlabel in bboxAndlabel:
         box = [i.numpy()[0] if isinstance(i, torch.Tensor) else i for i in boxandlabel[0]]
-        text_info = str(boxandlabel[1].numpy()[0]) if isinstance(boxandlabel[1][0], torch.Tensor) else str(boxandlabel[1])
+        text_info = str(boxandlabel[1].numpy()[0]) if isinstance(boxandlabel[1][0], torch.Tensor) else str(
+            boxandlabel[1])
         text_len = len(text_info)
         x1, y1, x2, y2 = [int(box[0] - box[2]), int(box[1] - box[3]), int(box[0] + box[2]), int(box[1] + box[3])]
         img = cv2.rectangle(img, (x1, y1),
@@ -38,6 +39,7 @@ def draw_bbox(img, bboxAndlabel):
     cv2.imshow("img", img)
     cv2.waitKey(0)
 
+
 def tst_dataLoader():
     dataLoader = coco_dataloader(f"/mnt/data/coco/", 1, training=None)
     for img, bboxAndlabel in dataLoader:
@@ -46,10 +48,14 @@ def tst_dataLoader():
         img = img.squeeze().numpy()
         draw_bbox(img, bboxAndlabel)
 
+
 def tst_backbone():
     a = torch.ones([3, 3, 729, 729])
-    tst_net = kernel_generator(inchannel=3)
-    print(tst_net(a).size())
+    tst_kernel_extract = kernel_extract_network()
+    print(tst_kernel_extract(a))
+    lst = tst_kernel_extract(a)[2].data.numpy()
+    print("total class {}, after softmax is {}".format(len(lst), lst.sum()))
+
 
 if __name__ == "__main__":
     # tst_dataLoader()
