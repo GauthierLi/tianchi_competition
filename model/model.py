@@ -80,38 +80,63 @@ class MnistModel(BaseModel):
         return F.log_softmax(x, dim=1)
 
 
-class kernel_generator(nn.Module):
-    def __init__(self, inchannel, edge_size=5):
-        super(kernel_generator, self).__init__()
+class chain_process(nn.Module):
+    def __init__(self, inchannel, stride, pad, edge_size, layer_depth, generate_kernel=True):
+        super(chain_process, self).__init__()
+        self.generate_kernel = generate_kernel
         self.inchannel = inchannel
-        self.basic_block = nn.Sequential()
+        self.stride = stride
+        self.pad = pad
         self.edge_size = edge_size
-
-    def generate_dla_chains(self, lent):
-        chains = []
-        for i in range(lent + 1):
-            tmp_seq_lst = [downSample() for j in range(i)]
-            tmp_seq = nn.Sequential(*tmp_seq_lst, self.stright_chain(lent - i))
-            chains.append(tmp_seq)
-        # print(f"num of chains:{len(chains)}, chains", chains)
-        return chains
+        self.depth = layer_depth
+        self.seq = self.generate_from_chains()
 
     def stright_chain(self, lent):
         seq_lst = [
-            convBlock(inchannel=self.inchannel * (3 ** i), outchannel=self.inchannel * (3 ** (i + 1)), stride=3, pad=0)
+            convBlock(inchannel=self.inchannel * (3 ** i), outchannel=self.inchannel * (3 ** (i + 1)),
+                      stride=self.stride, pad=self.pad)
             for i in
             range(lent)]
         return nn.Sequential(*seq_lst)
 
+    def generate_from_chains(self):
+        seq_lst = [downSample() if self.generate_kernel else nn.Sequential() for j in range(self.depth)]
+        seq = nn.Sequential(*seq_lst, self.stright_chain(self.edge_size - self.depth))
+        # print(f"num of chains:{len(chains)}, chains", chains)
+        return seq
+
+    def forward(self, x):
+        return self.seq(x)
+
+
+class kernel_generator(nn.Module):
+
+    def __init__(self, inchannel, stride, pad, edge_size=4, generate_kernel=True):
+        super(kernel_generator, self).__init__()
+        self.stride = stride
+        self.pad = pad
+
+        self.inchannel = inchannel
+        self.basic_block = nn.Sequential()
+        self.edge_size = edge_size
+
+        self.chain0 = chain_process(self.inchannel, self.stride, self.pad, self.edge_size, 0, generate_kernel)
+        self.chain1 = chain_process(self.inchannel, self.stride, self.pad, self.edge_size, 1, generate_kernel)
+        self.chain2 = chain_process(self.inchannel, self.stride, self.pad, self.edge_size, 2, generate_kernel)
+        self.chain3 = chain_process(self.inchannel, self.stride, self.pad, self.edge_size, 3, generate_kernel)
+        self.chain4 = chain_process(self.inchannel, self.stride, self.pad, self.edge_size, 4, generate_kernel)
+
+        self.chains = [self.chain0, self.chain1, self.chain2, self.chain3, self.chain4]
+
+        self.oneSizeConv = oneSizeConv(inchannel=363, outchannel=127)
+
     def forward(self, x):
         heads = []
-        chains = self.generate_dla_chains(self.edge_size)
-        for chain in chains:
+        for chain in self.chains:
             head = chain(x)
             heads.append(head)
-
         oup = torch.cat(heads, 1)
-        oup = oneSizeConv(inchannel=oup.size()[1], outchannel=127)(oup)
+        oup = self.oneSizeConv(oup)
 
         return oup
 
@@ -133,7 +158,7 @@ class classify_decoder(nn.Module):
 class kernel_extract_network(nn.Module):
     def __init__(self, inchannel=3, num_cls=50):
         super(kernel_extract_network, self).__init__()
-        self.encoder = kernel_generator(inchannel=inchannel)
+        self.encoder = kernel_generator(inchannel=inchannel, stride=3, pad=0)
         self.decoder = classify_decoder(num_cls)
 
     def forward(self, x):

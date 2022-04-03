@@ -10,7 +10,7 @@ import numpy as np
 import pycocotools.coco as coco
 from data_loader.coco import coco_dataloader
 
-from model.model import kernel_extract_network
+from model.model import kernel_extract_network, kernel_generator, classify_decoder
 
 
 def _get_format_bbox(label_info):
@@ -50,12 +50,17 @@ def tst_dataLoader():
 
 
 def tst_backbone():
-    a = torch.ones([3, 3, 729, 729])
+    device = torch.device("cuda")
+    a = torch.ones([3, 3, 243, 243]).to(device)
     tst_kernel_extract = kernel_extract_network()
-    print(tst_kernel_extract(a))
-    lst = tst_kernel_extract(a)[2].data.numpy()
+    tst_kernel_extract.to(device)
+    print(tst_kernel_extract(a).size())
+    lst = tst_kernel_extract(a)[2].cpu().data.numpy()
     print("total class {}, after softmax is {}".format(len(lst), lst.sum()))
 
+    cg_encoder = kernel_generator(inchannel=3, stride=1, pad=1, generate_kernel=False)
+    cg_encoder.to(device)
+    print(cg_encoder(a).size())
 
 if __name__ == "__main__":
     # tst_dataLoader()
