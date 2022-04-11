@@ -105,6 +105,7 @@ data/
 input/
 saved/
 datasets/
+test_area/logo_imgs/*.jpg
 
 # editor, os cache directory
 .vscode/
