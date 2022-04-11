@@ -47,8 +47,8 @@ def draw_bbox(img, bboxAndlabel):
 def tst_dataLoader():
     device = torch.device("cuda")
     dataLoader = coco_dataloader(
-        f"/home/gauthierli-org/data/data/fewshot/fewshotlogodetection_round1_train_202204/train", batch_size=1,
-        training=True)
+        f"/home/gauthierli-org/data/data/fewshot", batch_size=1,
+        training=True, resize=False)
     for img, bboxAndlabel in dataLoader:
         print("img shape", img.shape)
         print("bbox shape", bboxAndlabel.shape)

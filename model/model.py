@@ -48,14 +48,20 @@ class MLP(nn.Module):
     def __init__(self, inp_dim, hidden, oup_dim):
         super(MLP, self).__init__()
         self.inp = nn.Linear(inp_dim, hidden)
+        self.bn1 = nn.BatchNorm1d(hidden)
+        self.relu1 = nn.LeakyReLU()
         self.hidden = nn.Linear(hidden, oup_dim)
-        self.relu = nn.LeakyReLU()
+        self.bn2 = nn.BatchNorm1d(oup_dim)
+        self.relu2 = nn.LeakyReLU()
         self.sftmax = nn.Softmax(1)
 
     def forward(self, x):
         oup = self.inp(x)
+        oup = self.bn1(oup)
+        oup = self.relu1(oup)
         oup = self.hidden(oup)
-        oup = self.relu(oup)
+        oup = self.bn2(oup)
+        oup = self.relu2(oup)
         oup = self.sftmax(oup)
 
         return oup

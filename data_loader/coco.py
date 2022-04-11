@@ -30,13 +30,16 @@ class cocoDataSet(Dataset):
     num_classes = 50
     defult_resolution = [243, 243]
 
-    def __init__(self, root_dir, split):
+    def __init__(self, root_dir, split, resize=(243, 243)):
         """
             @split: val or train
         """
         self.root_dir = root_dir
-        self.anno_path = os.path.join(root_dir, "annotations", 'instances_{}2017.json').format(split)
-        self.imgDir_path = os.path.join(root_dir, "images").format(split)
+        self.resize = resize
+        self.anno_path = os.path.join(root_dir, "fewshotlogodetection_round1_{}_202204", "{}", "annotations",
+                                      'instances_{}2017.json').format(split, split, split)
+        self.imgDir_path = os.path.join(root_dir, "fewshotlogodetection_round1_{}_202204", "{}", "images").format(split,
+                                                                                                                  split)
         self._coco = coco.COCO(annotation_file=self.anno_path)
         self._ids = list(sorted(self._coco.imgs.keys()))
         self.coco_class = dict([(v["id"], v["name"]) for k, v in self._coco.cats.items()])
@@ -51,10 +54,12 @@ class cocoDataSet(Dataset):
         img_Info = self._coco.loadImgs(self._ids[item])
 
         img_abs_path = os.path.join(self.imgDir_path, img_Info[0]["file_name"])
-        img = Image.open(img_abs_path)
+        img = Image.open(img_abs_path).convert("RGB")
         # img = cv2.imread(img_abs_path)
         bboxAndlabel = self._get_format_bbox(label_info)
-        img, bboxAndlabel = self._img_label_transform(img, bboxAndlabel, 243, 243)
+        # resize
+        if self.resize:
+            img, bboxAndlabel = self._img_label_transform(img, bboxAndlabel, self.resize[0], self.resize[1])
 
         # gt = self._get_gt(bbox, label)
         return img, bboxAndlabel
@@ -109,7 +114,6 @@ class cocoDataSet(Dataset):
 
         pass
 
-
     def draw_bbox(self, img_id, root_path, label_info, text=None):
         """
         label_info: segmentation information, include bbox
@@ -138,10 +142,10 @@ class cocoDataSet(Dataset):
 
 class coco_dataloader(BaseDataLoader):
     def __init__(self, data_dir, batch_size, shuffle=True, validation_split=0.0, num_workers=1, training=True,
-                 collate_fn=collate):
+                 collate_fn=collate, resize=(243, 243)):
         if training:
             split = "train"
         else:
             split = "val"
-        self.data_set = cocoDataSet(data_dir, split)
+        self.data_set = cocoDataSet(data_dir, split, resize=resize)
         super().__init__(self.data_set, batch_size, shuffle, validation_split, num_workers, collate_fn=collate_fn)
