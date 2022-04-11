@@ -16,11 +16,13 @@ class convBlock(nn.Module):
         self.conv = nn.Conv2d(inchannel, outchannel, kernel_size=kernel_size, stride=stride, padding=pad, bias=False)
         self.bn = nn.BatchNorm2d(outchannel)
         self.relu = nn.ReLU()
+        self.dropout = nn.Dropout2d(0.5)
 
     def forward(self, x):
         oup = self.conv(x)
         oup = self.bn(oup)
         oup = self.relu(oup)
+        oup = self.dropout(oup)
         return oup
 
 
@@ -59,6 +61,50 @@ class MLP(nn.Module):
         return oup
 
 
+class Bottleneck(nn.Module):
+    expansion = 3
+
+    def __init__(self, inplanes, planes, stride=1):
+        super(Bottleneck, self).__init__()
+
+        self.conv1 = nn.Conv2d(inplanes, planes, kernel_size=1, stride=stride, bias=False)  # change
+        self.bn1 = nn.BatchNorm2d(planes)
+
+        self.conv2 = nn.Conv2d(planes, planes, kernel_size=3, stride=1,  # change
+                               padding=1, bias=False)
+        self.bn2 = nn.BatchNorm2d(planes)
+
+        self.conv3 = nn.Conv2d(planes, planes * self.expansion, kernel_size=1, bias=False)
+        self.bn3 = nn.BatchNorm2d(planes * self.expansion)
+        self.relu = nn.ReLU(inplace=True)
+        self.downsample = nn.Sequential(
+            nn.Conv2d(inplanes, planes * self.expansion, kernel_size=1, stride=stride, bias=False),
+            nn.BatchNorm2d(planes * self.expansion),
+        )
+        self.stride = stride
+
+    def forward(self, x):
+        residual = x
+
+        out = self.conv1(x)
+        out = self.bn1(out)
+        out = self.relu(out)
+
+        out = self.conv2(out)
+        out = self.bn2(out)
+        out = self.relu(out)
+
+        out = self.conv3(out)
+        out = self.bn3(out)
+
+        residual = self.downsample(x)
+
+        out += residual
+        out = self.relu(out)
+
+        return out
+
+
 # ----------------------------------------------- basic blocks ---------------------------------------------------------
 # ----------------------------------------------------------------------------------------------------------------------
 class MnistModel(BaseModel):
@@ -81,9 +127,9 @@ class MnistModel(BaseModel):
 
 
 class chain_process(nn.Module):
-    def __init__(self, inchannel, stride, pad, edge_size, layer_depth, generate_kernel=True):
+    def __init__(self, inchannel, stride, pad, edge_size, layer_depth):
         super(chain_process, self).__init__()
-        self.generate_kernel = generate_kernel
+        self.generate_kernel = True if stride == 3 and pad == 0 else False
         self.inchannel = inchannel
         self.stride = stride
         self.pad = pad
@@ -92,11 +138,12 @@ class chain_process(nn.Module):
         self.seq = self.generate_from_chains()
 
     def stright_chain(self, lent):
-        seq_lst = [
-            convBlock(inchannel=self.inchannel * (3 ** i), outchannel=self.inchannel * (3 ** (i + 1)),
-                      stride=self.stride, pad=self.pad)
-            for i in
-            range(lent)]
+        seq_lst = [nn.Sequential(Bottleneck(self.inchannel * (3 ** i), self.inchannel * (3 ** i)),
+                                 convBlock(inchannel=self.inchannel * (3 ** (i + 1)),
+                                           outchannel=self.inchannel * (3 ** (i + 1)),
+                                           stride=self.stride, pad=self.pad))
+                   for i in
+                   range(lent)]
         return nn.Sequential(*seq_lst)
 
     def generate_from_chains(self):
@@ -111,7 +158,7 @@ class chain_process(nn.Module):
 
 class kernel_generator(nn.Module):
 
-    def __init__(self, inchannel, stride, pad, edge_size=4, generate_kernel=True):
+    def __init__(self, inchannel, stride, pad, edge_size=4):
         super(kernel_generator, self).__init__()
         self.stride = stride
         self.pad = pad
@@ -120,11 +167,11 @@ class kernel_generator(nn.Module):
         self.basic_block = nn.Sequential()
         self.edge_size = edge_size
 
-        self.chain0 = chain_process(self.inchannel, self.stride, self.pad, self.edge_size, 0, generate_kernel)
-        self.chain1 = chain_process(self.inchannel, self.stride, self.pad, self.edge_size, 1, generate_kernel)
-        self.chain2 = chain_process(self.inchannel, self.stride, self.pad, self.edge_size, 2, generate_kernel)
-        self.chain3 = chain_process(self.inchannel, self.stride, self.pad, self.edge_size, 3, generate_kernel)
-        self.chain4 = chain_process(self.inchannel, self.stride, self.pad, self.edge_size, 4, generate_kernel)
+        self.chain0 = chain_process(self.inchannel, self.stride, self.pad, self.edge_size, 0)
+        self.chain1 = chain_process(self.inchannel, self.stride, self.pad, self.edge_size, 1)
+        self.chain2 = chain_process(self.inchannel, self.stride, self.pad, self.edge_size, 2)
+        self.chain3 = chain_process(self.inchannel, self.stride, self.pad, self.edge_size, 3)
+        self.chain4 = chain_process(self.inchannel, self.stride, self.pad, self.edge_size, 4)
 
         self.chains = [self.chain0, self.chain1, self.chain2, self.chain3, self.chain4]
 

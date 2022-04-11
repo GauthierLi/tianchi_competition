@@ -1,3 +1,4 @@
+import os
 import torch
 from abc import abstractmethod
 from numpy import inf
@@ -117,6 +118,9 @@ class BaseTrainer:
         }
         filename = str(self.checkpoint_dir / 'checkpoint-epoch{}.pth'.format(epoch))
         torch.save(state, filename)
+        last_filename = str(self.checkpoint_dir / 'checkpoint-epoch{}.pth'.format(epoch - 1))
+        if os.path.exists(last_filename):
+            os.remove(last_filename)
         self.logger.info("Saving checkpoint: {} ...".format(filename))
         if save_best:
             best_path = str(self.checkpoint_dir / 'model_best.pth')

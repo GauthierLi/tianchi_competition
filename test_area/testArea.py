@@ -10,6 +10,7 @@ import torch
 import numpy as np
 from PIL import Image
 import pycocotools.coco as coco
+import torch.nn.functional as F
 from data_loader.data_loaders import MnistDataLoader
 from data_loader.coco import coco_dataloader
 from data_loader.branch_data import *
@@ -46,7 +47,7 @@ def draw_bbox(img, bboxAndlabel):
 
 def tst_dataLoader():
     device = torch.device("cuda")
-    dataLoader = coco_dataloader(f"/home/gauthierli-org/data/data/coco/", 2, training=None)
+    dataLoader = coco_dataloader(f"/home/gauthierli-org/data/data/coco/", batch_size=2, training=None)
     for img, bboxAndlabel in dataLoader:
         print("img shape", img.shape)
         print("bbox shape", bboxAndlabel.shape)
@@ -78,10 +79,10 @@ def tst_backbone():
     lst = tst_kernel_extract(a)[0].cpu().data.numpy()
     print("total class {}, after softmax is {}".format(len(lst), lst.sum()))
 
-    cg_encoder = kernel_generator(inchannel=3, stride=1, pad=1, generate_kernel=False)
+    cg_encoder = kernel_generator(inchannel=3, stride=1, pad=1)
     cg_encoder.to(device)
     cg_encoder.eval()
-    print(cg_encoder(a))
+    print(cg_encoder(a).size())
 
 
 def tst_PIL():
@@ -96,10 +97,12 @@ def tst_csv_reader():
     data_list_dict = list(csv.DictReader(csv_file))
     KV_map = {}
     parse_map = {}
-    for v, ele in enumerate(data_list_dict):
+    v = 0
+    for ele in data_list_dict:
         if ele["Template Name"] not in KV_map.keys():
             KV_map[ele["Template Name"]] = v
             parse_map[v] = ele["Template Name"]
+            v += 1
 
     print(KV_map)
     print("\n")
@@ -107,14 +110,23 @@ def tst_csv_reader():
 
 
 def tst_branch_dataloader():
+    device = torch.device("cuda")
     root = r"/home/gauthierli-org/data/data/vehicle-logos-dataset/"
     train_loader = branch_data_loader(root, 2, True, 0.2)
     val_loader = train_loader.split_validation()
-    print(len(train_loader), len(val_loader))
-    # for img, label in val_loader:
-    #     print(img.size())
-    #     print(label, inverse_dict[label.data.numpy()[0]])
+    tst_kernel_extract = kernel_extract_network()
+    tst_kernel_extract.to(device)
+    for img, label in val_loader:
+        print(img.size())
+        print(label.size(), inverse_dict[label.data.numpy().argmax()])
+        result = tst_kernel_extract(img.to(device))
+        print(F.cross_entropy(result, label.to(device)))
 
+
+def tst_torch_tensor():
+    ten1 = torch.tensor([[9, 8, 7]])
+    ten2 = torch.tensor([[7, 5, 2]])
+    print(ten1 == ten2)
 
 
 if __name__ == "__main__":
@@ -123,4 +135,5 @@ if __name__ == "__main__":
     # tst_dataLoader()
     # tst_PIL()
     # tst_csv_reader()
-    tst_branch_dataloader()
+    # tst_branch_dataloader()
+    tst_torch_tensor()

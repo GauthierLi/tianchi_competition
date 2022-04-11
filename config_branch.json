@@ -1,16 +1,16 @@
 {
-    "name": "Mnist_LeNet",
+    "name": "kernel_generator",
     "n_gpu": 1,
 
     "arch": {
-        "type": "MnistModel",
+        "type": "kernel_extract_network",
         "args": {}
     },
     "data_loader": {
-        "type": "MnistDataLoader",
+        "type": "branch_data_loader",
         "args":{
-            "data_dir": "data/",
-            "batch_size": 128,
+            "root": "/home/gauthierli-org/data/data/vehicle-logos-dataset/",
+            "batch_size": 4,
             "shuffle": true,
             "validation_split": 0.1,
             "num_workers": 2
@@ -19,12 +19,12 @@
     "optimizer": {
         "type": "Adam",
         "args":{
-            "lr": 0.001,
+            "lr": 0.01,
             "weight_decay": 0,
             "amsgrad": true
         }
     },
-    "loss": "nll_loss",
+    "loss": "crossEntropy",
     "metrics": [
         "accuracy", "top_k_acc"
     ],
@@ -43,7 +43,7 @@
         "verbosity": 2,
         
         "monitor": "min val_loss",
-        "early_stop": 10,
+        "early_stop": 9999999,
 
         "tensorboard": true
     }
