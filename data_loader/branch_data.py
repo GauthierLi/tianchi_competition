@@ -1,4 +1,5 @@
 """
+    used on vehicle logo dataset
     @author:gauthierLi
     @date:04/05/2022
 """
