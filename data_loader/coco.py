@@ -36,7 +36,7 @@ class cocoDataSet(Dataset):
         """
         self.root_dir = root_dir
         self.anno_path = os.path.join(root_dir, "annotations", 'instances_{}2017.json').format(split)
-        self.imgDir_path = os.path.join(root_dir, "{}2017").format(split)
+        self.imgDir_path = os.path.join(root_dir, "images").format(split)
         self._coco = coco.COCO(annotation_file=self.anno_path)
         self._ids = list(sorted(self._coco.imgs.keys()))
         self.coco_class = dict([(v["id"], v["name"]) for k, v in self._coco.cats.items()])

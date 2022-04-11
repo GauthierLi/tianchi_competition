@@ -30,9 +30,8 @@ def _get_format_bbox(label_info):
 
 def draw_bbox(img, bboxAndlabel):
     for boxandlabel in bboxAndlabel:
-        box = [i.numpy()[0] if isinstance(i, torch.Tensor) else i for i in boxandlabel[0]]
-        text_info = str(boxandlabel[1].numpy()[0]) if isinstance(boxandlabel[1][0], torch.Tensor) else str(
-            boxandlabel[1])
+        box = boxandlabel[:-1]
+        text_info = str(boxandlabel[-1])
         text_len = len(text_info)
         x1, y1, x2, y2 = [int(box[0] - box[2]), int(box[1] - box[3]), int(box[0] + box[2]), int(box[1] + box[3])]
         img = cv2.rectangle(img, (x1, y1),
@@ -47,19 +46,17 @@ def draw_bbox(img, bboxAndlabel):
 
 def tst_dataLoader():
     device = torch.device("cuda")
-    dataLoader = coco_dataloader(f"/home/gauthierli-org/data/data/coco/", batch_size=2, training=None)
+    dataLoader = coco_dataloader(
+        f"/home/gauthierli-org/data/data/fewshot/fewshotlogodetection_round1_train_202204/train", batch_size=1,
+        training=True)
     for img, bboxAndlabel in dataLoader:
         print("img shape", img.shape)
         print("bbox shape", bboxAndlabel.shape)
-        kernel_extract = kernel_extract_network()
-        kernel_extract.to(device)
-        oup = kernel_extract(img.to(device))
-        print(oup.shape)
-        # print("bbox ", bboxAndlabel)
-        # [[[tensor([73.5100], dtype=torch.float64), tensor([240.], dtype=torch.float64), tensor([70.2700],
-        # dtype=torch.float64), tensor([38.3800], dtype=torch.float64)], tensor([23])]]
-        # img = img.squeeze().numpy()
-        # draw_bbox(img, bboxAndlabel)
+        img = img.squeeze().numpy().astype(np.uint8).transpose((1, 2, 0))[:, :, ::-1]
+        img = np.ascontiguousarray(img)
+        # cv2.imshow("img", img)
+        # cv2.waitKey()
+        draw_bbox(img, bboxAndlabel[0])
 
 
 def tst_MNist_dataLoader():
@@ -132,8 +129,8 @@ def tst_torch_tensor():
 if __name__ == "__main__":
     # tst_backbone()
     # tst_MNist_dataLoader()
-    # tst_dataLoader()
+    tst_dataLoader()
     # tst_PIL()
     # tst_csv_reader()
     # tst_branch_dataloader()
-    tst_torch_tensor()
+    # tst_torch_tensor()
