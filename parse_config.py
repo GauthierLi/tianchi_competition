@@ -9,7 +9,7 @@ from utils import read_json, write_json
 
 
 class ConfigParser:
-    def __init__(self, config, resume=None, modification=None, run_id=None):
+    def __init__(self, config, resume=None, modification=None, run_id=None, log_config='logger/logger_config.json'):
         """
         class to parse configuration json file. Handles hyperparameters for training, initializations of modules, checkpoint saving
         and logging module.
@@ -45,7 +45,7 @@ class ConfigParser:
         write_json(self.config, self.save_dir / 'config.json')
 
         # configure logging module
-        setup_logging(self.log_dir)
+        setup_logging(self.log_dir, log_config=log_config)
         self.log_levels = {
             0: logging.WARNING,
             1: logging.INFO,
@@ -80,10 +80,13 @@ class ConfigParser:
 
         # parse custom cli options into dictionary
         modification = {opt.target: getattr(args, _get_opt_name(opt.flags)) for opt in options}
-        return cls(config, resume, modification)
+        try:
+            return cls(config, resume, modification, log_config=args.log_config)
+        except AttributeError:
+            return cls(config, resume, modification)
 
     def init_obj(self, name, module, *args, **kwargs):
-        """
+        r"""
         Finds a function handle with the name given as 'type' in config, and returns the
         instance initialized with corresponding arguments given.
 

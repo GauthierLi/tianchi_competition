@@ -30,12 +30,13 @@ class cocoDataSet(Dataset):
     num_classes = 50
     defult_resolution = [243, 243]
 
-    def __init__(self, root_dir, split, resize=(243, 243)):
+    def __init__(self, root_dir, split, resize=(243, 243), pretrain=False):
         """
             @split: val or train
         """
         self.root_dir = root_dir
         self.resize = resize
+        self.pretrain = pretrain
         self.anno_path = os.path.join(root_dir, "fewshotlogodetection_round1_{}_202204", "{}", "annotations",
                                       'instances_{}2017.json').format(split, split, split)
         self.imgDir_path = os.path.join(root_dir, "fewshotlogodetection_round1_{}_202204", "{}", "images").format(split,
@@ -85,6 +86,9 @@ class cocoDataSet(Dataset):
     def _get_format_bbox(self, label_info):
         """
             @label_info: label_info: segmentation information, include bbox, category id
+            example:label_info: [{'id': 2528, 'image_id': 1105, 'category_id': 32, 'segmentation': [[783, 25, 783, 56.0,
+             783, 87, 878.0, 87, 973, 87, 973, 56.0, 973, 25, 878.0, 25]], 'bbox': [783, 25, 190, 62], 'iscrowd': 0,
+             'area': 12033}]
         """
         bbox_lst = []
         for item in label_info:

@@ -209,6 +209,10 @@ class classify_decoder(nn.Module):
 
 
 class kernel_extract_network(nn.Module):
+    r"""
+    use to pretrain the kernel_extract net
+    """
+
     def __init__(self, inchannel=3, num_cls=50):
         super(kernel_extract_network, self).__init__()
         self.encoder = kernel_generator(inchannel=inchannel, stride=3, pad=0)
@@ -218,3 +222,25 @@ class kernel_extract_network(nn.Module):
         oup = self.encoder(x)
         oup = self.decoder(oup)
         return oup
+
+
+class load_kernel_network(nn.Module):
+    r"""
+    initial the convNet with the specific kernel tensor
+    """
+
+    def __init__(self, kernel_tensor, inchannel=127, outchannel=127):
+        super(load_kernel_network, self).__init__()
+        self.kernel_tensor = kernel_tensor
+        if not self.kernel_tensor.requires_grad:
+            self.kernel_tensor.requires_grad = True
+        self.conv = nn.Conv2d(in_channels=inchannel, out_channels=outchannel, kernel_size=3, stride=1, padding=1)
+        self.bn = nn.BatchNorm2d(outchannel)
+        self.relu = nn.LeakyReLU()
+
+    def forward(self, x):
+        out = self.conv(x)
+        out = self.bn(out)
+        out = self.relu(out)
+        return out
+

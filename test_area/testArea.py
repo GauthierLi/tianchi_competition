@@ -3,6 +3,7 @@
     @data:03/27/2022
     @func:test only
 """
+import json
 import os
 import cv2
 import csv
@@ -10,9 +11,11 @@ import torch
 import numpy as np
 from PIL import Image
 import pycocotools.coco as coco
+from model.model import kernel_extract_network
 import torch.nn.functional as F
 from data_loader.data_loaders import MnistDataLoader
 from data_loader.coco import coco_dataloader
+from data_loader.pretrain_coco import pretrain_coco_dataloader
 from data_loader.branch_data import *
 
 from model.model import kernel_extract_network, kernel_generator, classify_decoder
@@ -126,11 +129,62 @@ def tst_torch_tensor():
     print(ten1 == ten2)
 
 
+def tst_cocotools():
+    annos_path = r"/home/gauthierli-org/data/data/fewshot/fewshotlogodetection_round1_{}_202204/{}/annotations/instances_{}2017.json".format(
+        "train", "train", "train")
+    data = coco.COCO(annotation_file=annos_path)
+    coco_class = dict([(v["id"], v["name"]) for k, v in data.cats.items()])
+    category_id = list(coco_class.keys())
+    print(data.anns[56])
+    print(list(data.anns.items())[56])
+
+    category_slice_dict = {}
+    category_slice_dict["slices"] = []
+    for category_id in category_id:
+        imgs = data.getImgIds(catIds=category_id)
+        for img_id in imgs:
+            annos = data.getAnnIds(imgIds=img_id)
+            print("annos: ", annos, "\n")
+            label_info = data.loadAnns(annos)
+            print("label_info: ", label_info, "\n")
+            img_info = data.loadImgs(img_id)
+            print("img_info ", img_info, "\n")
+            for item in label_info:
+                tmp_dict = {}
+                tmp_dict['id'] = item['id']
+                tmp_dict['file_name'] = img_info[0]["file_name"]
+                tmp_dict['bbox'] = item['bbox']
+                tmp_dict['category_id'] = category_id
+                category_slice_dict["slices"].append(tmp_dict)
+
+    # file_handle = open(r"category_slice_dict.json", "w")
+    # json.dump(category_slice_dict, file_handle, indent=4)
+    # file_handle.close()
+
+    # annos = data.getAnnIds(imgIds=ids[0])
+    # label_info = data.loadAnns(annos)
+    # img_Info = data.loadImgs(ids[0])
+    # print(label_info, "\n \n", img_Info)
+
+
+def tst_pretrain_coco():
+    root = r"/home/gauthierli-org/data/data/fewshot"
+    loader = pretrain_coco_dataloader(root=root, batch_size=1)
+    for img, label in loader:
+        img = img.squeeze().numpy().astype(np.uint8).transpose((1, 2, 0))[:, :, ::-1]
+
+        cv2.imshow(f"img {label}", img)
+        print(label)
+        cv2.waitKey()
+
+
 if __name__ == "__main__":
     # tst_backbone()
     # tst_MNist_dataLoader()
-    tst_dataLoader()
+    # tst_dataLoader()
     # tst_PIL()
     # tst_csv_reader()
     # tst_branch_dataloader()
     # tst_torch_tensor()
+    # tst_cocotools()
+    tst_pretrain_coco()
