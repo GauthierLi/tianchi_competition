@@ -3,6 +3,7 @@
     @date: 04/02/2022
 """
 import torch
+import argparse
 import torch.nn as nn
 import torch.nn.functional as F
 from base import BaseModel
@@ -16,7 +17,7 @@ class convBlock(nn.Module):
         self.conv = nn.Conv2d(inchannel, outchannel, kernel_size=kernel_size, stride=stride, padding=pad, bias=False)
         self.bn = nn.BatchNorm2d(outchannel)
         self.relu = nn.ReLU()
-        self.dropout = nn.Dropout2d(0.5)
+        self.dropout = nn.Dropout2d(0.1)
 
     def forward(self, x):
         oup = self.conv(x)
@@ -53,7 +54,7 @@ class MLP(nn.Module):
         self.hidden = nn.Linear(hidden, oup_dim)
         self.bn2 = nn.BatchNorm1d(oup_dim)
         self.relu2 = nn.LeakyReLU()
-        self.sftmax = nn.Softmax(1)
+        # self.sftmax = nn.Softmax(1)
 
     def forward(self, x):
         oup = self.inp(x)
@@ -62,7 +63,7 @@ class MLP(nn.Module):
         oup = self.hidden(oup)
         oup = self.bn2(oup)
         oup = self.relu2(oup)
-        oup = self.sftmax(oup)
+        # oup = self.sftmax(oup)
 
         return oup
 
@@ -243,4 +244,3 @@ class load_kernel_network(nn.Module):
         out = self.bn(out)
         out = self.relu(out)
         return out
-

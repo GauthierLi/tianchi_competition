@@ -139,32 +139,41 @@ def tst_cocotools():
     print(list(data.anns.items())[56])
 
     category_slice_dict = {}
-    category_slice_dict["slices"] = []
     for category_id in category_id:
+        category_slice_dict[category_id] = []
         imgs = data.getImgIds(catIds=category_id)
         for img_id in imgs:
             annos = data.getAnnIds(imgIds=img_id)
-            print("annos: ", annos, "\n")
+            # print("annos: ", annos, "\n")
             label_info = data.loadAnns(annos)
-            print("label_info: ", label_info, "\n")
+            # print("label_info: ", label_info, "\n")
             img_info = data.loadImgs(img_id)
-            print("img_info ", img_info, "\n")
+            # print("img_info ", img_info, "\n")
             for item in label_info:
                 tmp_dict = {}
                 tmp_dict['id'] = item['id']
                 tmp_dict['file_name'] = img_info[0]["file_name"]
                 tmp_dict['bbox'] = item['bbox']
                 tmp_dict['category_id'] = category_id
-                category_slice_dict["slices"].append(tmp_dict)
+                category_slice_dict[category_id].append(tmp_dict)
 
-    # file_handle = open(r"category_slice_dict.json", "w")
-    # json.dump(category_slice_dict, file_handle, indent=4)
-    # file_handle.close()
+    file_handle = open(r"test_area/category_slice_dict.json", "w")
+    json.dump(category_slice_dict, file_handle, indent=4)
+    file_handle.close()
 
     # annos = data.getAnnIds(imgIds=ids[0])
     # label_info = data.loadAnns(annos)
     # img_Info = data.loadImgs(ids[0])
     # print(label_info, "\n \n", img_Info)
+
+
+def resize_img(path, size=(243, 243)):
+    img = cv2.imread(path)
+    img = img.transpose((2, 0, 1)).astype(np.float32)
+    img = torch.from_numpy(img).unsqueeze(dim=0)
+    resize = torchvision.transforms.Resize((243, 243))
+    img = resize(img)
+    return img
 
 
 def tst_pretrain_coco():
@@ -181,10 +190,10 @@ def tst_pretrain_coco():
 if __name__ == "__main__":
     # tst_backbone()
     # tst_MNist_dataLoader()
-    # tst_dataLoader()
+    tst_dataLoader()
     # tst_PIL()
     # tst_csv_reader()
     # tst_branch_dataloader()
     # tst_torch_tensor()
     # tst_cocotools()
-    tst_pretrain_coco()
+    # tst_pretrain_coco()

@@ -7,9 +7,10 @@ import torch.nn as nn
 import torchvision
 import numpy as np
 import torch.nn.functional as F
+import PIL.Image as Image
 
-root = r"/home/gauthierli-org/data/data/vehicle-logos-dataset"
-src_img_dict = json.load(open("src_img.json", "r"))
+root = r"/home/gauthierli-org/data/data/fewshot/fewshotlogodetection_round1_train_202204/train/images"
+src_img_dict = json.load(open("category_slice_dict.json", "r"))
 labels = src_img_dict.keys()
 
 """
@@ -36,31 +37,45 @@ def generate_average_img():
     generate a average picture which close to all samples in same class
     :return:
     """
-    for branch in list(labels):
+    epoch = 1
+    for label in list(labels):
         device = torch.device("cuda")
-        objection = torch.ones((1, 243, 243), dtype=torch.float64, requires_grad=True)
+        objection = torch.ones((3, 243, 243), dtype=torch.float64, requires_grad=True)
         objection1 = objection.to(device)
 
-        for i in range(40):
-            if i % 40 == 0:
-                print("\r current {} / total {}".format(i, 200), end="")
-            for img_path in src_img_dict[branch]:
-                img = cv2.imread(os.path.join(root, img_path), cv2.IMREAD_GRAYSCALE).astype(float)
-                img = torch.from_numpy(img)
-                img = img.unsqueeze(dim=0)
-                img = format_imgs()(img)
+        for i in range(epoch):
+            if i % 8 == 0:
+                print("\r label{}, current {} epoch/ total {}".format(label, i, epoch), end="")
+            for img_info in src_img_dict[label]:
+                img = Image.open(os.path.join(root, img_info["file_name"])).convert("RGB")
+                img = np.array(img).astype(np.float64)
+                x, y, w, h = img_info['bbox']
+                img = img[y:y + h, x:x + w, :]
+                img = img.transpose((2, 0, 1))
 
-                img1 = img.to(device)
+                img = img.astype(np.uint8).transpose((1, 2, 0))[:, :, :: -1]
+                cv2.imshow(f"img{label}", img)
+                cv2.waitKey()
 
-                loss = nn.MSELoss()(img1, objection1)
-                loss.backward()
-                objection.data = objection.data - 0.1 * objection.grad.data
-
-        objection = objection.cpu().data.numpy().transpose((1, 2, 0))
-        cv2.imwrite(os.path.join("logo_imgs", branch + "_GRAY.jpg"), objection)
-        print(objection.shape)
-        cv2.imshow("img " + branch, objection)
-        cv2.waitKey(1)
+        #         img = torch.from_numpy(img)
+        #         img = format_imgs()(img)
+        #
+        #         # imgs = img.data.numpy().transpose((1, 2, 0)).astype(np.uint8)[:,:,::-1]
+        #         # cv2.imshow("img", imgs)
+        #         # cv2.waitKey()
+        #
+        #         img1 = img.to(device)
+        #
+        #         loss = nn.MSELoss()(img1, objection1)
+        #         loss.backward()
+        #         objection.data = objection.data - 0.1 * objection.grad.data
+        #
+        # objection = objection.cpu().data.numpy().transpose((1, 2, 0))
+        # objection = objection.astype(np.uint8)[:, :, ::-1]
+        # cv2.imwrite(os.path.join("logo_imgs", label + "_RGB.jpg"), objection)
+        # print(objection.shape)
+        # cv2.imshow("img " + label, objection)
+        # cv2.waitKey(1)
 
 
 def walk_imgs():
