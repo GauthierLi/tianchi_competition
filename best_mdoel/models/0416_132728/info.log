@@ -1,0 +1,1619 @@
+2022-04-16 13:27:28,748 - train - INFO - kernel_extract_network(
+  (encoder): kernel_generator(
+    (basic_block): Sequential()
+    (chain0): chain_process(
+      (seq): Sequential(
+        (0): Sequential(
+          (0): Sequential(
+            (0): Bottleneck(
+              (conv1): Conv2d(3, 3, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn1): BatchNorm2d(3, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (conv2): Conv2d(3, 3, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+              (bn2): BatchNorm2d(3, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (conv3): Conv2d(3, 9, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn3): BatchNorm2d(9, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (relu): ReLU(inplace=True)
+              (downsample): Sequential(
+                (0): Conv2d(3, 9, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (1): BatchNorm2d(9, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              )
+            )
+            (1): convBlock(
+              (conv): Conv2d(9, 9, kernel_size=(3, 3), stride=(3, 3), bias=False)
+              (bn): BatchNorm2d(9, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (relu): ReLU()
+              (dropout): Dropout2d(p=0.1, inplace=False)
+            )
+          )
+          (1): Sequential(
+            (0): Bottleneck(
+              (conv1): Conv2d(9, 9, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn1): BatchNorm2d(9, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (conv2): Conv2d(9, 9, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+              (bn2): BatchNorm2d(9, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (conv3): Conv2d(9, 27, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn3): BatchNorm2d(27, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (relu): ReLU(inplace=True)
+              (downsample): Sequential(
+                (0): Conv2d(9, 27, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (1): BatchNorm2d(27, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              )
+            )
+            (1): convBlock(
+              (conv): Conv2d(27, 27, kernel_size=(3, 3), stride=(3, 3), bias=False)
+              (bn): BatchNorm2d(27, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (relu): ReLU()
+              (dropout): Dropout2d(p=0.1, inplace=False)
+            )
+          )
+          (2): Sequential(
+            (0): Bottleneck(
+              (conv1): Conv2d(27, 27, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn1): BatchNorm2d(27, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (conv2): Conv2d(27, 27, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+              (bn2): BatchNorm2d(27, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (conv3): Conv2d(27, 81, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn3): BatchNorm2d(81, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (relu): ReLU(inplace=True)
+              (downsample): Sequential(
+                (0): Conv2d(27, 81, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (1): BatchNorm2d(81, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              )
+            )
+            (1): convBlock(
+              (conv): Conv2d(81, 81, kernel_size=(3, 3), stride=(3, 3), bias=False)
+              (bn): BatchNorm2d(81, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (relu): ReLU()
+              (dropout): Dropout2d(p=0.1, inplace=False)
+            )
+          )
+          (3): Sequential(
+            (0): Bottleneck(
+              (conv1): Conv2d(81, 81, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn1): BatchNorm2d(81, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (conv2): Conv2d(81, 81, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+              (bn2): BatchNorm2d(81, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (conv3): Conv2d(81, 243, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn3): BatchNorm2d(243, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (relu): ReLU(inplace=True)
+              (downsample): Sequential(
+                (0): Conv2d(81, 243, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (1): BatchNorm2d(243, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              )
+            )
+            (1): convBlock(
+              (conv): Conv2d(243, 243, kernel_size=(3, 3), stride=(3, 3), bias=False)
+              (bn): BatchNorm2d(243, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (relu): ReLU()
+              (dropout): Dropout2d(p=0.1, inplace=False)
+            )
+          )
+        )
+      )
+    )
+    (chain1): chain_process(
+      (seq): Sequential(
+        (0): downSample(
+          (downsample): MaxPool2d(kernel_size=3, stride=3, padding=1, dilation=1, ceil_mode=False)
+        )
+        (1): Sequential(
+          (0): Sequential(
+            (0): Bottleneck(
+              (conv1): Conv2d(3, 3, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn1): BatchNorm2d(3, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (conv2): Conv2d(3, 3, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+              (bn2): BatchNorm2d(3, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (conv3): Conv2d(3, 9, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn3): BatchNorm2d(9, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (relu): ReLU(inplace=True)
+              (downsample): Sequential(
+                (0): Conv2d(3, 9, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (1): BatchNorm2d(9, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              )
+            )
+            (1): convBlock(
+              (conv): Conv2d(9, 9, kernel_size=(3, 3), stride=(3, 3), bias=False)
+              (bn): BatchNorm2d(9, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (relu): ReLU()
+              (dropout): Dropout2d(p=0.1, inplace=False)
+            )
+          )
+          (1): Sequential(
+            (0): Bottleneck(
+              (conv1): Conv2d(9, 9, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn1): BatchNorm2d(9, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (conv2): Conv2d(9, 9, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+              (bn2): BatchNorm2d(9, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (conv3): Conv2d(9, 27, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn3): BatchNorm2d(27, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (relu): ReLU(inplace=True)
+              (downsample): Sequential(
+                (0): Conv2d(9, 27, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (1): BatchNorm2d(27, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              )
+            )
+            (1): convBlock(
+              (conv): Conv2d(27, 27, kernel_size=(3, 3), stride=(3, 3), bias=False)
+              (bn): BatchNorm2d(27, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (relu): ReLU()
+              (dropout): Dropout2d(p=0.1, inplace=False)
+            )
+          )
+          (2): Sequential(
+            (0): Bottleneck(
+              (conv1): Conv2d(27, 27, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn1): BatchNorm2d(27, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (conv2): Conv2d(27, 27, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+              (bn2): BatchNorm2d(27, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (conv3): Conv2d(27, 81, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn3): BatchNorm2d(81, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (relu): ReLU(inplace=True)
+              (downsample): Sequential(
+                (0): Conv2d(27, 81, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (1): BatchNorm2d(81, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              )
+            )
+            (1): convBlock(
+              (conv): Conv2d(81, 81, kernel_size=(3, 3), stride=(3, 3), bias=False)
+              (bn): BatchNorm2d(81, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (relu): ReLU()
+              (dropout): Dropout2d(p=0.1, inplace=False)
+            )
+          )
+        )
+      )
+    )
+    (chain2): chain_process(
+      (seq): Sequential(
+        (0): downSample(
+          (downsample): MaxPool2d(kernel_size=3, stride=3, padding=1, dilation=1, ceil_mode=False)
+        )
+        (1): downSample(
+          (downsample): MaxPool2d(kernel_size=3, stride=3, padding=1, dilation=1, ceil_mode=False)
+        )
+        (2): Sequential(
+          (0): Sequential(
+            (0): Bottleneck(
+              (conv1): Conv2d(3, 3, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn1): BatchNorm2d(3, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (conv2): Conv2d(3, 3, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+              (bn2): BatchNorm2d(3, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (conv3): Conv2d(3, 9, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn3): BatchNorm2d(9, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (relu): ReLU(inplace=True)
+              (downsample): Sequential(
+                (0): Conv2d(3, 9, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (1): BatchNorm2d(9, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              )
+            )
+            (1): convBlock(
+              (conv): Conv2d(9, 9, kernel_size=(3, 3), stride=(3, 3), bias=False)
+              (bn): BatchNorm2d(9, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (relu): ReLU()
+              (dropout): Dropout2d(p=0.1, inplace=False)
+            )
+          )
+          (1): Sequential(
+            (0): Bottleneck(
+              (conv1): Conv2d(9, 9, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn1): BatchNorm2d(9, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (conv2): Conv2d(9, 9, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+              (bn2): BatchNorm2d(9, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (conv3): Conv2d(9, 27, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn3): BatchNorm2d(27, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (relu): ReLU(inplace=True)
+              (downsample): Sequential(
+                (0): Conv2d(9, 27, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (1): BatchNorm2d(27, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              )
+            )
+            (1): convBlock(
+              (conv): Conv2d(27, 27, kernel_size=(3, 3), stride=(3, 3), bias=False)
+              (bn): BatchNorm2d(27, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (relu): ReLU()
+              (dropout): Dropout2d(p=0.1, inplace=False)
+            )
+          )
+        )
+      )
+    )
+    (chain3): chain_process(
+      (seq): Sequential(
+        (0): downSample(
+          (downsample): MaxPool2d(kernel_size=3, stride=3, padding=1, dilation=1, ceil_mode=False)
+        )
+        (1): downSample(
+          (downsample): MaxPool2d(kernel_size=3, stride=3, padding=1, dilation=1, ceil_mode=False)
+        )
+        (2): downSample(
+          (downsample): MaxPool2d(kernel_size=3, stride=3, padding=1, dilation=1, ceil_mode=False)
+        )
+        (3): Sequential(
+          (0): Sequential(
+            (0): Bottleneck(
+              (conv1): Conv2d(3, 3, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn1): BatchNorm2d(3, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (conv2): Conv2d(3, 3, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+              (bn2): BatchNorm2d(3, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (conv3): Conv2d(3, 9, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn3): BatchNorm2d(9, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (relu): ReLU(inplace=True)
+              (downsample): Sequential(
+                (0): Conv2d(3, 9, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (1): BatchNorm2d(9, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              )
+            )
+            (1): convBlock(
+              (conv): Conv2d(9, 9, kernel_size=(3, 3), stride=(3, 3), bias=False)
+              (bn): BatchNorm2d(9, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (relu): ReLU()
+              (dropout): Dropout2d(p=0.1, inplace=False)
+            )
+          )
+        )
+      )
+    )
+    (chain4): chain_process(
+      (seq): Sequential(
+        (0): downSample(
+          (downsample): MaxPool2d(kernel_size=3, stride=3, padding=1, dilation=1, ceil_mode=False)
+        )
+        (1): downSample(
+          (downsample): MaxPool2d(kernel_size=3, stride=3, padding=1, dilation=1, ceil_mode=False)
+        )
+        (2): downSample(
+          (downsample): MaxPool2d(kernel_size=3, stride=3, padding=1, dilation=1, ceil_mode=False)
+        )
+        (3): downSample(
+          (downsample): MaxPool2d(kernel_size=3, stride=3, padding=1, dilation=1, ceil_mode=False)
+        )
+        (4): Sequential()
+      )
+    )
+    (oneSizeConv): oneSizeConv(
+      (CBR): convBlock(
+        (conv): Conv2d(363, 127, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(127, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU()
+        (dropout): Dropout2d(p=0.1, inplace=False)
+      )
+    )
+  )
+  (decoder): classify_decoder(
+    (CBR): convBlock(
+      (conv): Conv2d(127, 127, kernel_size=(3, 3), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(127, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU()
+      (dropout): Dropout2d(p=0.1, inplace=False)
+    )
+    (MLP): MLP(
+      (inp): Linear(in_features=127, out_features=64, bias=True)
+      (bn1): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu1): LeakyReLU(negative_slope=0.01)
+      (hidden): Linear(in_features=64, out_features=50, bias=True)
+      (bn2): BatchNorm1d(50, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu2): LeakyReLU(negative_slope=0.01)
+      (sftmax): Softmax(dim=1)
+    )
+  )
+)
+2022-04-16 13:30:20,361 - trainer - INFO -     epoch          : 1
+2022-04-16 13:30:20,362 - trainer - INFO -     loss           : 3.893434160634091
+2022-04-16 13:30:20,363 - trainer - INFO -     accuracy       : 0.0720628111664296
+2022-04-16 13:30:20,363 - trainer - INFO -     top_k_acc      : 0.14725951280227598
+2022-04-16 13:30:20,363 - trainer - INFO -     val_loss       : 3.8707048098246255
+2022-04-16 13:30:20,363 - trainer - INFO -     val_accuracy   : 0.07552083333333333
+2022-04-16 13:30:20,363 - trainer - INFO -     val_top_k_acc  : 0.11458333333333333
+2022-04-16 13:30:21,255 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch1.pth ...
+2022-04-16 13:30:21,411 - trainer - INFO - Saving current best: model_best.pth ...
+2022-04-16 13:32:03,818 - trainer - INFO -     epoch          : 2
+2022-04-16 13:32:03,818 - trainer - INFO -     loss           : 3.859496467991879
+2022-04-16 13:32:03,819 - trainer - INFO -     accuracy       : 0.12839504800853485
+2022-04-16 13:32:03,819 - trainer - INFO -     top_k_acc      : 0.22519559032716926
+2022-04-16 13:32:03,819 - trainer - INFO -     val_loss       : 3.8757673104604087
+2022-04-16 13:32:03,819 - trainer - INFO -     val_accuracy   : 0.05859375
+2022-04-16 13:32:03,819 - trainer - INFO -     val_top_k_acc  : 0.1015625
+2022-04-16 13:32:05,097 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch2.pth ...
+2022-04-16 13:33:38,716 - trainer - INFO -     epoch          : 3
+2022-04-16 13:33:38,717 - trainer - INFO -     loss           : 3.831843187934474
+2022-04-16 13:33:38,717 - trainer - INFO -     accuracy       : 0.15205480974395447
+2022-04-16 13:33:38,717 - trainer - INFO -     top_k_acc      : 0.24249866642958748
+2022-04-16 13:33:38,717 - trainer - INFO -     val_loss       : 3.8696296215057373
+2022-04-16 13:33:38,717 - trainer - INFO -     val_accuracy   : 0.07291666666666667
+2022-04-16 13:33:38,717 - trainer - INFO -     val_top_k_acc  : 0.14453125
+2022-04-16 13:33:38,894 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch3.pth ...
+2022-04-16 13:33:39,061 - trainer - INFO - Saving current best: model_best.pth ...
+2022-04-16 13:34:57,668 - trainer - INFO -     epoch          : 4
+2022-04-16 13:34:57,668 - trainer - INFO -     loss           : 3.795343850788317
+2022-04-16 13:34:57,668 - trainer - INFO -     accuracy       : 0.17772048364153625
+2022-04-16 13:34:57,668 - trainer - INFO -     top_k_acc      : 0.28104996443812236
+2022-04-16 13:34:57,668 - trainer - INFO -     val_loss       : 3.8307456970214844
+2022-04-16 13:34:57,668 - trainer - INFO -     val_accuracy   : 0.17578125
+2022-04-16 13:34:57,668 - trainer - INFO -     val_top_k_acc  : 0.3046875
+2022-04-16 13:34:57,845 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch4.pth ...
+2022-04-16 13:34:58,008 - trainer - INFO - Saving current best: model_best.pth ...
+2022-04-16 13:36:10,109 - trainer - INFO -     epoch          : 5
+2022-04-16 13:36:10,110 - trainer - INFO -     loss           : 3.7610504250777397
+2022-04-16 13:36:10,110 - trainer - INFO -     accuracy       : 0.20605885490753914
+2022-04-16 13:36:10,110 - trainer - INFO -     top_k_acc      : 0.3040096017069701
+2022-04-16 13:36:10,110 - trainer - INFO -     val_loss       : 3.784425656000773
+2022-04-16 13:36:10,110 - trainer - INFO -     val_accuracy   : 0.19140625
+2022-04-16 13:36:10,110 - trainer - INFO -     val_top_k_acc  : 0.3372395833333333
+2022-04-16 13:36:10,282 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch5.pth ...
+2022-04-16 13:36:10,442 - trainer - INFO - Saving current best: model_best.pth ...
+2022-04-16 13:37:23,300 - trainer - INFO -     epoch          : 6
+2022-04-16 13:37:23,300 - trainer - INFO -     loss           : 3.739461585095054
+2022-04-16 13:37:23,300 - trainer - INFO -     accuracy       : 0.22834615042674253
+2022-04-16 13:37:23,301 - trainer - INFO -     top_k_acc      : 0.3074324324324324
+2022-04-16 13:37:23,301 - trainer - INFO -     val_loss       : 3.807501792907715
+2022-04-16 13:37:23,301 - trainer - INFO -     val_accuracy   : 0.21223958333333334
+2022-04-16 13:37:23,301 - trainer - INFO -     val_top_k_acc  : 0.2734375
+2022-04-16 13:37:23,476 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch6.pth ...
+2022-04-16 13:38:32,255 - trainer - INFO -     epoch          : 7
+2022-04-16 13:38:32,256 - trainer - INFO -     loss           : 3.7153466626217493
+2022-04-16 13:38:32,256 - trainer - INFO -     accuracy       : 0.24520470305832145
+2022-04-16 13:38:32,256 - trainer - INFO -     top_k_acc      : 0.32348528627311524
+2022-04-16 13:38:32,256 - trainer - INFO -     val_loss       : 3.7580174605051675
+2022-04-16 13:38:32,256 - trainer - INFO -     val_accuracy   : 0.22916666666666666
+2022-04-16 13:38:32,256 - trainer - INFO -     val_top_k_acc  : 0.2825520833333333
+2022-04-16 13:38:32,430 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch7.pth ...
+2022-04-16 13:38:32,595 - trainer - INFO - Saving current best: model_best.pth ...
+2022-04-16 13:39:42,377 - trainer - INFO -     epoch          : 8
+2022-04-16 13:39:42,377 - trainer - INFO -     loss           : 3.6858597931108976
+2022-04-16 13:39:42,377 - trainer - INFO -     accuracy       : 0.27270403627311524
+2022-04-16 13:39:42,378 - trainer - INFO -     top_k_acc      : 0.34481685633001424
+2022-04-16 13:39:42,378 - trainer - INFO -     val_loss       : 3.7808713912963867
+2022-04-16 13:39:42,378 - trainer - INFO -     val_accuracy   : 0.23567708333333334
+2022-04-16 13:39:42,378 - trainer - INFO -     val_top_k_acc  : 0.2916666666666667
+2022-04-16 13:39:42,556 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch8.pth ...
+2022-04-16 13:40:51,678 - trainer - INFO -     epoch          : 9
+2022-04-16 13:40:51,678 - trainer - INFO -     loss           : 3.665245219280845
+2022-04-16 13:40:51,678 - trainer - INFO -     accuracy       : 0.30202035917496445
+2022-04-16 13:40:51,678 - trainer - INFO -     top_k_acc      : 0.3815511646514936
+2022-04-16 13:40:51,678 - trainer - INFO -     val_loss       : 3.7178234259287515
+2022-04-16 13:40:51,678 - trainer - INFO -     val_accuracy   : 0.24609375
+2022-04-16 13:40:51,678 - trainer - INFO -     val_top_k_acc  : 0.37890625
+2022-04-16 13:40:51,853 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch9.pth ...
+2022-04-16 13:40:52,015 - trainer - INFO - Saving current best: model_best.pth ...
+2022-04-16 13:42:00,614 - trainer - INFO -     epoch          : 10
+2022-04-16 13:42:00,615 - trainer - INFO -     loss           : 3.6342142757616545
+2022-04-16 13:42:00,615 - trainer - INFO -     accuracy       : 0.3284917318634424
+2022-04-16 13:42:00,615 - trainer - INFO -     top_k_acc      : 0.39630378733997157
+2022-04-16 13:42:00,615 - trainer - INFO -     val_loss       : 3.633138656616211
+2022-04-16 13:42:00,615 - trainer - INFO -     val_accuracy   : 0.3359375
+2022-04-16 13:42:00,615 - trainer - INFO -     val_top_k_acc  : 0.4661458333333333
+2022-04-16 13:42:00,786 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch10.pth ...
+2022-04-16 13:42:00,948 - trainer - INFO - Saving current best: model_best.pth ...
+2022-04-16 13:43:09,292 - trainer - INFO -     epoch          : 11
+2022-04-16 13:43:09,293 - trainer - INFO -     loss           : 3.6237439983769466
+2022-04-16 13:43:09,293 - trainer - INFO -     accuracy       : 0.339832636913229
+2022-04-16 13:43:09,293 - trainer - INFO -     top_k_acc      : 0.40848373044096725
+2022-04-16 13:43:09,293 - trainer - INFO -     val_loss       : 3.7629878520965576
+2022-04-16 13:43:09,293 - trainer - INFO -     val_accuracy   : 0.1953125
+2022-04-16 13:43:09,293 - trainer - INFO -     val_top_k_acc  : 0.24479166666666666
+2022-04-16 13:43:09,469 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch11.pth ...
+2022-04-16 13:44:17,761 - trainer - INFO -     epoch          : 12
+2022-04-16 13:44:17,761 - trainer - INFO -     loss           : 3.5970304514232434
+2022-04-16 13:44:17,762 - trainer - INFO -     accuracy       : 0.3611808766002845
+2022-04-16 13:44:17,762 - trainer - INFO -     top_k_acc      : 0.428770670341394
+2022-04-16 13:44:17,762 - trainer - INFO -     val_loss       : 3.602834145228068
+2022-04-16 13:44:17,762 - trainer - INFO -     val_accuracy   : 0.3450520833333333
+2022-04-16 13:44:17,762 - trainer - INFO -     val_top_k_acc  : 0.4075520833333333
+2022-04-16 13:44:17,938 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch12.pth ...
+2022-04-16 13:44:18,101 - trainer - INFO - Saving current best: model_best.pth ...
+2022-04-16 13:45:26,042 - trainer - INFO -     epoch          : 13
+2022-04-16 13:45:26,042 - trainer - INFO -     loss           : 3.58044611780267
+2022-04-16 13:45:26,042 - trainer - INFO -     accuracy       : 0.3786562055476529
+2022-04-16 13:45:26,043 - trainer - INFO -     top_k_acc      : 0.4536639847083926
+2022-04-16 13:45:26,043 - trainer - INFO -     val_loss       : 3.661311388015747
+2022-04-16 13:45:26,043 - trainer - INFO -     val_accuracy   : 0.296875
+2022-04-16 13:45:26,043 - trainer - INFO -     val_top_k_acc  : 0.3385416666666667
+2022-04-16 13:45:26,225 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch13.pth ...
+2022-04-16 13:46:34,896 - trainer - INFO -     epoch          : 14
+2022-04-16 13:46:34,896 - trainer - INFO -     loss           : 3.5588315035167493
+2022-04-16 13:46:34,896 - trainer - INFO -     accuracy       : 0.4031716749644381
+2022-04-16 13:46:34,896 - trainer - INFO -     top_k_acc      : 0.46932232396870555
+2022-04-16 13:46:34,896 - trainer - INFO -     val_loss       : 3.741074244181315
+2022-04-16 13:46:34,896 - trainer - INFO -     val_accuracy   : 0.2109375
+2022-04-16 13:46:34,897 - trainer - INFO -     val_top_k_acc  : 0.2643229166666667
+2022-04-16 13:46:35,072 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch14.pth ...
+2022-04-16 13:47:43,818 - trainer - INFO -     epoch          : 15
+2022-04-16 13:47:43,819 - trainer - INFO -     loss           : 3.5437052500875375
+2022-04-16 13:47:43,819 - trainer - INFO -     accuracy       : 0.42006356685633
+2022-04-16 13:47:43,819 - trainer - INFO -     top_k_acc      : 0.4805076458036984
+2022-04-16 13:47:43,819 - trainer - INFO -     val_loss       : 3.6405649185180664
+2022-04-16 13:47:43,819 - trainer - INFO -     val_accuracy   : 0.3111979166666667
+2022-04-16 13:47:43,819 - trainer - INFO -     val_top_k_acc  : 0.3489583333333333
+2022-04-16 13:47:44,007 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch15.pth ...
+2022-04-16 13:48:58,950 - trainer - INFO -     epoch          : 16
+2022-04-16 13:48:58,951 - trainer - INFO -     loss           : 3.5186039272107577
+2022-04-16 13:48:58,951 - trainer - INFO -     accuracy       : 0.44096728307254623
+2022-04-16 13:48:58,951 - trainer - INFO -     top_k_acc      : 0.5009668385490753
+2022-04-16 13:48:58,951 - trainer - INFO -     val_loss       : 3.6238226890563965
+2022-04-16 13:48:58,951 - trainer - INFO -     val_accuracy   : 0.31640625
+2022-04-16 13:48:58,951 - trainer - INFO -     val_top_k_acc  : 0.4440104166666667
+2022-04-16 13:48:59,131 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch16.pth ...
+2022-04-16 13:50:10,235 - trainer - INFO -     epoch          : 17
+2022-04-16 13:50:10,236 - trainer - INFO -     loss           : 3.503228739688271
+2022-04-16 13:50:10,236 - trainer - INFO -     accuracy       : 0.4581536717638692
+2022-04-16 13:50:10,236 - trainer - INFO -     top_k_acc      : 0.5173141891891891
+2022-04-16 13:50:10,236 - trainer - INFO -     val_loss       : 3.646164576212565
+2022-04-16 13:50:10,236 - trainer - INFO -     val_accuracy   : 0.3111979166666667
+2022-04-16 13:50:10,236 - trainer - INFO -     val_top_k_acc  : 0.35546875
+2022-04-16 13:50:10,413 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch17.pth ...
+2022-04-16 13:51:16,364 - trainer - INFO -     epoch          : 18
+2022-04-16 13:51:16,364 - trainer - INFO -     loss           : 3.4999072049793445
+2022-04-16 13:51:16,364 - trainer - INFO -     accuracy       : 0.4610819701280227
+2022-04-16 13:51:16,364 - trainer - INFO -     top_k_acc      : 0.5206536717638691
+2022-04-16 13:51:16,364 - trainer - INFO -     val_loss       : 3.6104394594828286
+2022-04-16 13:51:16,364 - trainer - INFO -     val_accuracy   : 0.3684895833333333
+2022-04-16 13:51:16,364 - trainer - INFO -     val_top_k_acc  : 0.4309895833333333
+2022-04-16 13:51:16,543 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch18.pth ...
+2022-04-16 13:52:24,475 - trainer - INFO -     epoch          : 19
+2022-04-16 13:52:24,476 - trainer - INFO -     loss           : 3.4915180080815365
+2022-04-16 13:52:24,476 - trainer - INFO -     accuracy       : 0.4678498399715505
+2022-04-16 13:52:24,476 - trainer - INFO -     top_k_acc      : 0.5265825035561879
+2022-04-16 13:52:24,477 - trainer - INFO -     val_loss       : 3.620004971822103
+2022-04-16 13:52:24,477 - trainer - INFO -     val_accuracy   : 0.3229166666666667
+2022-04-16 13:52:24,477 - trainer - INFO -     val_top_k_acc  : 0.3671875
+2022-04-16 13:52:24,654 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch19.pth ...
+2022-04-16 13:53:33,195 - trainer - INFO -     epoch          : 20
+2022-04-16 13:53:33,195 - trainer - INFO -     loss           : 3.4748356342315674
+2022-04-16 13:53:33,196 - trainer - INFO -     accuracy       : 0.483458170341394
+2022-04-16 13:53:33,196 - trainer - INFO -     top_k_acc      : 0.5346172652916074
+2022-04-16 13:53:33,196 - trainer - INFO -     val_loss       : 3.5696824391682944
+2022-04-16 13:53:33,196 - trainer - INFO -     val_accuracy   : 0.37890625
+2022-04-16 13:53:33,196 - trainer - INFO -     val_top_k_acc  : 0.5260416666666666
+2022-04-16 13:53:33,382 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch20.pth ...
+2022-04-16 13:53:33,561 - trainer - INFO - Saving current best: model_best.pth ...
+2022-04-16 13:54:42,716 - trainer - INFO -     epoch          : 21
+2022-04-16 13:54:42,716 - trainer - INFO -     loss           : 3.4698625238318193
+2022-04-16 13:54:42,716 - trainer - INFO -     accuracy       : 0.4861141980796586
+2022-04-16 13:54:42,716 - trainer - INFO -     top_k_acc      : 0.5460637446657184
+2022-04-16 13:54:42,716 - trainer - INFO -     val_loss       : 3.547923962275187
+2022-04-16 13:54:42,716 - trainer - INFO -     val_accuracy   : 0.4049479166666667
+2022-04-16 13:54:42,716 - trainer - INFO -     val_top_k_acc  : 0.4596354166666667
+2022-04-16 13:54:42,894 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch21.pth ...
+2022-04-16 13:54:43,058 - trainer - INFO - Saving current best: model_best.pth ...
+2022-04-16 13:55:53,322 - trainer - INFO -     epoch          : 22
+2022-04-16 13:55:53,323 - trainer - INFO -     loss           : 3.4540050782655416
+2022-04-16 13:55:53,323 - trainer - INFO -     accuracy       : 0.5046508268136558
+2022-04-16 13:55:53,323 - trainer - INFO -     top_k_acc      : 0.5434910650782361
+2022-04-16 13:55:53,323 - trainer - INFO -     val_loss       : 3.545989195505778
+2022-04-16 13:55:53,323 - trainer - INFO -     val_accuracy   : 0.4765625
+2022-04-16 13:55:53,323 - trainer - INFO -     val_top_k_acc  : 0.6302083333333334
+2022-04-16 13:55:53,501 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch22.pth ...
+2022-04-16 13:55:53,668 - trainer - INFO - Saving current best: model_best.pth ...
+2022-04-16 13:57:00,837 - trainer - INFO -     epoch          : 23
+2022-04-16 13:57:00,837 - trainer - INFO -     loss           : 3.4530549676794755
+2022-04-16 13:57:00,837 - trainer - INFO -     accuracy       : 0.5036562055476529
+2022-04-16 13:57:00,837 - trainer - INFO -     top_k_acc      : 0.5470194701280228
+2022-04-16 13:57:00,837 - trainer - INFO -     val_loss       : 3.448564291000366
+2022-04-16 13:57:00,837 - trainer - INFO -     val_accuracy   : 0.5026041666666666
+2022-04-16 13:57:00,837 - trainer - INFO -     val_top_k_acc  : 0.5533854166666666
+2022-04-16 13:57:01,018 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch23.pth ...
+2022-04-16 13:57:01,184 - trainer - INFO - Saving current best: model_best.pth ...
+2022-04-16 13:58:11,086 - trainer - INFO -     epoch          : 24
+2022-04-16 13:58:11,087 - trainer - INFO -     loss           : 3.4473057922564054
+2022-04-16 13:58:11,087 - trainer - INFO -     accuracy       : 0.5070123577524893
+2022-04-16 13:58:11,087 - trainer - INFO -     top_k_acc      : 0.555276493598862
+2022-04-16 13:58:11,087 - trainer - INFO -     val_loss       : 3.607601006825765
+2022-04-16 13:58:11,087 - trainer - INFO -     val_accuracy   : 0.33984375
+2022-04-16 13:58:11,087 - trainer - INFO -     val_top_k_acc  : 0.3919270833333333
+2022-04-16 13:58:11,263 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch24.pth ...
+2022-04-16 13:59:20,960 - trainer - INFO -     epoch          : 25
+2022-04-16 13:59:20,960 - trainer - INFO -     loss           : 3.4244409736834074
+2022-04-16 13:59:20,960 - trainer - INFO -     accuracy       : 0.5283994932432432
+2022-04-16 13:59:20,961 - trainer - INFO -     top_k_acc      : 0.5737686699857752
+2022-04-16 13:59:20,961 - trainer - INFO -     val_loss       : 3.430589040120443
+2022-04-16 13:59:20,961 - trainer - INFO -     val_accuracy   : 0.5208333333333334
+2022-04-16 13:59:20,961 - trainer - INFO -     val_top_k_acc  : 0.5729166666666666
+2022-04-16 13:59:21,147 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch25.pth ...
+2022-04-16 13:59:21,309 - trainer - INFO - Saving current best: model_best.pth ...
+2022-04-16 14:00:31,647 - trainer - INFO -     epoch          : 26
+2022-04-16 14:00:31,647 - trainer - INFO -     loss           : 3.4335286742762516
+2022-04-16 14:00:31,647 - trainer - INFO -     accuracy       : 0.5249377667140825
+2022-04-16 14:00:31,647 - trainer - INFO -     top_k_acc      : 0.577741598506401
+2022-04-16 14:00:31,647 - trainer - INFO -     val_loss       : 3.599186340967814
+2022-04-16 14:00:31,647 - trainer - INFO -     val_accuracy   : 0.35546875
+2022-04-16 14:00:31,647 - trainer - INFO -     val_top_k_acc  : 0.4075520833333333
+2022-04-16 14:00:31,830 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch26.pth ...
+2022-04-16 14:01:44,042 - trainer - INFO -     epoch          : 27
+2022-04-16 14:01:44,043 - trainer - INFO -     loss           : 3.4252542947468005
+2022-04-16 14:01:44,043 - trainer - INFO -     accuracy       : 0.5313444612375534
+2022-04-16 14:01:44,043 - trainer - INFO -     top_k_acc      : 0.5857596906116642
+2022-04-16 14:01:44,043 - trainer - INFO -     val_loss       : 3.519999901453654
+2022-04-16 14:01:44,043 - trainer - INFO -     val_accuracy   : 0.43359375
+2022-04-16 14:01:44,043 - trainer - INFO -     val_top_k_acc  : 0.4791666666666667
+2022-04-16 14:01:44,223 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch27.pth ...
+2022-04-16 14:02:52,071 - trainer - INFO -     epoch          : 28
+2022-04-16 14:02:52,071 - trainer - INFO -     loss           : 3.4149080703133032
+2022-04-16 14:02:52,071 - trainer - INFO -     accuracy       : 0.5399959992887624
+2022-04-16 14:02:52,071 - trainer - INFO -     top_k_acc      : 0.5856207770270271
+2022-04-16 14:02:52,071 - trainer - INFO -     val_loss       : 3.5453058083852134
+2022-04-16 14:02:52,071 - trainer - INFO -     val_accuracy   : 0.4361979166666667
+2022-04-16 14:02:52,071 - trainer - INFO -     val_top_k_acc  : 0.4908854166666667
+2022-04-16 14:02:52,248 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch28.pth ...
+2022-04-16 14:04:00,721 - trainer - INFO -     epoch          : 29
+2022-04-16 14:04:00,721 - trainer - INFO -     loss           : 3.4039383436504163
+2022-04-16 14:04:00,721 - trainer - INFO -     accuracy       : 0.5502589349217639
+2022-04-16 14:04:00,721 - trainer - INFO -     top_k_acc      : 0.5999122066145093
+2022-04-16 14:04:00,721 - trainer - INFO -     val_loss       : 3.5919665495554605
+2022-04-16 14:04:00,721 - trainer - INFO -     val_accuracy   : 0.3515625
+2022-04-16 14:04:00,722 - trainer - INFO -     val_top_k_acc  : 0.48828125
+2022-04-16 14:04:00,893 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch29.pth ...
+2022-04-16 14:05:09,181 - trainer - INFO -     epoch          : 30
+2022-04-16 14:05:09,181 - trainer - INFO -     loss           : 3.412822547711824
+2022-04-16 14:05:09,181 - trainer - INFO -     accuracy       : 0.54602484886202
+2022-04-16 14:05:09,182 - trainer - INFO -     top_k_acc      : 0.5948890913940256
+2022-04-16 14:05:09,182 - trainer - INFO -     val_loss       : 3.5167229175567627
+2022-04-16 14:05:09,182 - trainer - INFO -     val_accuracy   : 0.4348958333333333
+2022-04-16 14:05:09,182 - trainer - INFO -     val_top_k_acc  : 0.5078125
+2022-04-16 14:05:09,357 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch30.pth ...
+2022-04-16 14:06:17,946 - trainer - INFO -     epoch          : 31
+2022-04-16 14:06:17,946 - trainer - INFO -     loss           : 3.396486445477134
+2022-04-16 14:06:17,947 - trainer - INFO -     accuracy       : 0.55887713371266
+2022-04-16 14:06:17,947 - trainer - INFO -     top_k_acc      : 0.6040740576102418
+2022-04-16 14:06:17,947 - trainer - INFO -     val_loss       : 3.403369347254435
+2022-04-16 14:06:17,947 - trainer - INFO -     val_accuracy   : 0.52734375
+2022-04-16 14:06:17,947 - trainer - INFO -     val_top_k_acc  : 0.6666666666666666
+2022-04-16 14:06:18,125 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch31.pth ...
+2022-04-16 14:06:18,289 - trainer - INFO - Saving current best: model_best.pth ...
+2022-04-16 14:07:25,682 - trainer - INFO -     epoch          : 32
+2022-04-16 14:07:25,682 - trainer - INFO -     loss           : 3.3852769450137488
+2022-04-16 14:07:25,683 - trainer - INFO -     accuracy       : 0.569756845661451
+2022-04-16 14:07:25,683 - trainer - INFO -     top_k_acc      : 0.6112697812944523
+2022-04-16 14:07:25,683 - trainer - INFO -     val_loss       : 3.576712131500244
+2022-04-16 14:07:25,683 - trainer - INFO -     val_accuracy   : 0.3723958333333333
+2022-04-16 14:07:25,683 - trainer - INFO -     val_top_k_acc  : 0.4375
+2022-04-16 14:07:25,858 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch32.pth ...
+2022-04-16 14:08:32,994 - trainer - INFO -     epoch          : 33
+2022-04-16 14:08:32,994 - trainer - INFO -     loss           : 3.385409192035073
+2022-04-16 14:08:32,994 - trainer - INFO -     accuracy       : 0.566789651493599
+2022-04-16 14:08:32,994 - trainer - INFO -     top_k_acc      : 0.6139758179231863
+2022-04-16 14:08:32,994 - trainer - INFO -     val_loss       : 3.571418205897013
+2022-04-16 14:08:32,994 - trainer - INFO -     val_accuracy   : 0.3736979166666667
+2022-04-16 14:08:32,994 - trainer - INFO -     val_top_k_acc  : 0.4348958333333333
+2022-04-16 14:08:33,178 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch33.pth ...
+2022-04-16 14:09:41,293 - trainer - INFO -     epoch          : 34
+2022-04-16 14:09:41,293 - trainer - INFO -     loss           : 3.380912868600143
+2022-04-16 14:09:41,293 - trainer - INFO -     accuracy       : 0.5773804231863442
+2022-04-16 14:09:41,293 - trainer - INFO -     top_k_acc      : 0.6145759246088194
+2022-04-16 14:09:41,293 - trainer - INFO -     val_loss       : 3.507989247639974
+2022-04-16 14:09:41,294 - trainer - INFO -     val_accuracy   : 0.4453125
+2022-04-16 14:09:41,294 - trainer - INFO -     val_top_k_acc  : 0.5078125
+2022-04-16 14:09:41,474 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch34.pth ...
+2022-04-16 14:10:49,410 - trainer - INFO -     epoch          : 35
+2022-04-16 14:10:49,411 - trainer - INFO -     loss           : 3.377669384605006
+2022-04-16 14:10:49,411 - trainer - INFO -     accuracy       : 0.5809977329302987
+2022-04-16 14:10:49,411 - trainer - INFO -     top_k_acc      : 0.6224939989331437
+2022-04-16 14:10:49,411 - trainer - INFO -     val_loss       : 3.498765309651693
+2022-04-16 14:10:49,411 - trainer - INFO -     val_accuracy   : 0.44921875
+2022-04-16 14:10:49,411 - trainer - INFO -     val_top_k_acc  : 0.5104166666666666
+2022-04-16 14:10:49,591 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch35.pth ...
+2022-04-16 14:11:58,485 - trainer - INFO -     epoch          : 36
+2022-04-16 14:11:58,485 - trainer - INFO -     loss           : 3.37859677013598
+2022-04-16 14:11:58,485 - trainer - INFO -     accuracy       : 0.5767969861308677
+2022-04-16 14:11:58,485 - trainer - INFO -     top_k_acc      : 0.621977240398293
+2022-04-16 14:11:58,486 - trainer - INFO -     val_loss       : 3.4244646231333413
+2022-04-16 14:11:58,486 - trainer - INFO -     val_accuracy   : 0.5455729166666666
+2022-04-16 14:11:58,486 - trainer - INFO -     val_top_k_acc  : 0.6809895833333334
+2022-04-16 14:11:58,670 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch36.pth ...
+2022-04-16 14:13:09,077 - trainer - INFO -     epoch          : 37
+2022-04-16 14:13:09,077 - trainer - INFO -     loss           : 3.365055197163632
+2022-04-16 14:13:09,077 - trainer - INFO -     accuracy       : 0.5905883268136558
+2022-04-16 14:13:09,078 - trainer - INFO -     top_k_acc      : 0.6274782183499289
+2022-04-16 14:13:09,078 - trainer - INFO -     val_loss       : 3.6561314264933267
+2022-04-16 14:13:09,078 - trainer - INFO -     val_accuracy   : 0.2877604166666667
+2022-04-16 14:13:09,078 - trainer - INFO -     val_top_k_acc  : 0.4361979166666667
+2022-04-16 14:13:09,257 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch37.pth ...
+2022-04-16 14:14:16,842 - trainer - INFO -     epoch          : 38
+2022-04-16 14:14:16,842 - trainer - INFO -     loss           : 3.3715777020705375
+2022-04-16 14:14:16,842 - trainer - INFO -     accuracy       : 0.5839927098150782
+2022-04-16 14:14:16,843 - trainer - INFO -     top_k_acc      : 0.6340738353485064
+2022-04-16 14:14:16,843 - trainer - INFO -     val_loss       : 3.622004191080729
+2022-04-16 14:14:16,843 - trainer - INFO -     val_accuracy   : 0.3723958333333333
+2022-04-16 14:14:16,843 - trainer - INFO -     val_top_k_acc  : 0.5169270833333334
+2022-04-16 14:14:17,013 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch38.pth ...
+2022-04-16 14:15:27,109 - trainer - INFO -     epoch          : 39
+2022-04-16 14:15:27,110 - trainer - INFO -     loss           : 3.365976935938785
+2022-04-16 14:15:27,110 - trainer - INFO -     accuracy       : 0.5888769114509247
+2022-04-16 14:15:27,110 - trainer - INFO -     top_k_acc      : 0.6308177009246089
+2022-04-16 14:15:27,110 - trainer - INFO -     val_loss       : 3.5563974380493164
+2022-04-16 14:15:27,110 - trainer - INFO -     val_accuracy   : 0.375
+2022-04-16 14:15:27,110 - trainer - INFO -     val_top_k_acc  : 0.5221354166666666
+2022-04-16 14:15:27,284 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch39.pth ...
+2022-04-16 14:16:37,174 - trainer - INFO -     epoch          : 40
+2022-04-16 14:16:37,174 - trainer - INFO -     loss           : 3.351159033022429
+2022-04-16 14:16:37,174 - trainer - INFO -     accuracy       : 0.605240931721195
+2022-04-16 14:16:37,174 - trainer - INFO -     top_k_acc      : 0.6463260135135135
+2022-04-16 14:16:37,175 - trainer - INFO -     val_loss       : 3.3228670756022134
+2022-04-16 14:16:37,175 - trainer - INFO -     val_accuracy   : 0.62109375
+2022-04-16 14:16:37,175 - trainer - INFO -     val_top_k_acc  : 0.69921875
+2022-04-16 14:16:37,348 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch40.pth ...
+2022-04-16 14:16:37,528 - trainer - INFO - Saving current best: model_best.pth ...
+2022-04-16 14:17:45,574 - trainer - INFO -     epoch          : 41
+2022-04-16 14:17:45,575 - trainer - INFO -     loss           : 3.349429030167429
+2022-04-16 14:17:45,575 - trainer - INFO -     accuracy       : 0.6067134157183499
+2022-04-16 14:17:45,575 - trainer - INFO -     top_k_acc      : 0.6467705369843528
+2022-04-16 14:17:45,575 - trainer - INFO -     val_loss       : 3.478813091913859
+2022-04-16 14:17:45,575 - trainer - INFO -     val_accuracy   : 0.46875
+2022-04-16 14:17:45,575 - trainer - INFO -     val_top_k_acc  : 0.5208333333333334
+2022-04-16 14:17:45,751 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch41.pth ...
+2022-04-16 14:18:54,132 - trainer - INFO -     epoch          : 42
+2022-04-16 14:18:54,133 - trainer - INFO -     loss           : 3.347832253104762
+2022-04-16 14:18:54,133 - trainer - INFO -     accuracy       : 0.6088026760312945
+2022-04-16 14:18:54,133 - trainer - INFO -     top_k_acc      : 0.6459815078236131
+2022-04-16 14:18:54,133 - trainer - INFO -     val_loss       : 3.5652312437693277
+2022-04-16 14:18:54,133 - trainer - INFO -     val_accuracy   : 0.37890625
+2022-04-16 14:18:54,134 - trainer - INFO -     val_top_k_acc  : 0.5325520833333334
+2022-04-16 14:18:54,311 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch42.pth ...
+2022-04-16 14:20:03,789 - trainer - INFO -     epoch          : 43
+2022-04-16 14:20:03,789 - trainer - INFO -     loss           : 3.3584874429200826
+2022-04-16 14:20:03,789 - trainer - INFO -     accuracy       : 0.5975951280227596
+2022-04-16 14:20:03,789 - trainer - INFO -     top_k_acc      : 0.6411306454480797
+2022-04-16 14:20:03,789 - trainer - INFO -     val_loss       : 3.483481248219808
+2022-04-16 14:20:03,790 - trainer - INFO -     val_accuracy   : 0.4700520833333333
+2022-04-16 14:20:03,790 - trainer - INFO -     val_top_k_acc  : 0.5260416666666666
+2022-04-16 14:20:03,973 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch43.pth ...
+2022-04-16 14:21:13,287 - trainer - INFO -     epoch          : 44
+2022-04-16 14:21:13,287 - trainer - INFO -     loss           : 3.3506400961624947
+2022-04-16 14:21:13,287 - trainer - INFO -     accuracy       : 0.6018792229729729
+2022-04-16 14:21:13,287 - trainer - INFO -     top_k_acc      : 0.6480707681365576
+2022-04-16 14:21:13,287 - trainer - INFO -     val_loss       : 3.55711030960083
+2022-04-16 14:21:13,287 - trainer - INFO -     val_accuracy   : 0.3854166666666667
+2022-04-16 14:21:13,287 - trainer - INFO -     val_top_k_acc  : 0.4388020833333333
+2022-04-16 14:21:13,461 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch44.pth ...
+2022-04-16 14:22:22,464 - trainer - INFO -     epoch          : 45
+2022-04-16 14:22:22,465 - trainer - INFO -     loss           : 3.3447224591907703
+2022-04-16 14:22:22,465 - trainer - INFO -     accuracy       : 0.6100862375533428
+2022-04-16 14:22:22,465 - trainer - INFO -     top_k_acc      : 0.6470761468705547
+2022-04-16 14:22:22,465 - trainer - INFO -     val_loss       : 3.536567052205404
+2022-04-16 14:22:22,465 - trainer - INFO -     val_accuracy   : 0.3984375
+2022-04-16 14:22:22,465 - trainer - INFO -     val_top_k_acc  : 0.6158854166666666
+2022-04-16 14:22:22,637 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch45.pth ...
+2022-04-16 14:23:30,646 - trainer - INFO -     epoch          : 46
+2022-04-16 14:23:30,647 - trainer - INFO -     loss           : 3.336844017631129
+2022-04-16 14:23:30,647 - trainer - INFO -     accuracy       : 0.6178820679231863
+2022-04-16 14:23:30,647 - trainer - INFO -     top_k_acc      : 0.6550442300853485
+2022-04-16 14:23:30,647 - trainer - INFO -     val_loss       : 3.481489419937134
+2022-04-16 14:23:30,647 - trainer - INFO -     val_accuracy   : 0.4661458333333333
+2022-04-16 14:23:30,647 - trainer - INFO -     val_top_k_acc  : 0.5208333333333334
+2022-04-16 14:23:30,822 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch46.pth ...
+2022-04-16 14:24:39,891 - trainer - INFO -     epoch          : 47
+2022-04-16 14:24:39,892 - trainer - INFO -     loss           : 3.335857077648765
+2022-04-16 14:24:39,892 - trainer - INFO -     accuracy       : 0.6160650782361309
+2022-04-16 14:24:39,892 - trainer - INFO -     top_k_acc      : 0.6546497155049786
+2022-04-16 14:24:39,892 - trainer - INFO -     val_loss       : 3.399144013722738
+2022-04-16 14:24:39,892 - trainer - INFO -     val_accuracy   : 0.5572916666666666
+2022-04-16 14:24:39,892 - trainer - INFO -     val_top_k_acc  : 0.6184895833333334
+2022-04-16 14:24:40,067 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch47.pth ...
+2022-04-16 14:25:48,682 - trainer - INFO -     epoch          : 48
+2022-04-16 14:25:48,683 - trainer - INFO -     loss           : 3.319902859236065
+2022-04-16 14:25:48,683 - trainer - INFO -     accuracy       : 0.6354629711948792
+2022-04-16 14:25:48,683 - trainer - INFO -     top_k_acc      : 0.6716138424608818
+2022-04-16 14:25:48,683 - trainer - INFO -     val_loss       : 3.557002385457357
+2022-04-16 14:25:48,683 - trainer - INFO -     val_accuracy   : 0.3958333333333333
+2022-04-16 14:25:48,683 - trainer - INFO -     val_top_k_acc  : 0.4583333333333333
+2022-04-16 14:25:48,860 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch48.pth ...
+2022-04-16 14:26:57,539 - trainer - INFO -     epoch          : 49
+2022-04-16 14:26:57,540 - trainer - INFO -     loss           : 3.3193155338889673
+2022-04-16 14:26:57,540 - trainer - INFO -     accuracy       : 0.6338849128733998
+2022-04-16 14:26:57,540 - trainer - INFO -     top_k_acc      : 0.6667463104551921
+2022-04-16 14:26:57,540 - trainer - INFO -     val_loss       : 3.5398737589518228
+2022-04-16 14:26:57,540 - trainer - INFO -     val_accuracy   : 0.4049479166666667
+2022-04-16 14:26:57,540 - trainer - INFO -     val_top_k_acc  : 0.54296875
+2022-04-16 14:26:57,729 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch49.pth ...
+2022-04-16 14:28:07,058 - trainer - INFO -     epoch          : 50
+2022-04-16 14:28:07,058 - trainer - INFO -     loss           : 3.311778319509406
+2022-04-16 14:28:07,058 - trainer - INFO -     accuracy       : 0.6412528894025605
+2022-04-16 14:28:07,058 - trainer - INFO -     top_k_acc      : 0.6740809477240398
+2022-04-16 14:28:07,058 - trainer - INFO -     val_loss       : 3.3819782733917236
+2022-04-16 14:28:07,058 - trainer - INFO -     val_accuracy   : 0.5677083333333334
+2022-04-16 14:28:07,059 - trainer - INFO -     val_top_k_acc  : 0.6223958333333334
+2022-04-16 14:28:07,233 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch50.pth ...
+2022-04-16 14:29:15,020 - trainer - INFO -     epoch          : 51
+2022-04-16 14:29:15,021 - trainer - INFO -     loss           : 3.307424231579429
+2022-04-16 14:29:15,021 - trainer - INFO -     accuracy       : 0.6453313922475107
+2022-04-16 14:29:15,021 - trainer - INFO -     top_k_acc      : 0.6785873044096729
+2022-04-16 14:29:15,021 - trainer - INFO -     val_loss       : 3.462043126424154
+2022-04-16 14:29:15,022 - trainer - INFO -     val_accuracy   : 0.4869791666666667
+2022-04-16 14:29:15,022 - trainer - INFO -     val_top_k_acc  : 0.54296875
+2022-04-16 14:29:15,193 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch51.pth ...
+2022-04-16 14:30:23,375 - trainer - INFO -     epoch          : 52
+2022-04-16 14:30:23,376 - trainer - INFO -     loss           : 3.3098985019483065
+2022-04-16 14:30:23,376 - trainer - INFO -     accuracy       : 0.6407361308677098
+2022-04-16 14:30:23,376 - trainer - INFO -     top_k_acc      : 0.6664184743954481
+2022-04-16 14:30:23,376 - trainer - INFO -     val_loss       : 3.4551732540130615
+2022-04-16 14:30:23,376 - trainer - INFO -     val_accuracy   : 0.4921875
+2022-04-16 14:30:23,376 - trainer - INFO -     val_top_k_acc  : 0.5390625
+2022-04-16 14:30:23,550 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch52.pth ...
+2022-04-16 14:31:33,017 - trainer - INFO -     epoch          : 53
+2022-04-16 14:31:33,018 - trainer - INFO -     loss           : 3.29717439099362
+2022-04-16 14:31:33,018 - trainer - INFO -     accuracy       : 0.6558332592460882
+2022-04-16 14:31:33,018 - trainer - INFO -     top_k_acc      : 0.6784150515647226
+2022-04-16 14:31:33,018 - trainer - INFO -     val_loss       : 3.434099038441976
+2022-04-16 14:31:33,019 - trainer - INFO -     val_accuracy   : 0.5807291666666666
+2022-04-16 14:31:33,019 - trainer - INFO -     val_top_k_acc  : 0.6184895833333334
+2022-04-16 14:31:33,194 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch53.pth ...
+2022-04-16 14:32:42,868 - trainer - INFO -     epoch          : 54
+2022-04-16 14:32:42,868 - trainer - INFO -     loss           : 3.2923453858024194
+2022-04-16 14:32:42,868 - trainer - INFO -     accuracy       : 0.6597061699857752
+2022-04-16 14:32:42,868 - trainer - INFO -     top_k_acc      : 0.6831103307254623
+2022-04-16 14:32:42,868 - trainer - INFO -     val_loss       : 3.534508228302002
+2022-04-16 14:32:42,869 - trainer - INFO -     val_accuracy   : 0.41796875
+2022-04-16 14:32:42,869 - trainer - INFO -     val_top_k_acc  : 0.4557291666666667
+2022-04-16 14:32:43,042 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch54.pth ...
+2022-04-16 14:33:59,038 - trainer - INFO -     epoch          : 55
+2022-04-16 14:33:59,038 - trainer - INFO -     loss           : 3.299653743442736
+2022-04-16 14:33:59,039 - trainer - INFO -     accuracy       : 0.6505712126600285
+2022-04-16 14:33:59,039 - trainer - INFO -     top_k_acc      : 0.6733752667140825
+2022-04-16 14:33:59,039 - trainer - INFO -     val_loss       : 3.532259146372477
+2022-04-16 14:33:59,039 - trainer - INFO -     val_accuracy   : 0.41796875
+2022-04-16 14:33:59,039 - trainer - INFO -     val_top_k_acc  : 0.4596354166666667
+2022-04-16 14:33:59,219 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch55.pth ...
+2022-04-16 14:35:07,709 - trainer - INFO -     epoch          : 56
+2022-04-16 14:35:07,710 - trainer - INFO -     loss           : 3.297086627859818
+2022-04-16 14:35:07,710 - trainer - INFO -     accuracy       : 0.6530383179231863
+2022-04-16 14:35:07,710 - trainer - INFO -     top_k_acc      : 0.6752089260312945
+2022-04-16 14:35:07,710 - trainer - INFO -     val_loss       : 3.4465288321177163
+2022-04-16 14:35:07,710 - trainer - INFO -     val_accuracy   : 0.5013020833333334
+2022-04-16 14:35:07,710 - trainer - INFO -     val_top_k_acc  : 0.6263020833333334
+2022-04-16 14:35:07,888 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch56.pth ...
+2022-04-16 14:36:16,491 - trainer - INFO -     epoch          : 57
+2022-04-16 14:36:16,492 - trainer - INFO -     loss           : 3.2898839272950826
+2022-04-16 14:36:16,492 - trainer - INFO -     accuracy       : 0.6615898381934566
+2022-04-16 14:36:16,492 - trainer - INFO -     top_k_acc      : 0.6804876422475107
+2022-04-16 14:36:16,492 - trainer - INFO -     val_loss       : 3.368138074874878
+2022-04-16 14:36:16,492 - trainer - INFO -     val_accuracy   : 0.5768229166666666
+2022-04-16 14:36:16,493 - trainer - INFO -     val_top_k_acc  : 0.70703125
+2022-04-16 14:36:16,669 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch57.pth ...
+2022-04-16 14:37:23,641 - trainer - INFO -     epoch          : 58
+2022-04-16 14:37:23,641 - trainer - INFO -     loss           : 3.293936277690687
+2022-04-16 14:37:23,641 - trainer - INFO -     accuracy       : 0.6565000444523471
+2022-04-16 14:37:23,641 - trainer - INFO -     top_k_acc      : 0.6784650604551921
+2022-04-16 14:37:23,641 - trainer - INFO -     val_loss       : 3.286170562108358
+2022-04-16 14:37:23,641 - trainer - INFO -     val_accuracy   : 0.66796875
+2022-04-16 14:37:23,641 - trainer - INFO -     val_top_k_acc  : 0.7109375
+2022-04-16 14:37:23,818 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch58.pth ...
+2022-04-16 14:37:23,982 - trainer - INFO - Saving current best: model_best.pth ...
+2022-04-16 14:38:32,138 - trainer - INFO -     epoch          : 59
+2022-04-16 14:38:32,138 - trainer - INFO -     loss           : 3.2875630102659525
+2022-04-16 14:38:32,138 - trainer - INFO -     accuracy       : 0.6656516714082503
+2022-04-16 14:38:32,138 - trainer - INFO -     top_k_acc      : 0.685371843883357
+2022-04-16 14:38:32,138 - trainer - INFO -     val_loss       : 3.5285046100616455
+2022-04-16 14:38:32,139 - trainer - INFO -     val_accuracy   : 0.42578125
+2022-04-16 14:38:32,139 - trainer - INFO -     val_top_k_acc  : 0.4609375
+2022-04-16 14:38:32,323 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch59.pth ...
+2022-04-16 14:39:41,896 - trainer - INFO -     epoch          : 60
+2022-04-16 14:39:41,897 - trainer - INFO -     loss           : 3.2890956778275338
+2022-04-16 14:39:41,897 - trainer - INFO -     accuracy       : 0.6626177987197724
+2022-04-16 14:39:41,897 - trainer - INFO -     top_k_acc      : 0.6805043118776671
+2022-04-16 14:39:41,897 - trainer - INFO -     val_loss       : 3.456123113632202
+2022-04-16 14:39:41,897 - trainer - INFO -     val_accuracy   : 0.5052083333333334
+2022-04-16 14:39:41,897 - trainer - INFO -     val_top_k_acc  : 0.5494791666666666
+2022-04-16 14:39:42,071 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch60.pth ...
+2022-04-16 14:40:51,573 - trainer - INFO -     epoch          : 61
+2022-04-16 14:40:51,573 - trainer - INFO -     loss           : 3.2892977689441882
+2022-04-16 14:40:51,574 - trainer - INFO -     accuracy       : 0.6612286628733998
+2022-04-16 14:40:51,574 - trainer - INFO -     top_k_acc      : 0.6825602329302987
+2022-04-16 14:40:51,574 - trainer - INFO -     val_loss       : 3.531395673751831
+2022-04-16 14:40:51,574 - trainer - INFO -     val_accuracy   : 0.4205729166666667
+2022-04-16 14:40:51,574 - trainer - INFO -     val_top_k_acc  : 0.4674479166666667
+2022-04-16 14:40:51,748 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch61.pth ...
+2022-04-16 14:41:58,346 - trainer - INFO -     epoch          : 62
+2022-04-16 14:41:58,356 - trainer - INFO -     loss           : 3.2916085971029183
+2022-04-16 14:41:58,356 - trainer - INFO -     accuracy       : 0.6575446746088194
+2022-04-16 14:41:58,356 - trainer - INFO -     top_k_acc      : 0.6794930209815079
+2022-04-16 14:41:58,356 - trainer - INFO -     val_loss       : 3.4092376232147217
+2022-04-16 14:41:58,356 - trainer - INFO -     val_accuracy   : 0.50390625
+2022-04-16 14:41:58,356 - trainer - INFO -     val_top_k_acc  : 0.6328125
+2022-04-16 14:41:58,530 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch62.pth ...
+2022-04-16 14:43:08,267 - trainer - INFO -     epoch          : 63
+2022-04-16 14:43:08,268 - trainer - INFO -     loss           : 3.2849266654566716
+2022-04-16 14:43:08,268 - trainer - INFO -     accuracy       : 0.6642125266714082
+2022-04-16 14:43:08,268 - trainer - INFO -     top_k_acc      : 0.6857830280938834
+2022-04-16 14:43:08,268 - trainer - INFO -     val_loss       : 3.328766187032064
+2022-04-16 14:43:08,268 - trainer - INFO -     val_accuracy   : 0.66796875
+2022-04-16 14:43:08,268 - trainer - INFO -     val_top_k_acc  : 0.7135416666666666
+2022-04-16 14:43:08,445 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch63.pth ...
+2022-04-16 14:44:16,842 - trainer - INFO -     epoch          : 64
+2022-04-16 14:44:16,842 - trainer - INFO -     loss           : 3.2849590903834294
+2022-04-16 14:44:16,842 - trainer - INFO -     accuracy       : 0.6665240487197724
+2022-04-16 14:44:16,842 - trainer - INFO -     top_k_acc      : 0.684204969772404
+2022-04-16 14:44:16,843 - trainer - INFO -     val_loss       : 3.366886854171753
+2022-04-16 14:44:16,843 - trainer - INFO -     val_accuracy   : 0.5859375
+2022-04-16 14:44:16,843 - trainer - INFO -     val_top_k_acc  : 0.6302083333333334
+2022-04-16 14:44:17,033 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch64.pth ...
+2022-04-16 14:45:25,861 - trainer - INFO -     epoch          : 65
+2022-04-16 14:45:25,872 - trainer - INFO -     loss           : 3.2893241957614294
+2022-04-16 14:45:25,872 - trainer - INFO -     accuracy       : 0.6618787784495022
+2022-04-16 14:45:25,872 - trainer - INFO -     top_k_acc      : 0.6795263602418208
+2022-04-16 14:45:25,872 - trainer - INFO -     val_loss       : 3.444807211558024
+2022-04-16 14:45:25,873 - trainer - INFO -     val_accuracy   : 0.5013020833333334
+2022-04-16 14:45:25,873 - trainer - INFO -     val_top_k_acc  : 0.5520833333333334
+2022-04-16 14:45:26,048 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch65.pth ...
+2022-04-16 14:46:34,569 - trainer - INFO -     epoch          : 66
+2022-04-16 14:46:34,569 - trainer - INFO -     loss           : 3.2847616797999333
+2022-04-16 14:46:34,569 - trainer - INFO -     accuracy       : 0.6651182432432432
+2022-04-16 14:46:34,569 - trainer - INFO -     top_k_acc      : 0.6835881934566145
+2022-04-16 14:46:34,569 - trainer - INFO -     val_loss       : 3.5291453997294107
+2022-04-16 14:46:34,570 - trainer - INFO -     val_accuracy   : 0.4231770833333333
+2022-04-16 14:46:34,570 - trainer - INFO -     val_top_k_acc  : 0.46875
+2022-04-16 14:46:34,752 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch66.pth ...
+2022-04-16 14:47:44,730 - trainer - INFO -     epoch          : 67
+2022-04-16 14:47:44,730 - trainer - INFO -     loss           : 3.2829920618157638
+2022-04-16 14:47:44,730 - trainer - INFO -     accuracy       : 0.6689911539829303
+2022-04-16 14:47:44,730 - trainer - INFO -     top_k_acc      : 0.6886946568278806
+2022-04-16 14:47:44,730 - trainer - INFO -     val_loss       : 3.610093116760254
+2022-04-16 14:47:44,730 - trainer - INFO -     val_accuracy   : 0.3372395833333333
+2022-04-16 14:47:44,730 - trainer - INFO -     val_top_k_acc  : 0.38671875
+2022-04-16 14:47:44,920 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch67.pth ...
+2022-04-16 14:48:53,133 - trainer - INFO -     epoch          : 68
+2022-04-16 14:48:53,133 - trainer - INFO -     loss           : 3.2835655839819657
+2022-04-16 14:48:53,133 - trainer - INFO -     accuracy       : 0.6669519025604552
+2022-04-16 14:48:53,133 - trainer - INFO -     top_k_acc      : 0.685438522403983
+2022-04-16 14:48:53,134 - trainer - INFO -     val_loss       : 3.5293327967325845
+2022-04-16 14:48:53,134 - trainer - INFO -     val_accuracy   : 0.4166666666666667
+2022-04-16 14:48:53,134 - trainer - INFO -     val_top_k_acc  : 0.5533854166666666
+2022-04-16 14:48:53,313 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch68.pth ...
+2022-04-16 14:50:01,902 - trainer - INFO -     epoch          : 69
+2022-04-16 14:50:01,908 - trainer - INFO -     loss           : 3.2859002289019132
+2022-04-16 14:50:01,908 - trainer - INFO -     accuracy       : 0.6634901760312945
+2022-04-16 14:50:01,908 - trainer - INFO -     top_k_acc      : 0.6852662695590327
+2022-04-16 14:50:01,908 - trainer - INFO -     val_loss       : 3.47395912806193
+2022-04-16 14:50:01,908 - trainer - INFO -     val_accuracy   : 0.4192708333333333
+2022-04-16 14:50:01,908 - trainer - INFO -     val_top_k_acc  : 0.7174479166666666
+2022-04-16 14:50:02,087 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch69.pth ...
+2022-04-16 14:51:09,928 - trainer - INFO -     epoch          : 70
+2022-04-16 14:51:09,928 - trainer - INFO -     loss           : 3.2779680929685893
+2022-04-16 14:51:09,929 - trainer - INFO -     accuracy       : 0.6720750355618776
+2022-04-16 14:51:09,929 - trainer - INFO -     top_k_acc      : 0.6901171319345661
+2022-04-16 14:51:09,929 - trainer - INFO -     val_loss       : 3.4438974857330322
+2022-04-16 14:51:09,929 - trainer - INFO -     val_accuracy   : 0.5052083333333334
+2022-04-16 14:51:09,929 - trainer - INFO -     val_top_k_acc  : 0.5533854166666666
+2022-04-16 14:51:10,108 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch70.pth ...
+2022-04-16 14:52:18,126 - trainer - INFO -     epoch          : 71
+2022-04-16 14:52:18,127 - trainer - INFO -     loss           : 3.2826858570701196
+2022-04-16 14:52:18,127 - trainer - INFO -     accuracy       : 0.6690078236130867
+2022-04-16 14:52:18,127 - trainer - INFO -     top_k_acc      : 0.6887279960881935
+2022-04-16 14:52:18,127 - trainer - INFO -     val_loss       : 3.565877358118693
+2022-04-16 14:52:18,127 - trainer - INFO -     val_accuracy   : 0.4270833333333333
+2022-04-16 14:52:18,127 - trainer - INFO -     val_top_k_acc  : 0.47265625
+2022-04-16 14:52:18,304 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch71.pth ...
+2022-04-16 14:53:35,136 - trainer - INFO -     epoch          : 72
+2022-04-16 14:53:35,136 - trainer - INFO -     loss           : 3.281443382564344
+2022-04-16 14:53:35,136 - trainer - INFO -     accuracy       : 0.6704636379800853
+2022-04-16 14:53:35,136 - trainer - INFO -     top_k_acc      : 0.6881278894025605
+2022-04-16 14:53:35,136 - trainer - INFO -     val_loss       : 3.4426334698994956
+2022-04-16 14:53:35,136 - trainer - INFO -     val_accuracy   : 0.5130208333333334
+2022-04-16 14:53:35,136 - trainer - INFO -     val_top_k_acc  : 0.5533854166666666
+2022-04-16 14:53:35,313 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch72.pth ...
+2022-04-16 14:54:43,927 - trainer - INFO -     epoch          : 73
+2022-04-16 14:54:43,927 - trainer - INFO -     loss           : 3.2857421197389303
+2022-04-16 14:54:43,927 - trainer - INFO -     accuracy       : 0.6647570679231863
+2022-04-16 14:54:43,927 - trainer - INFO -     top_k_acc      : 0.6854885312944523
+2022-04-16 14:54:43,927 - trainer - INFO -     val_loss       : 3.4447728792826333
+2022-04-16 14:54:43,928 - trainer - INFO -     val_accuracy   : 0.51171875
+2022-04-16 14:54:43,928 - trainer - INFO -     val_top_k_acc  : 0.55859375
+2022-04-16 14:54:44,100 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch73.pth ...
+2022-04-16 14:55:52,087 - trainer - INFO -     epoch          : 74
+2022-04-16 14:55:52,088 - trainer - INFO -     loss           : 3.278247117996216
+2022-04-16 14:55:52,088 - trainer - INFO -     accuracy       : 0.6706692300853485
+2022-04-16 14:55:52,088 - trainer - INFO -     top_k_acc      : 0.690783917140825
+2022-04-16 14:55:52,088 - trainer - INFO -     val_loss       : 3.3625287214914956
+2022-04-16 14:55:52,088 - trainer - INFO -     val_accuracy   : 0.58984375
+2022-04-16 14:55:52,088 - trainer - INFO -     val_top_k_acc  : 0.72265625
+2022-04-16 14:55:52,263 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch74.pth ...
+2022-04-16 14:57:01,338 - trainer - INFO -     epoch          : 75
+2022-04-16 14:57:01,339 - trainer - INFO -     loss           : 3.2821684009150456
+2022-04-16 14:57:01,339 - trainer - INFO -     accuracy       : 0.6676686966571834
+2022-04-16 14:57:01,339 - trainer - INFO -     top_k_acc      : 0.6859497243954481
+2022-04-16 14:57:01,339 - trainer - INFO -     val_loss       : 3.53273868560791
+2022-04-16 14:57:01,339 - trainer - INFO -     val_accuracy   : 0.4270833333333333
+2022-04-16 14:57:01,339 - trainer - INFO -     val_top_k_acc  : 0.4765625
+2022-04-16 14:57:01,513 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch75.pth ...
+2022-04-16 14:58:09,426 - trainer - INFO -     epoch          : 76
+2022-04-16 14:58:09,426 - trainer - INFO -     loss           : 3.2764078315935636
+2022-04-16 14:58:09,426 - trainer - INFO -     accuracy       : 0.6731196657183499
+2022-04-16 14:58:09,426 - trainer - INFO -     top_k_acc      : 0.6899615487197724
+2022-04-16 14:58:09,426 - trainer - INFO -     val_loss       : 3.2858828703562417
+2022-04-16 14:58:09,427 - trainer - INFO -     val_accuracy   : 0.66796875
+2022-04-16 14:58:09,427 - trainer - INFO -     val_top_k_acc  : 0.7265625
+2022-04-16 14:58:09,608 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch76.pth ...
+2022-04-16 14:58:09,768 - trainer - INFO - Saving current best: model_best.pth ...
+2022-04-16 14:59:18,944 - trainer - INFO -     epoch          : 77
+2022-04-16 14:59:18,944 - trainer - INFO -     loss           : 3.2786689808494165
+2022-04-16 14:59:18,944 - trainer - INFO -     accuracy       : 0.673958703769559
+2022-04-16 14:59:18,945 - trainer - INFO -     top_k_acc      : 0.6930454302987198
+2022-04-16 14:59:18,945 - trainer - INFO -     val_loss       : 3.4402204354604087
+2022-04-16 14:59:18,945 - trainer - INFO -     val_accuracy   : 0.5052083333333334
+2022-04-16 14:59:18,945 - trainer - INFO -     val_top_k_acc  : 0.640625
+2022-04-16 14:59:19,148 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch77.pth ...
+2022-04-16 15:00:28,533 - trainer - INFO -     epoch          : 78
+2022-04-16 15:00:28,534 - trainer - INFO -     loss           : 3.2769831230765893
+2022-04-16 15:00:28,534 - trainer - INFO -     accuracy       : 0.6745754800853485
+2022-04-16 15:00:28,534 - trainer - INFO -     top_k_acc      : 0.6908005867709816
+2022-04-16 15:00:28,534 - trainer - INFO -     val_loss       : 3.28136412302653
+2022-04-16 15:00:28,534 - trainer - INFO -     val_accuracy   : 0.6692708333333334
+2022-04-16 15:00:28,534 - trainer - INFO -     val_top_k_acc  : 0.7252604166666666
+2022-04-16 15:00:28,715 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch78.pth ...
+2022-04-16 15:00:28,884 - trainer - INFO - Saving current best: model_best.pth ...
+2022-04-16 15:01:39,236 - trainer - INFO -     epoch          : 79
+2022-04-16 15:01:39,237 - trainer - INFO -     loss           : 3.2697783645830656
+2022-04-16 15:01:39,237 - trainer - INFO -     accuracy       : 0.6813100106685633
+2022-04-16 15:01:39,237 - trainer - INFO -     top_k_acc      : 0.6967127489331437
+2022-04-16 15:01:39,237 - trainer - INFO -     val_loss       : 3.528294006983439
+2022-04-16 15:01:39,237 - trainer - INFO -     val_accuracy   : 0.4244791666666667
+2022-04-16 15:01:39,237 - trainer - INFO -     val_top_k_acc  : 0.4765625
+2022-04-16 15:01:39,420 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch79.pth ...
+2022-04-16 15:02:48,302 - trainer - INFO -     epoch          : 80
+2022-04-16 15:02:48,302 - trainer - INFO -     loss           : 3.268349760457089
+2022-04-16 15:02:48,302 - trainer - INFO -     accuracy       : 0.6806932343527738
+2022-04-16 15:02:48,302 - trainer - INFO -     top_k_acc      : 0.6981185544096729
+2022-04-16 15:02:48,302 - trainer - INFO -     val_loss       : 3.445812702178955
+2022-04-16 15:02:48,302 - trainer - INFO -     val_accuracy   : 0.5026041666666666
+2022-04-16 15:02:48,302 - trainer - INFO -     val_top_k_acc  : 0.64453125
+2022-04-16 15:02:48,479 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch80.pth ...
+2022-04-16 15:03:57,100 - trainer - INFO -     epoch          : 81
+2022-04-16 15:03:57,101 - trainer - INFO -     loss           : 3.2683486185575785
+2022-04-16 15:03:57,101 - trainer - INFO -     accuracy       : 0.6831103307254623
+2022-04-16 15:03:57,101 - trainer - INFO -     top_k_acc      : 0.6995410295163584
+2022-04-16 15:03:57,101 - trainer - INFO -     val_loss       : 3.4449915091196694
+2022-04-16 15:03:57,101 - trainer - INFO -     val_accuracy   : 0.5026041666666666
+2022-04-16 15:03:57,101 - trainer - INFO -     val_top_k_acc  : 0.5611979166666666
+2022-04-16 15:03:57,276 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch81.pth ...
+2022-04-16 15:05:05,529 - trainer - INFO -     epoch          : 82
+2022-04-16 15:05:05,530 - trainer - INFO -     loss           : 3.270915094174837
+2022-04-16 15:05:05,531 - trainer - INFO -     accuracy       : 0.6788429054054055
+2022-04-16 15:05:05,531 - trainer - INFO -     top_k_acc      : 0.6985297386201992
+2022-04-16 15:05:05,531 - trainer - INFO -     val_loss       : 3.5161894162495932
+2022-04-16 15:05:05,531 - trainer - INFO -     val_accuracy   : 0.4205729166666667
+2022-04-16 15:05:05,531 - trainer - INFO -     val_top_k_acc  : 0.5625
+2022-04-16 15:05:05,708 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch82.pth ...
+2022-04-16 15:06:15,216 - trainer - INFO -     epoch          : 83
+2022-04-16 15:06:15,216 - trainer - INFO -     loss           : 3.276190682461387
+2022-04-16 15:06:15,217 - trainer - INFO -     accuracy       : 0.6717471995021337
+2022-04-16 15:06:15,217 - trainer - INFO -     top_k_acc      : 0.6948790896159318
+2022-04-16 15:06:15,217 - trainer - INFO -     val_loss       : 3.361363410949707
+2022-04-16 15:06:15,217 - trainer - INFO -     val_accuracy   : 0.6705729166666666
+2022-04-16 15:06:15,217 - trainer - INFO -     val_top_k_acc  : 0.7278645833333334
+2022-04-16 15:06:15,403 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch83.pth ...
+2022-04-16 15:07:22,879 - trainer - INFO -     epoch          : 84
+2022-04-16 15:07:22,879 - trainer - INFO -     loss           : 3.269163683841103
+2022-04-16 15:07:22,879 - trainer - INFO -     accuracy       : 0.6806932343527738
+2022-04-16 15:07:22,879 - trainer - INFO -     top_k_acc      : 0.6993687766714082
+2022-04-16 15:07:22,879 - trainer - INFO -     val_loss       : 3.5271520614624023
+2022-04-16 15:07:22,879 - trainer - INFO -     val_accuracy   : 0.42578125
+2022-04-16 15:07:22,879 - trainer - INFO -     val_top_k_acc  : 0.4778645833333333
+2022-04-16 15:07:23,067 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch84.pth ...
+2022-04-16 15:08:32,692 - trainer - INFO -     epoch          : 85
+2022-04-16 15:08:32,692 - trainer - INFO -     loss           : 3.274335447110628
+2022-04-16 15:08:32,692 - trainer - INFO -     accuracy       : 0.6749866642958748
+2022-04-16 15:08:32,692 - trainer - INFO -     top_k_acc      : 0.6955125355618776
+2022-04-16 15:08:32,692 - trainer - INFO -     val_loss       : 3.4390648206075034
+2022-04-16 15:08:32,693 - trainer - INFO -     val_accuracy   : 0.5078125
+2022-04-16 15:08:32,693 - trainer - INFO -     val_top_k_acc  : 0.6419270833333334
+2022-04-16 15:08:32,866 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch85.pth ...
+2022-04-16 15:09:41,280 - trainer - INFO -     epoch          : 86
+2022-04-16 15:09:41,280 - trainer - INFO -     loss           : 3.27512190216466
+2022-04-16 15:09:41,280 - trainer - INFO -     accuracy       : 0.6729974217638691
+2022-04-16 15:09:41,280 - trainer - INFO -     top_k_acc      : 0.691022848506401
+2022-04-16 15:09:41,280 - trainer - INFO -     val_loss       : 3.5234666665395102
+2022-04-16 15:09:41,280 - trainer - INFO -     val_accuracy   : 0.4322916666666667
+2022-04-16 15:09:41,280 - trainer - INFO -     val_top_k_acc  : 0.48046875
+2022-04-16 15:09:41,459 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch86.pth ...
+2022-04-16 15:10:49,417 - trainer - INFO -     epoch          : 87
+2022-04-16 15:10:49,418 - trainer - INFO -     loss           : 3.2722900792172083
+2022-04-16 15:10:49,418 - trainer - INFO -     accuracy       : 0.6768703325035562
+2022-04-16 15:10:49,418 - trainer - INFO -     top_k_acc      : 0.6918618865576103
+2022-04-16 15:10:49,418 - trainer - INFO -     val_loss       : 3.3590687115987143
+2022-04-16 15:10:49,418 - trainer - INFO -     val_accuracy   : 0.5924479166666666
+2022-04-16 15:10:49,418 - trainer - INFO -     val_top_k_acc  : 0.6419270833333334
+2022-04-16 15:10:49,599 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch87.pth ...
+2022-04-16 15:11:57,817 - trainer - INFO -     epoch          : 88
+2022-04-16 15:11:57,817 - trainer - INFO -     loss           : 3.2712455297771252
+2022-04-16 15:11:57,817 - trainer - INFO -     accuracy       : 0.6795096906116642
+2022-04-16 15:11:57,817 - trainer - INFO -     top_k_acc      : 0.7002078147226174
+2022-04-16 15:11:57,818 - trainer - INFO -     val_loss       : 3.5264394283294678
+2022-04-16 15:11:57,818 - trainer - INFO -     val_accuracy   : 0.4231770833333333
+2022-04-16 15:11:57,818 - trainer - INFO -     val_top_k_acc  : 0.4791666666666667
+2022-04-16 15:11:57,995 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch88.pth ...
+2022-04-16 15:13:05,443 - trainer - INFO -     epoch          : 89
+2022-04-16 15:13:05,443 - trainer - INFO -     loss           : 3.27561522784986
+2022-04-16 15:13:05,443 - trainer - INFO -     accuracy       : 0.6732363531294453
+2022-04-16 15:13:05,443 - trainer - INFO -     top_k_acc      : 0.694723506401138
+2022-04-16 15:13:05,443 - trainer - INFO -     val_loss       : 3.3723576863606772
+2022-04-16 15:13:05,443 - trainer - INFO -     val_accuracy   : 0.5911458333333334
+2022-04-16 15:13:05,443 - trainer - INFO -     val_top_k_acc  : 0.6432291666666666
+2022-04-16 15:13:05,621 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch89.pth ...
+2022-04-16 15:14:13,250 - trainer - INFO -     epoch          : 90
+2022-04-16 15:14:13,251 - trainer - INFO -     loss           : 3.2661144984395882
+2022-04-16 15:14:13,251 - trainer - INFO -     accuracy       : 0.6823546408250355
+2022-04-16 15:14:13,251 - trainer - INFO -     top_k_acc      : 0.7008079214082503
+2022-04-16 15:14:13,251 - trainer - INFO -     val_loss       : 3.5031886100769043
+2022-04-16 15:14:13,251 - trainer - INFO -     val_accuracy   : 0.4283854166666667
+2022-04-16 15:14:13,251 - trainer - INFO -     val_top_k_acc  : 0.5598958333333334
+2022-04-16 15:14:13,433 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch90.pth ...
+2022-04-16 15:15:21,921 - trainer - INFO -     epoch          : 91
+2022-04-16 15:15:21,922 - trainer - INFO -     loss           : 3.2712168317092094
+2022-04-16 15:15:21,922 - trainer - INFO -     accuracy       : 0.6801598061877667
+2022-04-16 15:15:21,922 - trainer - INFO -     top_k_acc      : 0.6955625444523471
+2022-04-16 15:15:21,922 - trainer - INFO -     val_loss       : 3.4527852535247803
+2022-04-16 15:15:21,922 - trainer - INFO -     val_accuracy   : 0.51171875
+2022-04-16 15:15:21,922 - trainer - INFO -     val_top_k_acc  : 0.5611979166666666
+2022-04-16 15:15:22,103 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch91.pth ...
+2022-04-16 15:16:30,404 - trainer - INFO -     epoch          : 92
+2022-04-16 15:16:30,405 - trainer - INFO -     loss           : 3.2625413819363245
+2022-04-16 15:16:30,405 - trainer - INFO -     accuracy       : 0.6870332503556188
+2022-04-16 15:16:30,405 - trainer - INFO -     top_k_acc      : 0.7010135135135135
+2022-04-16 15:16:30,405 - trainer - INFO -     val_loss       : 3.4326979319254556
+2022-04-16 15:16:30,405 - trainer - INFO -     val_accuracy   : 0.51171875
+2022-04-16 15:16:30,405 - trainer - INFO -     val_top_k_acc  : 0.640625
+2022-04-16 15:16:30,583 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch92.pth ...
+2022-04-16 15:17:40,009 - trainer - INFO -     epoch          : 93
+2022-04-16 15:17:40,010 - trainer - INFO -     loss           : 3.265937140113429
+2022-04-16 15:17:40,010 - trainer - INFO -     accuracy       : 0.6827991642958748
+2022-04-16 15:17:40,010 - trainer - INFO -     top_k_acc      : 0.700430076458037
+2022-04-16 15:17:40,010 - trainer - INFO -     val_loss       : 3.3584559758504233
+2022-04-16 15:17:40,010 - trainer - INFO -     val_accuracy   : 0.59765625
+2022-04-16 15:17:40,010 - trainer - INFO -     val_top_k_acc  : 0.64453125
+2022-04-16 15:17:40,191 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch93.pth ...
+2022-04-16 15:18:48,511 - trainer - INFO -     epoch          : 94
+2022-04-16 15:18:48,512 - trainer - INFO -     loss           : 3.2651159010435404
+2022-04-16 15:18:48,512 - trainer - INFO -     accuracy       : 0.6827824946657184
+2022-04-16 15:18:48,512 - trainer - INFO -     top_k_acc      : 0.6981685633001423
+2022-04-16 15:18:48,512 - trainer - INFO -     val_loss       : 3.2775081793467202
+2022-04-16 15:18:48,512 - trainer - INFO -     val_accuracy   : 0.6783854166666666
+2022-04-16 15:18:48,512 - trainer - INFO -     val_top_k_acc  : 0.7265625
+2022-04-16 15:18:48,685 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch94.pth ...
+2022-04-16 15:18:48,846 - trainer - INFO - Saving current best: model_best.pth ...
+2022-04-16 15:19:58,417 - trainer - INFO -     epoch          : 95
+2022-04-16 15:19:58,417 - trainer - INFO -     loss           : 3.266913991225393
+2022-04-16 15:19:58,418 - trainer - INFO -     accuracy       : 0.6839993776671408
+2022-04-16 15:19:58,418 - trainer - INFO -     top_k_acc      : 0.6981852329302987
+2022-04-16 15:19:58,418 - trainer - INFO -     val_loss       : 3.519164244333903
+2022-04-16 15:19:58,418 - trainer - INFO -     val_accuracy   : 0.43359375
+2022-04-16 15:19:58,418 - trainer - INFO -     val_top_k_acc  : 0.4778645833333333
+2022-04-16 15:19:58,606 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch95.pth ...
+2022-04-16 15:21:07,531 - trainer - INFO -     epoch          : 96
+2022-04-16 15:21:07,531 - trainer - INFO -     loss           : 3.2636451219257556
+2022-04-16 15:21:07,531 - trainer - INFO -     accuracy       : 0.6856274448790897
+2022-04-16 15:21:07,531 - trainer - INFO -     top_k_acc      : 0.7006356685633002
+2022-04-16 15:21:07,531 - trainer - INFO -     val_loss       : 3.45664914449056
+2022-04-16 15:21:07,532 - trainer - INFO -     val_accuracy   : 0.5143229166666666
+2022-04-16 15:21:07,532 - trainer - INFO -     val_top_k_acc  : 0.5598958333333334
+2022-04-16 15:21:07,707 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch96.pth ...
+2022-04-16 15:22:15,094 - trainer - INFO -     epoch          : 97
+2022-04-16 15:22:15,094 - trainer - INFO -     loss           : 3.261063525551244
+2022-04-16 15:22:15,094 - trainer - INFO -     accuracy       : 0.6882834726173542
+2022-04-16 15:22:15,094 - trainer - INFO -     top_k_acc      : 0.7055032005689901
+2022-04-16 15:22:15,095 - trainer - INFO -     val_loss       : 3.5010836124420166
+2022-04-16 15:22:15,095 - trainer - INFO -     val_accuracy   : 0.4296875
+2022-04-16 15:22:15,095 - trainer - INFO -     val_top_k_acc  : 0.5598958333333334
+2022-04-16 15:22:15,273 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch97.pth ...
+2022-04-16 15:23:23,607 - trainer - INFO -     epoch          : 98
+2022-04-16 15:23:23,608 - trainer - INFO -     loss           : 3.273599699923867
+2022-04-16 15:23:23,608 - trainer - INFO -     accuracy       : 0.6752756045519203
+2022-04-16 15:23:23,608 - trainer - INFO -     top_k_acc      : 0.6998466394025605
+2022-04-16 15:23:23,608 - trainer - INFO -     val_loss       : 3.437985897064209
+2022-04-16 15:23:23,608 - trainer - INFO -     val_accuracy   : 0.5143229166666666
+2022-04-16 15:23:23,608 - trainer - INFO -     val_top_k_acc  : 0.5625
+2022-04-16 15:23:23,801 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch98.pth ...
+2022-04-16 15:24:31,047 - trainer - INFO -     epoch          : 99
+2022-04-16 15:24:31,048 - trainer - INFO -     loss           : 3.262511040035047
+2022-04-16 15:24:31,048 - trainer - INFO -     accuracy       : 0.686038629089616
+2022-04-16 15:24:31,048 - trainer - INFO -     top_k_acc      : 0.703069434566145
+2022-04-16 15:24:31,048 - trainer - INFO -     val_loss       : 3.3597660859425864
+2022-04-16 15:24:31,048 - trainer - INFO -     val_accuracy   : 0.59375
+2022-04-16 15:24:31,048 - trainer - INFO -     val_top_k_acc  : 0.640625
+2022-04-16 15:24:31,219 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch99.pth ...
+2022-04-16 15:25:39,430 - trainer - INFO -     epoch          : 100
+2022-04-16 15:25:39,430 - trainer - INFO -     loss           : 3.2604976076828804
+2022-04-16 15:25:39,431 - trainer - INFO -     accuracy       : 0.6898782005689901
+2022-04-16 15:25:39,431 - trainer - INFO -     top_k_acc      : 0.7069423453058321
+2022-04-16 15:25:39,431 - trainer - INFO -     val_loss       : 3.5138686498006186
+2022-04-16 15:25:39,431 - trainer - INFO -     val_accuracy   : 0.4270833333333333
+2022-04-16 15:25:39,431 - trainer - INFO -     val_top_k_acc  : 0.5559895833333334
+2022-04-16 15:25:39,605 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch100.pth ...
+2022-04-16 15:26:46,886 - trainer - INFO -     epoch          : 101
+2022-04-16 15:26:46,887 - trainer - INFO -     loss           : 3.258663441005506
+2022-04-16 15:26:46,887 - trainer - INFO -     accuracy       : 0.6907339082503556
+2022-04-16 15:26:46,887 - trainer - INFO -     top_k_acc      : 0.7065311610953058
+2022-04-16 15:26:46,887 - trainer - INFO -     val_loss       : 3.4025192260742188
+2022-04-16 15:26:46,887 - trainer - INFO -     val_accuracy   : 0.5950520833333334
+2022-04-16 15:26:46,887 - trainer - INFO -     val_top_k_acc  : 0.6419270833333334
+2022-04-16 15:26:47,068 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch101.pth ...
+2022-04-16 15:27:54,910 - trainer - INFO -     epoch          : 102
+2022-04-16 15:27:54,911 - trainer - INFO -     loss           : 3.266232553281282
+2022-04-16 15:27:54,911 - trainer - INFO -     accuracy       : 0.6811710970839261
+2022-04-16 15:27:54,911 - trainer - INFO -     top_k_acc      : 0.7037028805120911
+2022-04-16 15:27:54,911 - trainer - INFO -     val_loss       : 3.3898653189341226
+2022-04-16 15:27:54,911 - trainer - INFO -     val_accuracy   : 0.5963541666666666
+2022-04-16 15:27:54,912 - trainer - INFO -     val_top_k_acc  : 0.640625
+2022-04-16 15:27:55,090 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch102.pth ...
+2022-04-16 15:29:04,669 - trainer - INFO -     epoch          : 103
+2022-04-16 15:29:04,669 - trainer - INFO -     loss           : 3.267434785240575
+2022-04-16 15:29:04,669 - trainer - INFO -     accuracy       : 0.6832270181365576
+2022-04-16 15:29:04,669 - trainer - INFO -     top_k_acc      : 0.6976184655049786
+2022-04-16 15:29:04,670 - trainer - INFO -     val_loss       : 3.438631057739258
+2022-04-16 15:29:04,670 - trainer - INFO -     val_accuracy   : 0.5130208333333334
+2022-04-16 15:29:04,670 - trainer - INFO -     val_top_k_acc  : 0.5598958333333334
+2022-04-16 15:29:04,842 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch103.pth ...
+2022-04-16 15:30:12,304 - trainer - INFO -     epoch          : 104
+2022-04-16 15:30:12,305 - trainer - INFO -     loss           : 3.2659762784054407
+2022-04-16 15:30:12,305 - trainer - INFO -     accuracy       : 0.6827991642958748
+2022-04-16 15:30:12,305 - trainer - INFO -     top_k_acc      : 0.7030861041963016
+2022-04-16 15:30:12,305 - trainer - INFO -     val_loss       : 3.5164499282836914
+2022-04-16 15:30:12,306 - trainer - INFO -     val_accuracy   : 0.4322916666666667
+2022-04-16 15:30:12,306 - trainer - INFO -     val_top_k_acc  : 0.5625
+2022-04-16 15:30:12,490 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch104.pth ...
+2022-04-16 15:31:22,100 - trainer - INFO -     epoch          : 105
+2022-04-16 15:31:22,100 - trainer - INFO -     loss           : 3.2661936910528886
+2022-04-16 15:31:22,100 - trainer - INFO -     accuracy       : 0.6821990576102418
+2022-04-16 15:31:22,100 - trainer - INFO -     top_k_acc      : 0.6988186788762447
+2022-04-16 15:31:22,100 - trainer - INFO -     val_loss       : 3.3852911790211997
+2022-04-16 15:31:22,101 - trainer - INFO -     val_accuracy   : 0.59375
+2022-04-16 15:31:22,101 - trainer - INFO -     val_top_k_acc  : 0.6419270833333334
+2022-04-16 15:31:22,273 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch105.pth ...
+2022-04-16 15:32:29,814 - trainer - INFO -     epoch          : 106
+2022-04-16 15:32:29,814 - trainer - INFO -     loss           : 3.255211453688772
+2022-04-16 15:32:29,814 - trainer - INFO -     accuracy       : 0.6923619754623044
+2022-04-16 15:32:29,814 - trainer - INFO -     top_k_acc      : 0.7079869754623044
+2022-04-16 15:32:29,814 - trainer - INFO -     val_loss       : 3.2826310793558755
+2022-04-16 15:32:29,814 - trainer - INFO -     val_accuracy   : 0.67578125
+2022-04-16 15:32:29,814 - trainer - INFO -     val_top_k_acc  : 0.7252604166666666
+2022-04-16 15:32:29,993 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch106.pth ...
+2022-04-16 15:33:37,648 - trainer - INFO -     epoch          : 107
+2022-04-16 15:33:37,649 - trainer - INFO -     loss           : 3.2659905333268013
+2022-04-16 15:33:37,649 - trainer - INFO -     accuracy       : 0.6828325035561879
+2022-04-16 15:33:37,649 - trainer - INFO -     top_k_acc      : 0.7008745999288762
+2022-04-16 15:33:37,649 - trainer - INFO -     val_loss       : 3.4408442974090576
+2022-04-16 15:33:37,649 - trainer - INFO -     val_accuracy   : 0.5104166666666666
+2022-04-16 15:33:37,650 - trainer - INFO -     val_top_k_acc  : 0.5598958333333334
+2022-04-16 15:33:37,830 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch107.pth ...
+2022-04-16 15:34:46,799 - trainer - INFO -     epoch          : 108
+2022-04-16 15:34:46,799 - trainer - INFO -     loss           : 3.25969281949495
+2022-04-16 15:34:46,800 - trainer - INFO -     accuracy       : 0.6903393936699858
+2022-04-16 15:34:46,800 - trainer - INFO -     top_k_acc      : 0.7047308410384069
+2022-04-16 15:34:46,800 - trainer - INFO -     val_loss       : 3.357633113861084
+2022-04-16 15:34:46,800 - trainer - INFO -     val_accuracy   : 0.58984375
+2022-04-16 15:34:46,800 - trainer - INFO -     val_top_k_acc  : 0.6419270833333334
+2022-04-16 15:34:46,972 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch108.pth ...
+2022-04-16 15:35:55,585 - trainer - INFO -     epoch          : 109
+2022-04-16 15:35:55,585 - trainer - INFO -     loss           : 3.2624326128708687
+2022-04-16 15:35:55,586 - trainer - INFO -     accuracy       : 0.6883168118776671
+2022-04-16 15:35:55,586 - trainer - INFO -     top_k_acc      : 0.7035139580369844
+2022-04-16 15:35:55,586 - trainer - INFO -     val_loss       : 3.3571311632792153
+2022-04-16 15:35:55,586 - trainer - INFO -     val_accuracy   : 0.59765625
+2022-04-16 15:35:55,586 - trainer - INFO -     val_top_k_acc  : 0.6432291666666666
+2022-04-16 15:35:55,774 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch109.pth ...
+2022-04-16 15:37:05,635 - trainer - INFO -     epoch          : 110
+2022-04-16 15:37:05,636 - trainer - INFO -     loss           : 3.2693597015581632
+2022-04-16 15:37:05,636 - trainer - INFO -     accuracy       : 0.6824213193456615
+2022-04-16 15:37:05,636 - trainer - INFO -     top_k_acc      : 0.6998633090327169
+2022-04-16 15:37:05,636 - trainer - INFO -     val_loss       : 3.358309268951416
+2022-04-16 15:37:05,636 - trainer - INFO -     val_accuracy   : 0.5963541666666666
+2022-04-16 15:37:05,636 - trainer - INFO -     val_top_k_acc  : 0.6458333333333334
+2022-04-16 15:37:05,815 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch110.pth ...
+2022-04-16 15:38:17,776 - trainer - INFO -     epoch          : 111
+2022-04-16 15:38:17,777 - trainer - INFO -     loss           : 3.2653767686141166
+2022-04-16 15:38:17,777 - trainer - INFO -     accuracy       : 0.6873221906116642
+2022-04-16 15:38:17,777 - trainer - INFO -     top_k_acc      : 0.7055532094594594
+2022-04-16 15:38:17,777 - trainer - INFO -     val_loss       : 3.2815773487091064
+2022-04-16 15:38:17,777 - trainer - INFO -     val_accuracy   : 0.6796875
+2022-04-16 15:38:17,777 - trainer - INFO -     val_top_k_acc  : 0.7239583333333334
+2022-04-16 15:38:17,958 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch111.pth ...
+2022-04-16 15:39:26,004 - trainer - INFO -     epoch          : 112
+2022-04-16 15:39:26,005 - trainer - INFO -     loss           : 3.2617525301481547
+2022-04-16 15:39:26,005 - trainer - INFO -     accuracy       : 0.6879222972972974
+2022-04-16 15:39:26,005 - trainer - INFO -     top_k_acc      : 0.7067700924608818
+2022-04-16 15:39:26,005 - trainer - INFO -     val_loss       : 3.369724909464518
+2022-04-16 15:39:26,005 - trainer - INFO -     val_accuracy   : 0.5911458333333334
+2022-04-16 15:39:26,005 - trainer - INFO -     val_top_k_acc  : 0.6432291666666666
+2022-04-16 15:39:26,183 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch112.pth ...
+2022-04-16 15:40:34,367 - trainer - INFO -     epoch          : 113
+2022-04-16 15:40:34,368 - trainer - INFO -     loss           : 3.2632775934118974
+2022-04-16 15:40:34,368 - trainer - INFO -     accuracy       : 0.6860719683499289
+2022-04-16 15:40:34,368 - trainer - INFO -     top_k_acc      : 0.699829969772404
+2022-04-16 15:40:34,368 - trainer - INFO -     val_loss       : 3.491832971572876
+2022-04-16 15:40:34,368 - trainer - INFO -     val_accuracy   : 0.4296875
+2022-04-16 15:40:34,368 - trainer - INFO -     val_top_k_acc  : 0.5611979166666666
+2022-04-16 15:40:34,546 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch113.pth ...
+2022-04-16 15:41:42,168 - trainer - INFO -     epoch          : 114
+2022-04-16 15:41:42,169 - trainer - INFO -     loss           : 3.265474695908396
+2022-04-16 15:41:42,169 - trainer - INFO -     accuracy       : 0.682404649715505
+2022-04-16 15:41:42,169 - trainer - INFO -     top_k_acc      : 0.698629756401138
+2022-04-16 15:41:42,169 - trainer - INFO -     val_loss       : 3.518994410832723
+2022-04-16 15:41:42,169 - trainer - INFO -     val_accuracy   : 0.4309895833333333
+2022-04-16 15:41:42,169 - trainer - INFO -     val_top_k_acc  : 0.4778645833333333
+2022-04-16 15:41:42,349 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch114.pth ...
+2022-04-16 15:42:51,140 - trainer - INFO -     epoch          : 115
+2022-04-16 15:42:51,141 - trainer - INFO -     loss           : 3.2635063246676794
+2022-04-16 15:42:51,141 - trainer - INFO -     accuracy       : 0.6889335881934566
+2022-04-16 15:42:51,141 - trainer - INFO -     top_k_acc      : 0.7059643936699858
+2022-04-16 15:42:51,141 - trainer - INFO -     val_loss       : 3.436774253845215
+2022-04-16 15:42:51,141 - trainer - INFO -     val_accuracy   : 0.5169270833333334
+2022-04-16 15:42:51,141 - trainer - INFO -     val_top_k_acc  : 0.6419270833333334
+2022-04-16 15:42:51,318 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch115.pth ...
+2022-04-16 15:44:00,571 - trainer - INFO -     epoch          : 116
+2022-04-16 15:44:00,572 - trainer - INFO -     loss           : 3.2668685411152087
+2022-04-16 15:44:00,572 - trainer - INFO -     accuracy       : 0.6814100284495022
+2022-04-16 15:44:00,572 - trainer - INFO -     top_k_acc      : 0.6972239509246089
+2022-04-16 15:44:00,572 - trainer - INFO -     val_loss       : 3.5473771890004477
+2022-04-16 15:44:00,572 - trainer - INFO -     val_accuracy   : 0.4283854166666667
+2022-04-16 15:44:00,572 - trainer - INFO -     val_top_k_acc  : 0.4778645833333333
+2022-04-16 15:44:00,756 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch116.pth ...
+2022-04-16 15:45:08,518 - trainer - INFO -     epoch          : 117
+2022-04-16 15:45:08,518 - trainer - INFO -     loss           : 3.263001567439029
+2022-04-16 15:45:08,519 - trainer - INFO -     accuracy       : 0.6856941233997155
+2022-04-16 15:45:08,519 - trainer - INFO -     top_k_acc      : 0.698835348506401
+2022-04-16 15:45:08,519 - trainer - INFO -     val_loss       : 3.41264279683431
+2022-04-16 15:45:08,519 - trainer - INFO -     val_accuracy   : 0.5130208333333334
+2022-04-16 15:45:08,519 - trainer - INFO -     val_top_k_acc  : 0.6419270833333334
+2022-04-16 15:45:08,696 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch117.pth ...
+2022-04-16 15:46:20,785 - trainer - INFO -     epoch          : 118
+2022-04-16 15:46:20,786 - trainer - INFO -     loss           : 3.254493286735133
+2022-04-16 15:46:20,786 - trainer - INFO -     accuracy       : 0.6950346728307255
+2022-04-16 15:46:20,786 - trainer - INFO -     top_k_acc      : 0.7077813833570413
+2022-04-16 15:46:20,786 - trainer - INFO -     val_loss       : 3.2821311950683594
+2022-04-16 15:46:20,786 - trainer - INFO -     val_accuracy   : 0.6783854166666666
+2022-04-16 15:46:20,786 - trainer - INFO -     val_top_k_acc  : 0.7213541666666666
+2022-04-16 15:46:20,957 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch118.pth ...
+2022-04-16 15:47:29,625 - trainer - INFO -     epoch          : 119
+2022-04-16 15:47:29,625 - trainer - INFO -     loss           : 3.2619654002942537
+2022-04-16 15:47:29,625 - trainer - INFO -     accuracy       : 0.6870999288762447
+2022-04-16 15:47:29,626 - trainer - INFO -     top_k_acc      : 0.7014747066145093
+2022-04-16 15:47:29,626 - trainer - INFO -     val_loss       : 3.3550943533579507
+2022-04-16 15:47:29,626 - trainer - INFO -     val_accuracy   : 0.59765625
+2022-04-16 15:47:29,626 - trainer - INFO -     val_top_k_acc  : 0.640625
+2022-04-16 15:47:29,811 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch119.pth ...
+2022-04-16 15:48:36,191 - trainer - INFO -     epoch          : 120
+2022-04-16 15:48:36,191 - trainer - INFO -     loss           : 3.260903471394589
+2022-04-16 15:48:36,191 - trainer - INFO -     accuracy       : 0.6907505778805121
+2022-04-16 15:48:36,192 - trainer - INFO -     top_k_acc      : 0.7053142780938834
+2022-04-16 15:48:36,192 - trainer - INFO -     val_loss       : 3.344818353652954
+2022-04-16 15:48:36,192 - trainer - INFO -     val_accuracy   : 0.5989583333333334
+2022-04-16 15:48:36,192 - trainer - INFO -     val_top_k_acc  : 0.7252604166666666
+2022-04-16 15:48:36,363 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch120.pth ...
+2022-04-16 15:49:44,361 - trainer - INFO -     epoch          : 121
+2022-04-16 15:49:44,361 - trainer - INFO -     loss           : 3.2636796549746863
+2022-04-16 15:49:44,361 - trainer - INFO -     accuracy       : 0.686911006401138
+2022-04-16 15:49:44,361 - trainer - INFO -     top_k_acc      : 0.7047475106685633
+2022-04-16 15:49:44,362 - trainer - INFO -     val_loss       : 3.461912473042806
+2022-04-16 15:49:44,362 - trainer - INFO -     val_accuracy   : 0.5143229166666666
+2022-04-16 15:49:44,362 - trainer - INFO -     val_top_k_acc  : 0.5611979166666666
+2022-04-16 15:49:44,540 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch121.pth ...
+2022-04-16 15:50:52,532 - trainer - INFO -     epoch          : 122
+2022-04-16 15:50:52,532 - trainer - INFO -     loss           : 3.2644676911203483
+2022-04-16 15:50:52,533 - trainer - INFO -     accuracy       : 0.6838437944523471
+2022-04-16 15:50:52,533 - trainer - INFO -     top_k_acc      : 0.7027249288762447
+2022-04-16 15:50:52,533 - trainer - INFO -     val_loss       : 3.436845064163208
+2022-04-16 15:50:52,533 - trainer - INFO -     val_accuracy   : 0.515625
+2022-04-16 15:50:52,533 - trainer - INFO -     val_top_k_acc  : 0.5598958333333334
+2022-04-16 15:50:52,711 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch122.pth ...
+2022-04-16 15:52:00,678 - trainer - INFO -     epoch          : 123
+2022-04-16 15:52:00,679 - trainer - INFO -     loss           : 3.2600175832447253
+2022-04-16 15:52:00,679 - trainer - INFO -     accuracy       : 0.6901504711948792
+2022-04-16 15:52:00,679 - trainer - INFO -     top_k_acc      : 0.7045252489331437
+2022-04-16 15:52:00,679 - trainer - INFO -     val_loss       : 3.3780976136525473
+2022-04-16 15:52:00,679 - trainer - INFO -     val_accuracy   : 0.59765625
+2022-04-16 15:52:00,679 - trainer - INFO -     val_top_k_acc  : 0.64453125
+2022-04-16 15:52:00,857 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch123.pth ...
+2022-04-16 15:53:09,522 - trainer - INFO -     epoch          : 124
+2022-04-16 15:53:09,522 - trainer - INFO -     loss           : 3.263000023992438
+2022-04-16 15:53:09,523 - trainer - INFO -     accuracy       : 0.6883168118776671
+2022-04-16 15:53:09,523 - trainer - INFO -     top_k_acc      : 0.7089982663584637
+2022-04-16 15:53:09,523 - trainer - INFO -     val_loss       : 3.3619867165883384
+2022-04-16 15:53:09,523 - trainer - INFO -     val_accuracy   : 0.5963541666666666
+2022-04-16 15:53:09,523 - trainer - INFO -     val_top_k_acc  : 0.6458333333333334
+2022-04-16 15:53:09,706 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_132728/checkpoint-epoch124.pth ...
+2022-04-16 15:54:16,724 - trainer - INFO -     epoch          : 125
+2022-04-16 15:54:16,724 - trainer - INFO -     loss           : 3.2622193286293433
+2022-04-16 15:54:16,724 - trainer - INFO -     accuracy       : 0.6889502578236131
+2022-04-16 15:54:16,724 - trainer - INFO -     top_k_acc      : 0.7031194434566145
+2022-04-16 15:54:16,725 - trainer - INFO -     val_loss       : 3.4014009634653726
+2022-04-16 15:54:16,725 - trainer - INFO -     val_accuracy   : 0.5963541666666666
+2022-04-16 15:54:16,725 - trainer - INFO -     val_top_k_acc  : 0.6458333333333334
+2022-04-16 15:54:16,725 - trainer - INFO - Validation performance didn't improve for 30 epochs. Training stops.
+2022-04-16 16:05:54,568 - test - INFO - kernel_extract_network(
+  (encoder): kernel_generator(
+    (basic_block): Sequential()
+    (chain0): chain_process(
+      (seq): Sequential(
+        (0): Sequential(
+          (0): Sequential(
+            (0): Bottleneck(
+              (conv1): Conv2d(3, 3, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn1): BatchNorm2d(3, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (conv2): Conv2d(3, 3, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+              (bn2): BatchNorm2d(3, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (conv3): Conv2d(3, 9, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn3): BatchNorm2d(9, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (relu): ReLU(inplace=True)
+              (downsample): Sequential(
+                (0): Conv2d(3, 9, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (1): BatchNorm2d(9, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              )
+            )
+            (1): convBlock(
+              (conv): Conv2d(9, 9, kernel_size=(3, 3), stride=(3, 3), bias=False)
+              (bn): BatchNorm2d(9, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (relu): ReLU()
+              (dropout): Dropout2d(p=0.1, inplace=False)
+            )
+          )
+          (1): Sequential(
+            (0): Bottleneck(
+              (conv1): Conv2d(9, 9, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn1): BatchNorm2d(9, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (conv2): Conv2d(9, 9, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+              (bn2): BatchNorm2d(9, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (conv3): Conv2d(9, 27, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn3): BatchNorm2d(27, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (relu): ReLU(inplace=True)
+              (downsample): Sequential(
+                (0): Conv2d(9, 27, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (1): BatchNorm2d(27, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              )
+            )
+            (1): convBlock(
+              (conv): Conv2d(27, 27, kernel_size=(3, 3), stride=(3, 3), bias=False)
+              (bn): BatchNorm2d(27, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (relu): ReLU()
+              (dropout): Dropout2d(p=0.1, inplace=False)
+            )
+          )
+          (2): Sequential(
+            (0): Bottleneck(
+              (conv1): Conv2d(27, 27, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn1): BatchNorm2d(27, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (conv2): Conv2d(27, 27, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+              (bn2): BatchNorm2d(27, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (conv3): Conv2d(27, 81, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn3): BatchNorm2d(81, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (relu): ReLU(inplace=True)
+              (downsample): Sequential(
+                (0): Conv2d(27, 81, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (1): BatchNorm2d(81, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              )
+            )
+            (1): convBlock(
+              (conv): Conv2d(81, 81, kernel_size=(3, 3), stride=(3, 3), bias=False)
+              (bn): BatchNorm2d(81, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (relu): ReLU()
+              (dropout): Dropout2d(p=0.1, inplace=False)
+            )
+          )
+          (3): Sequential(
+            (0): Bottleneck(
+              (conv1): Conv2d(81, 81, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn1): BatchNorm2d(81, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (conv2): Conv2d(81, 81, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+              (bn2): BatchNorm2d(81, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (conv3): Conv2d(81, 243, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn3): BatchNorm2d(243, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (relu): ReLU(inplace=True)
+              (downsample): Sequential(
+                (0): Conv2d(81, 243, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (1): BatchNorm2d(243, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              )
+            )
+            (1): convBlock(
+              (conv): Conv2d(243, 243, kernel_size=(3, 3), stride=(3, 3), bias=False)
+              (bn): BatchNorm2d(243, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (relu): ReLU()
+              (dropout): Dropout2d(p=0.1, inplace=False)
+            )
+          )
+        )
+      )
+    )
+    (chain1): chain_process(
+      (seq): Sequential(
+        (0): downSample(
+          (downsample): MaxPool2d(kernel_size=3, stride=3, padding=1, dilation=1, ceil_mode=False)
+        )
+        (1): Sequential(
+          (0): Sequential(
+            (0): Bottleneck(
+              (conv1): Conv2d(3, 3, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn1): BatchNorm2d(3, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (conv2): Conv2d(3, 3, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+              (bn2): BatchNorm2d(3, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (conv3): Conv2d(3, 9, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn3): BatchNorm2d(9, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (relu): ReLU(inplace=True)
+              (downsample): Sequential(
+                (0): Conv2d(3, 9, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (1): BatchNorm2d(9, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              )
+            )
+            (1): convBlock(
+              (conv): Conv2d(9, 9, kernel_size=(3, 3), stride=(3, 3), bias=False)
+              (bn): BatchNorm2d(9, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (relu): ReLU()
+              (dropout): Dropout2d(p=0.1, inplace=False)
+            )
+          )
+          (1): Sequential(
+            (0): Bottleneck(
+              (conv1): Conv2d(9, 9, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn1): BatchNorm2d(9, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (conv2): Conv2d(9, 9, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+              (bn2): BatchNorm2d(9, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (conv3): Conv2d(9, 27, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn3): BatchNorm2d(27, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (relu): ReLU(inplace=True)
+              (downsample): Sequential(
+                (0): Conv2d(9, 27, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (1): BatchNorm2d(27, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              )
+            )
+            (1): convBlock(
+              (conv): Conv2d(27, 27, kernel_size=(3, 3), stride=(3, 3), bias=False)
+              (bn): BatchNorm2d(27, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (relu): ReLU()
+              (dropout): Dropout2d(p=0.1, inplace=False)
+            )
+          )
+          (2): Sequential(
+            (0): Bottleneck(
+              (conv1): Conv2d(27, 27, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn1): BatchNorm2d(27, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (conv2): Conv2d(27, 27, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+              (bn2): BatchNorm2d(27, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (conv3): Conv2d(27, 81, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn3): BatchNorm2d(81, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (relu): ReLU(inplace=True)
+              (downsample): Sequential(
+                (0): Conv2d(27, 81, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (1): BatchNorm2d(81, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              )
+            )
+            (1): convBlock(
+              (conv): Conv2d(81, 81, kernel_size=(3, 3), stride=(3, 3), bias=False)
+              (bn): BatchNorm2d(81, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (relu): ReLU()
+              (dropout): Dropout2d(p=0.1, inplace=False)
+            )
+          )
+        )
+      )
+    )
+    (chain2): chain_process(
+      (seq): Sequential(
+        (0): downSample(
+          (downsample): MaxPool2d(kernel_size=3, stride=3, padding=1, dilation=1, ceil_mode=False)
+        )
+        (1): downSample(
+          (downsample): MaxPool2d(kernel_size=3, stride=3, padding=1, dilation=1, ceil_mode=False)
+        )
+        (2): Sequential(
+          (0): Sequential(
+            (0): Bottleneck(
+              (conv1): Conv2d(3, 3, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn1): BatchNorm2d(3, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (conv2): Conv2d(3, 3, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+              (bn2): BatchNorm2d(3, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (conv3): Conv2d(3, 9, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn3): BatchNorm2d(9, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (relu): ReLU(inplace=True)
+              (downsample): Sequential(
+                (0): Conv2d(3, 9, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (1): BatchNorm2d(9, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              )
+            )
+            (1): convBlock(
+              (conv): Conv2d(9, 9, kernel_size=(3, 3), stride=(3, 3), bias=False)
+              (bn): BatchNorm2d(9, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (relu): ReLU()
+              (dropout): Dropout2d(p=0.1, inplace=False)
+            )
+          )
+          (1): Sequential(
+            (0): Bottleneck(
+              (conv1): Conv2d(9, 9, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn1): BatchNorm2d(9, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (conv2): Conv2d(9, 9, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+              (bn2): BatchNorm2d(9, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (conv3): Conv2d(9, 27, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn3): BatchNorm2d(27, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (relu): ReLU(inplace=True)
+              (downsample): Sequential(
+                (0): Conv2d(9, 27, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (1): BatchNorm2d(27, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              )
+            )
+            (1): convBlock(
+              (conv): Conv2d(27, 27, kernel_size=(3, 3), stride=(3, 3), bias=False)
+              (bn): BatchNorm2d(27, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (relu): ReLU()
+              (dropout): Dropout2d(p=0.1, inplace=False)
+            )
+          )
+        )
+      )
+    )
+    (chain3): chain_process(
+      (seq): Sequential(
+        (0): downSample(
+          (downsample): MaxPool2d(kernel_size=3, stride=3, padding=1, dilation=1, ceil_mode=False)
+        )
+        (1): downSample(
+          (downsample): MaxPool2d(kernel_size=3, stride=3, padding=1, dilation=1, ceil_mode=False)
+        )
+        (2): downSample(
+          (downsample): MaxPool2d(kernel_size=3, stride=3, padding=1, dilation=1, ceil_mode=False)
+        )
+        (3): Sequential(
+          (0): Sequential(
+            (0): Bottleneck(
+              (conv1): Conv2d(3, 3, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn1): BatchNorm2d(3, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (conv2): Conv2d(3, 3, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+              (bn2): BatchNorm2d(3, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (conv3): Conv2d(3, 9, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn3): BatchNorm2d(9, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (relu): ReLU(inplace=True)
+              (downsample): Sequential(
+                (0): Conv2d(3, 9, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (1): BatchNorm2d(9, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              )
+            )
+            (1): convBlock(
+              (conv): Conv2d(9, 9, kernel_size=(3, 3), stride=(3, 3), bias=False)
+              (bn): BatchNorm2d(9, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (relu): ReLU()
+              (dropout): Dropout2d(p=0.1, inplace=False)
+            )
+          )
+        )
+      )
+    )
+    (chain4): chain_process(
+      (seq): Sequential(
+        (0): downSample(
+          (downsample): MaxPool2d(kernel_size=3, stride=3, padding=1, dilation=1, ceil_mode=False)
+        )
+        (1): downSample(
+          (downsample): MaxPool2d(kernel_size=3, stride=3, padding=1, dilation=1, ceil_mode=False)
+        )
+        (2): downSample(
+          (downsample): MaxPool2d(kernel_size=3, stride=3, padding=1, dilation=1, ceil_mode=False)
+        )
+        (3): downSample(
+          (downsample): MaxPool2d(kernel_size=3, stride=3, padding=1, dilation=1, ceil_mode=False)
+        )
+        (4): Sequential()
+      )
+    )
+    (oneSizeConv): oneSizeConv(
+      (CBR): convBlock(
+        (conv): Conv2d(363, 127, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(127, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU()
+        (dropout): Dropout2d(p=0.1, inplace=False)
+      )
+    )
+  )
+  (decoder): classify_decoder(
+    (CBR): convBlock(
+      (conv): Conv2d(127, 127, kernel_size=(3, 3), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(127, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU()
+      (dropout): Dropout2d(p=0.1, inplace=False)
+    )
+    (MLP): MLP(
+      (inp): Linear(in_features=127, out_features=64, bias=True)
+      (bn1): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu1): LeakyReLU(negative_slope=0.01)
+      (hidden): Linear(in_features=64, out_features=50, bias=True)
+      (bn2): BatchNorm1d(50, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu2): LeakyReLU(negative_slope=0.01)
+      (sftmax): Softmax(dim=1)
+    )
+  )
+)
+2022-04-16 16:05:54,572 - test - INFO - Loading checkpoint: saved/models/kernel_generator/0416_132728/model_best.pth ...
+2022-04-16 16:07:49,504 - test - INFO - {'loss': 3.270418739762331, 'accuracy': 0.6764192985855454, 'top_k_acc': 0.690176322418136}

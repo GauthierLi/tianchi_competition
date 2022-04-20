@@ -1,0 +1,908 @@
+2022-04-16 16:11:02,621 - train - INFO - kernel_extract_network(
+  (encoder): kernel_generator(
+    (basic_block): Sequential()
+    (chain0): chain_process(
+      (seq): Sequential(
+        (0): Sequential(
+          (0): Sequential(
+            (0): Bottleneck(
+              (conv1): Conv2d(3, 3, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn1): BatchNorm2d(3, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (conv2): Conv2d(3, 3, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+              (bn2): BatchNorm2d(3, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (conv3): Conv2d(3, 9, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn3): BatchNorm2d(9, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (relu): ReLU(inplace=True)
+              (downsample): Sequential(
+                (0): Conv2d(3, 9, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (1): BatchNorm2d(9, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              )
+            )
+            (1): convBlock(
+              (conv): Conv2d(9, 9, kernel_size=(3, 3), stride=(3, 3), bias=False)
+              (bn): BatchNorm2d(9, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (relu): ReLU()
+              (dropout): Dropout2d(p=0.1, inplace=False)
+            )
+          )
+          (1): Sequential(
+            (0): Bottleneck(
+              (conv1): Conv2d(9, 9, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn1): BatchNorm2d(9, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (conv2): Conv2d(9, 9, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+              (bn2): BatchNorm2d(9, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (conv3): Conv2d(9, 27, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn3): BatchNorm2d(27, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (relu): ReLU(inplace=True)
+              (downsample): Sequential(
+                (0): Conv2d(9, 27, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (1): BatchNorm2d(27, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              )
+            )
+            (1): convBlock(
+              (conv): Conv2d(27, 27, kernel_size=(3, 3), stride=(3, 3), bias=False)
+              (bn): BatchNorm2d(27, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (relu): ReLU()
+              (dropout): Dropout2d(p=0.1, inplace=False)
+            )
+          )
+          (2): Sequential(
+            (0): Bottleneck(
+              (conv1): Conv2d(27, 27, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn1): BatchNorm2d(27, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (conv2): Conv2d(27, 27, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+              (bn2): BatchNorm2d(27, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (conv3): Conv2d(27, 81, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn3): BatchNorm2d(81, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (relu): ReLU(inplace=True)
+              (downsample): Sequential(
+                (0): Conv2d(27, 81, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (1): BatchNorm2d(81, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              )
+            )
+            (1): convBlock(
+              (conv): Conv2d(81, 81, kernel_size=(3, 3), stride=(3, 3), bias=False)
+              (bn): BatchNorm2d(81, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (relu): ReLU()
+              (dropout): Dropout2d(p=0.1, inplace=False)
+            )
+          )
+          (3): Sequential(
+            (0): Bottleneck(
+              (conv1): Conv2d(81, 81, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn1): BatchNorm2d(81, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (conv2): Conv2d(81, 81, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+              (bn2): BatchNorm2d(81, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (conv3): Conv2d(81, 243, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn3): BatchNorm2d(243, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (relu): ReLU(inplace=True)
+              (downsample): Sequential(
+                (0): Conv2d(81, 243, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (1): BatchNorm2d(243, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              )
+            )
+            (1): convBlock(
+              (conv): Conv2d(243, 243, kernel_size=(3, 3), stride=(3, 3), bias=False)
+              (bn): BatchNorm2d(243, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (relu): ReLU()
+              (dropout): Dropout2d(p=0.1, inplace=False)
+            )
+          )
+        )
+      )
+    )
+    (chain1): chain_process(
+      (seq): Sequential(
+        (0): downSample(
+          (downsample): MaxPool2d(kernel_size=3, stride=3, padding=1, dilation=1, ceil_mode=False)
+        )
+        (1): Sequential(
+          (0): Sequential(
+            (0): Bottleneck(
+              (conv1): Conv2d(3, 3, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn1): BatchNorm2d(3, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (conv2): Conv2d(3, 3, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+              (bn2): BatchNorm2d(3, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (conv3): Conv2d(3, 9, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn3): BatchNorm2d(9, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (relu): ReLU(inplace=True)
+              (downsample): Sequential(
+                (0): Conv2d(3, 9, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (1): BatchNorm2d(9, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              )
+            )
+            (1): convBlock(
+              (conv): Conv2d(9, 9, kernel_size=(3, 3), stride=(3, 3), bias=False)
+              (bn): BatchNorm2d(9, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (relu): ReLU()
+              (dropout): Dropout2d(p=0.1, inplace=False)
+            )
+          )
+          (1): Sequential(
+            (0): Bottleneck(
+              (conv1): Conv2d(9, 9, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn1): BatchNorm2d(9, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (conv2): Conv2d(9, 9, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+              (bn2): BatchNorm2d(9, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (conv3): Conv2d(9, 27, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn3): BatchNorm2d(27, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (relu): ReLU(inplace=True)
+              (downsample): Sequential(
+                (0): Conv2d(9, 27, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (1): BatchNorm2d(27, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              )
+            )
+            (1): convBlock(
+              (conv): Conv2d(27, 27, kernel_size=(3, 3), stride=(3, 3), bias=False)
+              (bn): BatchNorm2d(27, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (relu): ReLU()
+              (dropout): Dropout2d(p=0.1, inplace=False)
+            )
+          )
+          (2): Sequential(
+            (0): Bottleneck(
+              (conv1): Conv2d(27, 27, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn1): BatchNorm2d(27, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (conv2): Conv2d(27, 27, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+              (bn2): BatchNorm2d(27, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (conv3): Conv2d(27, 81, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn3): BatchNorm2d(81, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (relu): ReLU(inplace=True)
+              (downsample): Sequential(
+                (0): Conv2d(27, 81, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (1): BatchNorm2d(81, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              )
+            )
+            (1): convBlock(
+              (conv): Conv2d(81, 81, kernel_size=(3, 3), stride=(3, 3), bias=False)
+              (bn): BatchNorm2d(81, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (relu): ReLU()
+              (dropout): Dropout2d(p=0.1, inplace=False)
+            )
+          )
+        )
+      )
+    )
+    (chain2): chain_process(
+      (seq): Sequential(
+        (0): downSample(
+          (downsample): MaxPool2d(kernel_size=3, stride=3, padding=1, dilation=1, ceil_mode=False)
+        )
+        (1): downSample(
+          (downsample): MaxPool2d(kernel_size=3, stride=3, padding=1, dilation=1, ceil_mode=False)
+        )
+        (2): Sequential(
+          (0): Sequential(
+            (0): Bottleneck(
+              (conv1): Conv2d(3, 3, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn1): BatchNorm2d(3, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (conv2): Conv2d(3, 3, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+              (bn2): BatchNorm2d(3, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (conv3): Conv2d(3, 9, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn3): BatchNorm2d(9, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (relu): ReLU(inplace=True)
+              (downsample): Sequential(
+                (0): Conv2d(3, 9, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (1): BatchNorm2d(9, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              )
+            )
+            (1): convBlock(
+              (conv): Conv2d(9, 9, kernel_size=(3, 3), stride=(3, 3), bias=False)
+              (bn): BatchNorm2d(9, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (relu): ReLU()
+              (dropout): Dropout2d(p=0.1, inplace=False)
+            )
+          )
+          (1): Sequential(
+            (0): Bottleneck(
+              (conv1): Conv2d(9, 9, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn1): BatchNorm2d(9, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (conv2): Conv2d(9, 9, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+              (bn2): BatchNorm2d(9, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (conv3): Conv2d(9, 27, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn3): BatchNorm2d(27, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (relu): ReLU(inplace=True)
+              (downsample): Sequential(
+                (0): Conv2d(9, 27, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (1): BatchNorm2d(27, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              )
+            )
+            (1): convBlock(
+              (conv): Conv2d(27, 27, kernel_size=(3, 3), stride=(3, 3), bias=False)
+              (bn): BatchNorm2d(27, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (relu): ReLU()
+              (dropout): Dropout2d(p=0.1, inplace=False)
+            )
+          )
+        )
+      )
+    )
+    (chain3): chain_process(
+      (seq): Sequential(
+        (0): downSample(
+          (downsample): MaxPool2d(kernel_size=3, stride=3, padding=1, dilation=1, ceil_mode=False)
+        )
+        (1): downSample(
+          (downsample): MaxPool2d(kernel_size=3, stride=3, padding=1, dilation=1, ceil_mode=False)
+        )
+        (2): downSample(
+          (downsample): MaxPool2d(kernel_size=3, stride=3, padding=1, dilation=1, ceil_mode=False)
+        )
+        (3): Sequential(
+          (0): Sequential(
+            (0): Bottleneck(
+              (conv1): Conv2d(3, 3, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn1): BatchNorm2d(3, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (conv2): Conv2d(3, 3, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+              (bn2): BatchNorm2d(3, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (conv3): Conv2d(3, 9, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn3): BatchNorm2d(9, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (relu): ReLU(inplace=True)
+              (downsample): Sequential(
+                (0): Conv2d(3, 9, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (1): BatchNorm2d(9, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              )
+            )
+            (1): convBlock(
+              (conv): Conv2d(9, 9, kernel_size=(3, 3), stride=(3, 3), bias=False)
+              (bn): BatchNorm2d(9, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (relu): ReLU()
+              (dropout): Dropout2d(p=0.1, inplace=False)
+            )
+          )
+        )
+      )
+    )
+    (chain4): chain_process(
+      (seq): Sequential(
+        (0): downSample(
+          (downsample): MaxPool2d(kernel_size=3, stride=3, padding=1, dilation=1, ceil_mode=False)
+        )
+        (1): downSample(
+          (downsample): MaxPool2d(kernel_size=3, stride=3, padding=1, dilation=1, ceil_mode=False)
+        )
+        (2): downSample(
+          (downsample): MaxPool2d(kernel_size=3, stride=3, padding=1, dilation=1, ceil_mode=False)
+        )
+        (3): downSample(
+          (downsample): MaxPool2d(kernel_size=3, stride=3, padding=1, dilation=1, ceil_mode=False)
+        )
+        (4): Sequential()
+      )
+    )
+    (oneSizeConv): oneSizeConv(
+      (CBR): convBlock(
+        (conv): Conv2d(363, 127, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(127, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU()
+        (dropout): Dropout2d(p=0.1, inplace=False)
+      )
+    )
+  )
+  (decoder): classify_decoder(
+    (CBR): convBlock(
+      (conv): Conv2d(127, 127, kernel_size=(3, 3), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(127, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU()
+      (dropout): Dropout2d(p=0.1, inplace=False)
+    )
+    (MLP): MLP(
+      (inp): Linear(in_features=127, out_features=64, bias=True)
+      (bn1): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu1): LeakyReLU(negative_slope=0.01)
+      (hidden): Linear(in_features=64, out_features=50, bias=True)
+      (bn2): BatchNorm1d(50, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu2): LeakyReLU(negative_slope=0.01)
+    )
+  )
+)
+2022-04-16 16:13:46,535 - trainer - INFO -     epoch          : 1
+2022-04-16 16:13:46,537 - trainer - INFO -     loss           : 3.747633093281796
+2022-04-16 16:13:46,537 - trainer - INFO -     accuracy       : 0.08814900426742532
+2022-04-16 16:13:46,537 - trainer - INFO -     top_k_acc      : 0.1899726618065434
+2022-04-16 16:13:46,537 - trainer - INFO -     val_loss       : 4.058955987294515
+2022-04-16 16:13:46,537 - trainer - INFO -     val_accuracy   : 0.06901041666666667
+2022-04-16 16:13:46,537 - trainer - INFO -     val_top_k_acc  : 0.1171875
+2022-04-16 16:13:47,211 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_161102/checkpoint-epoch1.pth ...
+2022-04-16 16:13:47,370 - trainer - INFO - Saving current best: model_best.pth ...
+2022-04-16 16:15:26,229 - trainer - INFO -     epoch          : 2
+2022-04-16 16:15:26,230 - trainer - INFO -     loss           : 3.500163015566374
+2022-04-16 16:15:26,230 - trainer - INFO -     accuracy       : 0.14587037695590327
+2022-04-16 16:15:26,230 - trainer - INFO -     top_k_acc      : 0.27964415896159317
+2022-04-16 16:15:26,230 - trainer - INFO -     val_loss       : 3.7159506479899087
+2022-04-16 16:15:26,230 - trainer - INFO -     val_accuracy   : 0.0859375
+2022-04-16 16:15:26,230 - trainer - INFO -     val_top_k_acc  : 0.15104166666666666
+2022-04-16 16:15:28,989 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_161102/checkpoint-epoch2.pth ...
+2022-04-16 16:15:29,144 - trainer - INFO - Saving current best: model_best.pth ...
+2022-04-16 16:16:46,409 - trainer - INFO -     epoch          : 3
+2022-04-16 16:16:46,410 - trainer - INFO -     loss           : 3.324693566874454
+2022-04-16 16:16:46,410 - trainer - INFO -     accuracy       : 0.1842660917496444
+2022-04-16 16:16:46,410 - trainer - INFO -     top_k_acc      : 0.32914184743954483
+2022-04-16 16:16:46,410 - trainer - INFO -     val_loss       : 3.494598865509033
+2022-04-16 16:16:46,410 - trainer - INFO -     val_accuracy   : 0.09765625
+2022-04-16 16:16:46,410 - trainer - INFO -     val_top_k_acc  : 0.2721354166666667
+2022-04-16 16:16:46,586 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_161102/checkpoint-epoch3.pth ...
+2022-04-16 16:16:46,755 - trainer - INFO - Saving current best: model_best.pth ...
+2022-04-16 16:18:00,438 - trainer - INFO -     epoch          : 4
+2022-04-16 16:18:00,439 - trainer - INFO -     loss           : 3.125905526311774
+2022-04-16 16:18:00,439 - trainer - INFO -     accuracy       : 0.22970194701280225
+2022-04-16 16:18:00,439 - trainer - INFO -     top_k_acc      : 0.39364775960170695
+2022-04-16 16:18:00,439 - trainer - INFO -     val_loss       : 3.3403303623199463
+2022-04-16 16:18:00,439 - trainer - INFO -     val_accuracy   : 0.12630208333333334
+2022-04-16 16:18:00,439 - trainer - INFO -     val_top_k_acc  : 0.2955729166666667
+2022-04-16 16:18:00,616 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_161102/checkpoint-epoch4.pth ...
+2022-04-16 16:18:00,779 - trainer - INFO - Saving current best: model_best.pth ...
+2022-04-16 16:19:14,759 - trainer - INFO -     epoch          : 5
+2022-04-16 16:19:14,760 - trainer - INFO -     loss           : 2.89610965628373
+2022-04-16 16:19:14,760 - trainer - INFO -     accuracy       : 0.29710281827880514
+2022-04-16 16:19:14,760 - trainer - INFO -     top_k_acc      : 0.4494298986486487
+2022-04-16 16:19:14,760 - trainer - INFO -     val_loss       : 3.1046255429585776
+2022-04-16 16:19:14,760 - trainer - INFO -     val_accuracy   : 0.20963541666666666
+2022-04-16 16:19:14,760 - trainer - INFO -     val_top_k_acc  : 0.40625
+2022-04-16 16:19:14,946 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_161102/checkpoint-epoch5.pth ...
+2022-04-16 16:19:15,114 - trainer - INFO - Saving current best: model_best.pth ...
+2022-04-16 16:20:25,993 - trainer - INFO -     epoch          : 6
+2022-04-16 16:20:25,994 - trainer - INFO -     loss           : 2.6214205716785632
+2022-04-16 16:20:25,994 - trainer - INFO -     accuracy       : 0.3641425142247511
+2022-04-16 16:20:25,994 - trainer - INFO -     top_k_acc      : 0.5368954480796586
+2022-04-16 16:20:25,994 - trainer - INFO -     val_loss       : 3.120469808578491
+2022-04-16 16:20:25,994 - trainer - INFO -     val_accuracy   : 0.234375
+2022-04-16 16:20:25,994 - trainer - INFO -     val_top_k_acc  : 0.4036458333333333
+2022-04-16 16:20:26,168 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_161102/checkpoint-epoch6.pth ...
+2022-04-16 16:21:34,798 - trainer - INFO -     epoch          : 7
+2022-04-16 16:21:34,798 - trainer - INFO -     loss           : 2.371042991939344
+2022-04-16 16:21:34,798 - trainer - INFO -     accuracy       : 0.4337715593883357
+2022-04-16 16:21:34,799 - trainer - INFO -     top_k_acc      : 0.599173186344239
+2022-04-16 16:21:34,799 - trainer - INFO -     val_loss       : 2.735023816426595
+2022-04-16 16:21:34,799 - trainer - INFO -     val_accuracy   : 0.29296875
+2022-04-16 16:21:34,799 - trainer - INFO -     val_top_k_acc  : 0.5677083333333334
+2022-04-16 16:21:34,978 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_161102/checkpoint-epoch7.pth ...
+2022-04-16 16:21:35,146 - trainer - INFO - Saving current best: model_best.pth ...
+2022-04-16 16:22:43,065 - trainer - INFO -     epoch          : 8
+2022-04-16 16:22:43,066 - trainer - INFO -     loss           : 2.1672964848970113
+2022-04-16 16:22:43,066 - trainer - INFO -     accuracy       : 0.4798075213371266
+2022-04-16 16:22:43,066 - trainer - INFO -     top_k_acc      : 0.6265502756045519
+2022-04-16 16:22:43,066 - trainer - INFO -     val_loss       : 3.1684954166412354
+2022-04-16 16:22:43,066 - trainer - INFO -     val_accuracy   : 0.2630208333333333
+2022-04-16 16:22:43,066 - trainer - INFO -     val_top_k_acc  : 0.375
+2022-04-16 16:22:43,237 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_161102/checkpoint-epoch8.pth ...
+2022-04-16 16:23:52,350 - trainer - INFO -     epoch          : 9
+2022-04-16 16:23:52,350 - trainer - INFO -     loss           : 1.9402222382394891
+2022-04-16 16:23:52,351 - trainer - INFO -     accuracy       : 0.5317389758179232
+2022-04-16 16:23:52,351 - trainer - INFO -     top_k_acc      : 0.6856441145092461
+2022-04-16 16:23:52,351 - trainer - INFO -     val_loss       : 2.674494425455729
+2022-04-16 16:23:52,351 - trainer - INFO -     val_accuracy   : 0.3059895833333333
+2022-04-16 16:23:52,351 - trainer - INFO -     val_top_k_acc  : 0.4010416666666667
+2022-04-16 16:23:52,538 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_161102/checkpoint-epoch9.pth ...
+2022-04-16 16:23:52,696 - trainer - INFO - Saving current best: model_best.pth ...
+2022-04-16 16:25:00,409 - trainer - INFO -     epoch          : 10
+2022-04-16 16:25:00,409 - trainer - INFO -     loss           : 1.7627966403961182
+2022-04-16 16:25:00,409 - trainer - INFO -     accuracy       : 0.5814922652916074
+2022-04-16 16:25:00,409 - trainer - INFO -     top_k_acc      : 0.7206114420341394
+2022-04-16 16:25:00,409 - trainer - INFO -     val_loss       : 2.1585636933644614
+2022-04-16 16:25:00,409 - trainer - INFO -     val_accuracy   : 0.3697916666666667
+2022-04-16 16:25:00,410 - trainer - INFO -     val_top_k_acc  : 0.7213541666666666
+2022-04-16 16:25:00,583 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_161102/checkpoint-epoch10.pth ...
+2022-04-16 16:25:00,750 - trainer - INFO - Saving current best: model_best.pth ...
+2022-04-16 16:26:09,258 - trainer - INFO -     epoch          : 11
+2022-04-16 16:26:09,258 - trainer - INFO -     loss           : 1.6308908086074025
+2022-04-16 16:26:09,258 - trainer - INFO -     accuracy       : 0.5992065256045519
+2022-04-16 16:26:09,258 - trainer - INFO -     top_k_acc      : 0.7487442211948792
+2022-04-16 16:26:09,258 - trainer - INFO -     val_loss       : 1.8206724723180134
+2022-04-16 16:26:09,259 - trainer - INFO -     val_accuracy   : 0.4713541666666667
+2022-04-16 16:26:09,259 - trainer - INFO -     val_top_k_acc  : 0.7408854166666666
+2022-04-16 16:26:09,445 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_161102/checkpoint-epoch11.pth ...
+2022-04-16 16:26:09,609 - trainer - INFO - Saving current best: model_best.pth ...
+2022-04-16 16:27:17,371 - trainer - INFO -     epoch          : 12
+2022-04-16 16:27:17,372 - trainer - INFO -     loss           : 1.4531268006876896
+2022-04-16 16:27:17,372 - trainer - INFO -     accuracy       : 0.6359074946657184
+2022-04-16 16:27:17,372 - trainer - INFO -     top_k_acc      : 0.7860786362019915
+2022-04-16 16:27:17,372 - trainer - INFO -     val_loss       : 2.016606569290161
+2022-04-16 16:27:17,372 - trainer - INFO -     val_accuracy   : 0.4986979166666667
+2022-04-16 16:27:17,372 - trainer - INFO -     val_top_k_acc  : 0.5911458333333334
+2022-04-16 16:27:17,543 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_161102/checkpoint-epoch12.pth ...
+2022-04-16 16:28:24,071 - trainer - INFO -     epoch          : 13
+2022-04-16 16:28:24,071 - trainer - INFO -     loss           : 1.3177370397668136
+2022-04-16 16:28:24,072 - trainer - INFO -     accuracy       : 0.6758423719772404
+2022-04-16 16:28:24,072 - trainer - INFO -     top_k_acc      : 0.8192789829302987
+2022-04-16 16:28:24,072 - trainer - INFO -     val_loss       : 1.6893391609191895
+2022-04-16 16:28:24,072 - trainer - INFO -     val_accuracy   : 0.51171875
+2022-04-16 16:28:24,072 - trainer - INFO -     val_top_k_acc  : 0.7721354166666666
+2022-04-16 16:28:24,251 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_161102/checkpoint-epoch13.pth ...
+2022-04-16 16:28:24,416 - trainer - INFO - Saving current best: model_best.pth ...
+2022-04-16 16:29:36,677 - trainer - INFO -     epoch          : 14
+2022-04-16 16:29:36,677 - trainer - INFO -     loss           : 1.2008229243127924
+2022-04-16 16:29:36,677 - trainer - INFO -     accuracy       : 0.7081036628733998
+2022-04-16 16:29:36,677 - trainer - INFO -     top_k_acc      : 0.8420330280938834
+2022-04-16 16:29:36,677 - trainer - INFO -     val_loss       : 2.197333335876465
+2022-04-16 16:29:36,678 - trainer - INFO -     val_accuracy   : 0.4049479166666667
+2022-04-16 16:29:36,678 - trainer - INFO -     val_top_k_acc  : 0.5755208333333334
+2022-04-16 16:29:36,858 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_161102/checkpoint-epoch14.pth ...
+2022-04-16 16:30:45,752 - trainer - INFO -     epoch          : 15
+2022-04-16 16:30:45,753 - trainer - INFO -     loss           : 1.108824096227947
+2022-04-16 16:30:45,753 - trainer - INFO -     accuracy       : 0.7278238353485064
+2022-04-16 16:30:45,753 - trainer - INFO -     top_k_acc      : 0.8553798453058321
+2022-04-16 16:30:45,753 - trainer - INFO -     val_loss       : 1.9136341412862141
+2022-04-16 16:30:45,753 - trainer - INFO -     val_accuracy   : 0.5260416666666666
+2022-04-16 16:30:45,753 - trainer - INFO -     val_top_k_acc  : 0.6901041666666666
+2022-04-16 16:30:45,932 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_161102/checkpoint-epoch15.pth ...
+2022-04-16 16:31:54,656 - trainer - INFO -     epoch          : 16
+2022-04-16 16:31:54,657 - trainer - INFO -     loss           : 1.0050597692790784
+2022-04-16 16:31:54,657 - trainer - INFO -     accuracy       : 0.7524615487197724
+2022-04-16 16:31:54,657 - trainer - INFO -     top_k_acc      : 0.8751166874110953
+2022-04-16 16:31:54,657 - trainer - INFO -     val_loss       : 2.073652505874634
+2022-04-16 16:31:54,657 - trainer - INFO -     val_accuracy   : 0.4427083333333333
+2022-04-16 16:31:54,657 - trainer - INFO -     val_top_k_acc  : 0.6106770833333334
+2022-04-16 16:31:54,838 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_161102/checkpoint-epoch16.pth ...
+2022-04-16 16:33:02,839 - trainer - INFO -     epoch          : 17
+2022-04-16 16:33:02,840 - trainer - INFO -     loss           : 0.8959431554141798
+2022-04-16 16:33:02,840 - trainer - INFO -     accuracy       : 0.7801664740398293
+2022-04-16 16:33:02,840 - trainer - INFO -     top_k_acc      : 0.899704391891892
+2022-04-16 16:33:02,840 - trainer - INFO -     val_loss       : 2.2010841766993203
+2022-04-16 16:33:02,840 - trainer - INFO -     val_accuracy   : 0.546875
+2022-04-16 16:33:02,840 - trainer - INFO -     val_top_k_acc  : 0.7096354166666666
+2022-04-16 16:33:03,018 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_161102/checkpoint-epoch17.pth ...
+2022-04-16 16:34:10,618 - trainer - INFO -     epoch          : 18
+2022-04-16 16:34:10,618 - trainer - INFO -     loss           : 0.8471338905786213
+2022-04-16 16:34:10,618 - trainer - INFO -     accuracy       : 0.7951913673541963
+2022-04-16 16:34:10,618 - trainer - INFO -     top_k_acc      : 0.9032327969416785
+2022-04-16 16:34:10,618 - trainer - INFO -     val_loss       : 1.9268895785013835
+2022-04-16 16:34:10,619 - trainer - INFO -     val_accuracy   : 0.4401041666666667
+2022-04-16 16:34:10,619 - trainer - INFO -     val_top_k_acc  : 0.69140625
+2022-04-16 16:34:10,802 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_161102/checkpoint-epoch18.pth ...
+2022-04-16 16:35:18,809 - trainer - INFO -     epoch          : 19
+2022-04-16 16:35:18,810 - trainer - INFO -     loss           : 0.7306454871830187
+2022-04-16 16:35:18,810 - trainer - INFO -     accuracy       : 0.8144836859886202
+2022-04-16 16:35:18,810 - trainer - INFO -     top_k_acc      : 0.9223195234708393
+2022-04-16 16:35:18,810 - trainer - INFO -     val_loss       : 1.5446459849675496
+2022-04-16 16:35:18,811 - trainer - INFO -     val_accuracy   : 0.65234375
+2022-04-16 16:35:18,811 - trainer - INFO -     val_top_k_acc  : 0.7265625
+2022-04-16 16:35:18,983 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_161102/checkpoint-epoch19.pth ...
+2022-04-16 16:35:19,151 - trainer - INFO - Saving current best: model_best.pth ...
+2022-04-16 16:36:27,243 - trainer - INFO -     epoch          : 20
+2022-04-16 16:36:27,243 - trainer - INFO -     loss           : 0.652562207297275
+2022-04-16 16:36:27,243 - trainer - INFO -     accuracy       : 0.8420330280938834
+2022-04-16 16:36:27,244 - trainer - INFO -     top_k_acc      : 0.9359052720483642
+2022-04-16 16:36:27,244 - trainer - INFO -     val_loss       : 1.6748571395874023
+2022-04-16 16:36:27,244 - trainer - INFO -     val_accuracy   : 0.6380208333333334
+2022-04-16 16:36:27,244 - trainer - INFO -     val_top_k_acc  : 0.7239583333333334
+2022-04-16 16:36:27,426 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_161102/checkpoint-epoch20.pth ...
+2022-04-16 16:37:38,713 - trainer - INFO -     epoch          : 21
+2022-04-16 16:37:38,714 - trainer - INFO -     loss           : 0.595652782603314
+2022-04-16 16:37:38,714 - trainer - INFO -     accuracy       : 0.8472061699857752
+2022-04-16 16:37:38,714 - trainer - INFO -     top_k_acc      : 0.9426564722617353
+2022-04-16 16:37:38,714 - trainer - INFO -     val_loss       : 1.5515554348627727
+2022-04-16 16:37:38,714 - trainer - INFO -     val_accuracy   : 0.6536458333333334
+2022-04-16 16:37:38,714 - trainer - INFO -     val_top_k_acc  : 0.7421875
+2022-04-16 16:37:38,969 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_161102/checkpoint-epoch21.pth ...
+2022-04-16 16:38:48,068 - trainer - INFO -     epoch          : 22
+2022-04-16 16:38:48,069 - trainer - INFO -     loss           : 0.5610967984325007
+2022-04-16 16:38:48,069 - trainer - INFO -     accuracy       : 0.8605863264580369
+2022-04-16 16:38:48,069 - trainer - INFO -     top_k_acc      : 0.9427564900426743
+2022-04-16 16:38:48,069 - trainer - INFO -     val_loss       : 1.5368661880493164
+2022-04-16 16:38:48,069 - trainer - INFO -     val_accuracy   : 0.56640625
+2022-04-16 16:38:48,069 - trainer - INFO -     val_top_k_acc  : 0.8190104166666666
+2022-04-16 16:38:48,244 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_161102/checkpoint-epoch22.pth ...
+2022-04-16 16:38:48,424 - trainer - INFO - Saving current best: model_best.pth ...
+2022-04-16 16:39:56,642 - trainer - INFO -     epoch          : 23
+2022-04-16 16:39:56,643 - trainer - INFO -     loss           : 0.49078143113537837
+2022-04-16 16:39:56,643 - trainer - INFO -     accuracy       : 0.8776004623044096
+2022-04-16 16:39:56,643 - trainer - INFO -     top_k_acc      : 0.954391891891892
+2022-04-16 16:39:56,643 - trainer - INFO -     val_loss       : 1.5398383537928264
+2022-04-16 16:39:56,643 - trainer - INFO -     val_accuracy   : 0.640625
+2022-04-16 16:39:56,643 - trainer - INFO -     val_top_k_acc  : 0.7174479166666666
+2022-04-16 16:39:56,812 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_161102/checkpoint-epoch23.pth ...
+2022-04-16 16:41:05,147 - trainer - INFO -     epoch          : 24
+2022-04-16 16:41:05,148 - trainer - INFO -     loss           : 0.48687877153095444
+2022-04-16 16:41:05,148 - trainer - INFO -     accuracy       : 0.8743109886201991
+2022-04-16 16:41:05,148 - trainer - INFO -     top_k_acc      : 0.9607819167852063
+2022-04-16 16:41:05,148 - trainer - INFO -     val_loss       : 2.245165308316549
+2022-04-16 16:41:05,148 - trainer - INFO -     val_accuracy   : 0.4765625
+2022-04-16 16:41:05,148 - trainer - INFO -     val_top_k_acc  : 0.6510416666666666
+2022-04-16 16:41:05,333 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_161102/checkpoint-epoch24.pth ...
+2022-04-16 16:42:14,865 - trainer - INFO -     epoch          : 25
+2022-04-16 16:42:14,866 - trainer - INFO -     loss           : 0.45431621137418243
+2022-04-16 16:42:14,866 - trainer - INFO -     accuracy       : 0.8908639313655762
+2022-04-16 16:42:14,866 - trainer - INFO -     top_k_acc      : 0.960970839260313
+2022-04-16 16:42:14,866 - trainer - INFO -     val_loss       : 1.3875210682551067
+2022-04-16 16:42:14,866 - trainer - INFO -     val_accuracy   : 0.6497395833333334
+2022-04-16 16:42:14,866 - trainer - INFO -     val_top_k_acc  : 0.80859375
+2022-04-16 16:42:15,046 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_161102/checkpoint-epoch25.pth ...
+2022-04-16 16:42:15,218 - trainer - INFO - Saving current best: model_best.pth ...
+2022-04-16 16:43:22,658 - trainer - INFO -     epoch          : 26
+2022-04-16 16:43:22,658 - trainer - INFO -     loss           : 0.418964916153958
+2022-04-16 16:43:22,658 - trainer - INFO -     accuracy       : 0.8914418118776672
+2022-04-16 16:43:22,658 - trainer - INFO -     top_k_acc      : 0.9700335615220483
+2022-04-16 16:43:22,658 - trainer - INFO -     val_loss       : 1.760582447052002
+2022-04-16 16:43:22,658 - trainer - INFO -     val_accuracy   : 0.5729166666666666
+2022-04-16 16:43:22,658 - trainer - INFO -     val_top_k_acc  : 0.7291666666666666
+2022-04-16 16:43:22,841 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_161102/checkpoint-epoch26.pth ...
+2022-04-16 16:44:32,893 - trainer - INFO -     epoch          : 27
+2022-04-16 16:44:32,894 - trainer - INFO -     loss           : 0.43274967450844615
+2022-04-16 16:44:32,894 - trainer - INFO -     accuracy       : 0.8878800675675675
+2022-04-16 16:44:32,894 - trainer - INFO -     top_k_acc      : 0.9638657983641536
+2022-04-16 16:44:32,894 - trainer - INFO -     val_loss       : 1.6922989686330159
+2022-04-16 16:44:32,894 - trainer - INFO -     val_accuracy   : 0.6692708333333334
+2022-04-16 16:44:32,894 - trainer - INFO -     val_top_k_acc  : 0.7291666666666666
+2022-04-16 16:44:33,077 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_161102/checkpoint-epoch27.pth ...
+2022-04-16 16:45:40,726 - trainer - INFO -     epoch          : 28
+2022-04-16 16:45:40,727 - trainer - INFO -     loss           : 0.34877020277475057
+2022-04-16 16:45:40,727 - trainer - INFO -     accuracy       : 0.9153794007823612
+2022-04-16 16:45:40,727 - trainer - INFO -     top_k_acc      : 0.9757568012091038
+2022-04-16 16:45:40,727 - trainer - INFO -     val_loss       : 1.617392659187317
+2022-04-16 16:45:40,727 - trainer - INFO -     val_accuracy   : 0.58984375
+2022-04-16 16:45:40,727 - trainer - INFO -     val_top_k_acc  : 0.73046875
+2022-04-16 16:45:40,910 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_161102/checkpoint-epoch28.pth ...
+2022-04-16 16:46:53,170 - trainer - INFO -     epoch          : 29
+2022-04-16 16:46:53,171 - trainer - INFO -     loss           : 0.329569316224048
+2022-04-16 16:46:53,171 - trainer - INFO -     accuracy       : 0.9197135046230441
+2022-04-16 16:46:53,172 - trainer - INFO -     top_k_acc      : 0.9772126155761025
+2022-04-16 16:46:53,172 - trainer - INFO -     val_loss       : 1.5468458731969197
+2022-04-16 16:46:53,172 - trainer - INFO -     val_accuracy   : 0.6653645833333334
+2022-04-16 16:46:53,172 - trainer - INFO -     val_top_k_acc  : 0.7434895833333334
+2022-04-16 16:46:53,357 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_161102/checkpoint-epoch29.pth ...
+2022-04-16 16:48:20,224 - trainer - INFO -     epoch          : 30
+2022-04-16 16:48:20,225 - trainer - INFO -     loss           : 0.3111523593726911
+2022-04-16 16:48:20,225 - trainer - INFO -     accuracy       : 0.9227973862019915
+2022-04-16 16:48:20,226 - trainer - INFO -     top_k_acc      : 0.9792518669985775
+2022-04-16 16:48:20,226 - trainer - INFO -     val_loss       : 1.8681175708770752
+2022-04-16 16:48:20,226 - trainer - INFO -     val_accuracy   : 0.55859375
+2022-04-16 16:48:20,226 - trainer - INFO -     val_top_k_acc  : 0.6393229166666666
+2022-04-16 16:48:20,414 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_161102/checkpoint-epoch30.pth ...
+2022-04-16 16:49:54,259 - trainer - INFO -     epoch          : 31
+2022-04-16 16:49:54,260 - trainer - INFO -     loss           : 0.32646533454719345
+2022-04-16 16:49:54,260 - trainer - INFO -     accuracy       : 0.9142792051920342
+2022-04-16 16:49:54,260 - trainer - INFO -     top_k_acc      : 0.9760124022048364
+2022-04-16 16:49:54,260 - trainer - INFO -     val_loss       : 1.3265542536973953
+2022-04-16 16:49:54,260 - trainer - INFO -     val_accuracy   : 0.7395833333333334
+2022-04-16 16:49:54,261 - trainer - INFO -     val_top_k_acc  : 0.7994791666666666
+2022-04-16 16:49:54,449 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_161102/checkpoint-epoch31.pth ...
+2022-04-16 16:49:54,621 - trainer - INFO - Saving current best: model_best.pth ...
+2022-04-16 16:51:32,297 - trainer - INFO -     epoch          : 32
+2022-04-16 16:51:32,298 - trainer - INFO -     loss           : 0.36326685155692856
+2022-04-16 16:51:32,299 - trainer - INFO -     accuracy       : 0.908355929943101
+2022-04-16 16:51:32,299 - trainer - INFO -     top_k_acc      : 0.973923141891892
+2022-04-16 16:51:32,299 - trainer - INFO -     val_loss       : 1.8223005135854085
+2022-04-16 16:51:32,299 - trainer - INFO -     val_accuracy   : 0.6458333333333334
+2022-04-16 16:51:32,299 - trainer - INFO -     val_top_k_acc  : 0.7317708333333334
+2022-04-16 16:51:32,513 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_161102/checkpoint-epoch32.pth ...
+2022-04-16 16:53:09,204 - trainer - INFO -     epoch          : 33
+2022-04-16 16:53:09,205 - trainer - INFO -     loss           : 0.31057216619190414
+2022-04-16 16:53:09,205 - trainer - INFO -     accuracy       : 0.9199357663584637
+2022-04-16 16:53:09,205 - trainer - INFO -     top_k_acc      : 0.9761846550497867
+2022-04-16 16:53:09,205 - trainer - INFO -     val_loss       : 1.8989874521891277
+2022-04-16 16:53:09,205 - trainer - INFO -     val_accuracy   : 0.5807291666666666
+2022-04-16 16:53:09,205 - trainer - INFO -     val_top_k_acc  : 0.7408854166666666
+2022-04-16 16:53:09,395 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_161102/checkpoint-epoch33.pth ...
+2022-04-16 16:54:52,016 - trainer - INFO -     epoch          : 34
+2022-04-16 16:54:52,017 - trainer - INFO -     loss           : 0.27312057818237107
+2022-04-16 16:54:52,017 - trainer - INFO -     accuracy       : 0.9304042940967283
+2022-04-16 16:54:52,017 - trainer - INFO -     top_k_acc      : 0.9823690878378378
+2022-04-16 16:54:52,017 - trainer - INFO -     val_loss       : 2.050939997037252
+2022-04-16 16:54:52,017 - trainer - INFO -     val_accuracy   : 0.5807291666666666
+2022-04-16 16:54:52,017 - trainer - INFO -     val_top_k_acc  : 0.6575520833333334
+2022-04-16 16:54:52,211 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_161102/checkpoint-epoch34.pth ...
+2022-04-16 16:56:44,062 - trainer - INFO -     epoch          : 35
+2022-04-16 16:56:44,062 - trainer - INFO -     loss           : 0.24561463766976407
+2022-04-16 16:56:44,062 - trainer - INFO -     accuracy       : 0.9418507734708393
+2022-04-16 16:56:44,062 - trainer - INFO -     top_k_acc      : 0.985641891891892
+2022-04-16 16:56:44,063 - trainer - INFO -     val_loss       : 1.6265100240707397
+2022-04-16 16:56:44,063 - trainer - INFO -     val_accuracy   : 0.6640625
+2022-04-16 16:56:44,063 - trainer - INFO -     val_top_k_acc  : 0.73046875
+2022-04-16 16:56:44,255 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_161102/checkpoint-epoch35.pth ...
+2022-04-16 16:58:42,329 - trainer - INFO -     epoch          : 36
+2022-04-16 16:58:42,330 - trainer - INFO -     loss           : 0.20548908647738004
+2022-04-16 16:58:42,330 - trainer - INFO -     accuracy       : 0.9502967194167852
+2022-04-16 16:58:42,330 - trainer - INFO -     top_k_acc      : 0.990353840682788
+2022-04-16 16:58:42,330 - trainer - INFO -     val_loss       : 1.3573646148045857
+2022-04-16 16:58:42,330 - trainer - INFO -     val_accuracy   : 0.6666666666666666
+2022-04-16 16:58:42,330 - trainer - INFO -     val_top_k_acc  : 0.8255208333333334
+2022-04-16 16:58:42,522 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_161102/checkpoint-epoch36.pth ...
+2022-04-16 17:00:31,973 - trainer - INFO -     epoch          : 37
+2022-04-16 17:00:31,974 - trainer - INFO -     loss           : 0.20259363086600052
+2022-04-16 17:00:31,974 - trainer - INFO -     accuracy       : 0.9501578058321479
+2022-04-16 17:00:31,974 - trainer - INFO -     top_k_acc      : 0.9919819078947368
+2022-04-16 17:00:31,974 - trainer - INFO -     val_loss       : 1.81011168162028
+2022-04-16 17:00:31,974 - trainer - INFO -     val_accuracy   : 0.5950520833333334
+2022-04-16 17:00:31,974 - trainer - INFO -     val_top_k_acc  : 0.734375
+2022-04-16 17:00:32,168 - trainer - INFO - Saving checkpoint: saved/models/kernel_generator/0416_161102/checkpoint-epoch37.pth ...
+2022-04-16 17:04:44,039 - test - INFO - kernel_extract_network(
+  (encoder): kernel_generator(
+    (basic_block): Sequential()
+    (chain0): chain_process(
+      (seq): Sequential(
+        (0): Sequential(
+          (0): Sequential(
+            (0): Bottleneck(
+              (conv1): Conv2d(3, 3, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn1): BatchNorm2d(3, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (conv2): Conv2d(3, 3, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+              (bn2): BatchNorm2d(3, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (conv3): Conv2d(3, 9, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn3): BatchNorm2d(9, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (relu): ReLU(inplace=True)
+              (downsample): Sequential(
+                (0): Conv2d(3, 9, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (1): BatchNorm2d(9, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              )
+            )
+            (1): convBlock(
+              (conv): Conv2d(9, 9, kernel_size=(3, 3), stride=(3, 3), bias=False)
+              (bn): BatchNorm2d(9, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (relu): ReLU()
+              (dropout): Dropout2d(p=0.1, inplace=False)
+            )
+          )
+          (1): Sequential(
+            (0): Bottleneck(
+              (conv1): Conv2d(9, 9, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn1): BatchNorm2d(9, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (conv2): Conv2d(9, 9, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+              (bn2): BatchNorm2d(9, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (conv3): Conv2d(9, 27, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn3): BatchNorm2d(27, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (relu): ReLU(inplace=True)
+              (downsample): Sequential(
+                (0): Conv2d(9, 27, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (1): BatchNorm2d(27, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              )
+            )
+            (1): convBlock(
+              (conv): Conv2d(27, 27, kernel_size=(3, 3), stride=(3, 3), bias=False)
+              (bn): BatchNorm2d(27, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (relu): ReLU()
+              (dropout): Dropout2d(p=0.1, inplace=False)
+            )
+          )
+          (2): Sequential(
+            (0): Bottleneck(
+              (conv1): Conv2d(27, 27, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn1): BatchNorm2d(27, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (conv2): Conv2d(27, 27, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+              (bn2): BatchNorm2d(27, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (conv3): Conv2d(27, 81, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn3): BatchNorm2d(81, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (relu): ReLU(inplace=True)
+              (downsample): Sequential(
+                (0): Conv2d(27, 81, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (1): BatchNorm2d(81, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              )
+            )
+            (1): convBlock(
+              (conv): Conv2d(81, 81, kernel_size=(3, 3), stride=(3, 3), bias=False)
+              (bn): BatchNorm2d(81, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (relu): ReLU()
+              (dropout): Dropout2d(p=0.1, inplace=False)
+            )
+          )
+          (3): Sequential(
+            (0): Bottleneck(
+              (conv1): Conv2d(81, 81, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn1): BatchNorm2d(81, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (conv2): Conv2d(81, 81, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+              (bn2): BatchNorm2d(81, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (conv3): Conv2d(81, 243, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn3): BatchNorm2d(243, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (relu): ReLU(inplace=True)
+              (downsample): Sequential(
+                (0): Conv2d(81, 243, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (1): BatchNorm2d(243, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              )
+            )
+            (1): convBlock(
+              (conv): Conv2d(243, 243, kernel_size=(3, 3), stride=(3, 3), bias=False)
+              (bn): BatchNorm2d(243, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (relu): ReLU()
+              (dropout): Dropout2d(p=0.1, inplace=False)
+            )
+          )
+        )
+      )
+    )
+    (chain1): chain_process(
+      (seq): Sequential(
+        (0): downSample(
+          (downsample): MaxPool2d(kernel_size=3, stride=3, padding=1, dilation=1, ceil_mode=False)
+        )
+        (1): Sequential(
+          (0): Sequential(
+            (0): Bottleneck(
+              (conv1): Conv2d(3, 3, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn1): BatchNorm2d(3, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (conv2): Conv2d(3, 3, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+              (bn2): BatchNorm2d(3, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (conv3): Conv2d(3, 9, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn3): BatchNorm2d(9, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (relu): ReLU(inplace=True)
+              (downsample): Sequential(
+                (0): Conv2d(3, 9, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (1): BatchNorm2d(9, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              )
+            )
+            (1): convBlock(
+              (conv): Conv2d(9, 9, kernel_size=(3, 3), stride=(3, 3), bias=False)
+              (bn): BatchNorm2d(9, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (relu): ReLU()
+              (dropout): Dropout2d(p=0.1, inplace=False)
+            )
+          )
+          (1): Sequential(
+            (0): Bottleneck(
+              (conv1): Conv2d(9, 9, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn1): BatchNorm2d(9, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (conv2): Conv2d(9, 9, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+              (bn2): BatchNorm2d(9, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (conv3): Conv2d(9, 27, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn3): BatchNorm2d(27, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (relu): ReLU(inplace=True)
+              (downsample): Sequential(
+                (0): Conv2d(9, 27, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (1): BatchNorm2d(27, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              )
+            )
+            (1): convBlock(
+              (conv): Conv2d(27, 27, kernel_size=(3, 3), stride=(3, 3), bias=False)
+              (bn): BatchNorm2d(27, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (relu): ReLU()
+              (dropout): Dropout2d(p=0.1, inplace=False)
+            )
+          )
+          (2): Sequential(
+            (0): Bottleneck(
+              (conv1): Conv2d(27, 27, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn1): BatchNorm2d(27, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (conv2): Conv2d(27, 27, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+              (bn2): BatchNorm2d(27, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (conv3): Conv2d(27, 81, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn3): BatchNorm2d(81, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (relu): ReLU(inplace=True)
+              (downsample): Sequential(
+                (0): Conv2d(27, 81, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (1): BatchNorm2d(81, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              )
+            )
+            (1): convBlock(
+              (conv): Conv2d(81, 81, kernel_size=(3, 3), stride=(3, 3), bias=False)
+              (bn): BatchNorm2d(81, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (relu): ReLU()
+              (dropout): Dropout2d(p=0.1, inplace=False)
+            )
+          )
+        )
+      )
+    )
+    (chain2): chain_process(
+      (seq): Sequential(
+        (0): downSample(
+          (downsample): MaxPool2d(kernel_size=3, stride=3, padding=1, dilation=1, ceil_mode=False)
+        )
+        (1): downSample(
+          (downsample): MaxPool2d(kernel_size=3, stride=3, padding=1, dilation=1, ceil_mode=False)
+        )
+        (2): Sequential(
+          (0): Sequential(
+            (0): Bottleneck(
+              (conv1): Conv2d(3, 3, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn1): BatchNorm2d(3, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (conv2): Conv2d(3, 3, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+              (bn2): BatchNorm2d(3, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (conv3): Conv2d(3, 9, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn3): BatchNorm2d(9, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (relu): ReLU(inplace=True)
+              (downsample): Sequential(
+                (0): Conv2d(3, 9, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (1): BatchNorm2d(9, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              )
+            )
+            (1): convBlock(
+              (conv): Conv2d(9, 9, kernel_size=(3, 3), stride=(3, 3), bias=False)
+              (bn): BatchNorm2d(9, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (relu): ReLU()
+              (dropout): Dropout2d(p=0.1, inplace=False)
+            )
+          )
+          (1): Sequential(
+            (0): Bottleneck(
+              (conv1): Conv2d(9, 9, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn1): BatchNorm2d(9, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (conv2): Conv2d(9, 9, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+              (bn2): BatchNorm2d(9, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (conv3): Conv2d(9, 27, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn3): BatchNorm2d(27, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (relu): ReLU(inplace=True)
+              (downsample): Sequential(
+                (0): Conv2d(9, 27, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (1): BatchNorm2d(27, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              )
+            )
+            (1): convBlock(
+              (conv): Conv2d(27, 27, kernel_size=(3, 3), stride=(3, 3), bias=False)
+              (bn): BatchNorm2d(27, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (relu): ReLU()
+              (dropout): Dropout2d(p=0.1, inplace=False)
+            )
+          )
+        )
+      )
+    )
+    (chain3): chain_process(
+      (seq): Sequential(
+        (0): downSample(
+          (downsample): MaxPool2d(kernel_size=3, stride=3, padding=1, dilation=1, ceil_mode=False)
+        )
+        (1): downSample(
+          (downsample): MaxPool2d(kernel_size=3, stride=3, padding=1, dilation=1, ceil_mode=False)
+        )
+        (2): downSample(
+          (downsample): MaxPool2d(kernel_size=3, stride=3, padding=1, dilation=1, ceil_mode=False)
+        )
+        (3): Sequential(
+          (0): Sequential(
+            (0): Bottleneck(
+              (conv1): Conv2d(3, 3, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn1): BatchNorm2d(3, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (conv2): Conv2d(3, 3, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+              (bn2): BatchNorm2d(3, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (conv3): Conv2d(3, 9, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn3): BatchNorm2d(9, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (relu): ReLU(inplace=True)
+              (downsample): Sequential(
+                (0): Conv2d(3, 9, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (1): BatchNorm2d(9, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              )
+            )
+            (1): convBlock(
+              (conv): Conv2d(9, 9, kernel_size=(3, 3), stride=(3, 3), bias=False)
+              (bn): BatchNorm2d(9, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (relu): ReLU()
+              (dropout): Dropout2d(p=0.1, inplace=False)
+            )
+          )
+        )
+      )
+    )
+    (chain4): chain_process(
+      (seq): Sequential(
+        (0): downSample(
+          (downsample): MaxPool2d(kernel_size=3, stride=3, padding=1, dilation=1, ceil_mode=False)
+        )
+        (1): downSample(
+          (downsample): MaxPool2d(kernel_size=3, stride=3, padding=1, dilation=1, ceil_mode=False)
+        )
+        (2): downSample(
+          (downsample): MaxPool2d(kernel_size=3, stride=3, padding=1, dilation=1, ceil_mode=False)
+        )
+        (3): downSample(
+          (downsample): MaxPool2d(kernel_size=3, stride=3, padding=1, dilation=1, ceil_mode=False)
+        )
+        (4): Sequential()
+      )
+    )
+    (oneSizeConv): oneSizeConv(
+      (CBR): convBlock(
+        (conv): Conv2d(363, 127, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(127, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU()
+        (dropout): Dropout2d(p=0.1, inplace=False)
+      )
+    )
+  )
+  (decoder): classify_decoder(
+    (CBR): convBlock(
+      (conv): Conv2d(127, 127, kernel_size=(3, 3), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(127, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU()
+      (dropout): Dropout2d(p=0.1, inplace=False)
+    )
+    (MLP): MLP(
+      (inp): Linear(in_features=127, out_features=64, bias=True)
+      (bn1): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu1): LeakyReLU(negative_slope=0.01)
+      (hidden): Linear(in_features=64, out_features=50, bias=True)
+      (bn2): BatchNorm1d(50, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu2): LeakyReLU(negative_slope=0.01)
+    )
+  )
+)
+2022-04-16 17:04:44,045 - test - INFO - Loading checkpoint: saved/models/kernel_generator/0416_161102/model_best.pth ...
+2022-04-16 17:06:46,426 - test - INFO - {'loss': 0.4468784675739613, 'accuracy': 0.8996318542918039, 'top_k_acc': 0.9480720790544468}
