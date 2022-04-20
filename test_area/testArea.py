@@ -190,10 +190,10 @@ def tst_pretrain_coco():
 if __name__ == "__main__":
     # tst_backbone()
     # tst_MNist_dataLoader()
-    tst_dataLoader()
+    # tst_dataLoader()
     # tst_PIL()
     # tst_csv_reader()
     # tst_branch_dataloader()
     # tst_torch_tensor()
-    # tst_cocotools()
+    tst_cocotools()
     # tst_pretrain_coco()
