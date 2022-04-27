@@ -11,6 +11,7 @@ import torch
 import numpy as np
 from PIL import Image
 import pycocotools.coco as coco
+
 from model.model import kernel_extract_network
 import torch.nn.functional as F
 from data_loader.data_loaders import MnistDataLoader
@@ -19,6 +20,8 @@ from data_loader.pretrain_coco import pretrain_coco_dataloader
 from data_loader.branch_data import *
 
 from model.model import kernel_extract_network, kernel_generator, classify_decoder
+from torchvision.models import convnext_base
+
 
 
 def _get_format_bbox(label_info):
@@ -181,19 +184,19 @@ def tst_pretrain_coco():
     loader = pretrain_coco_dataloader(root=root, batch_size=1)
     for img, label in loader:
         img = img.squeeze().numpy().astype(np.uint8).transpose((1, 2, 0))[:, :, ::-1]
-
         cv2.imshow(f"img {label}", img)
         print(label)
         cv2.waitKey()
+        cv2.destroyWindow(f"img {label}")
 
 
 if __name__ == "__main__":
     # tst_backbone()
     # tst_MNist_dataLoader()
-    # tst_dataLoader()
+    tst_dataLoader()
     # tst_PIL()
     # tst_csv_reader()
     # tst_branch_dataloader()
     # tst_torch_tensor()
-    tst_cocotools()
+    # tst_cocotools()
     # tst_pretrain_coco()

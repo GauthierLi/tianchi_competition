@@ -12,7 +12,7 @@ class extract_kernel_network():
     r"""
         get 7380 kernels from the origin gray scale photo sized with (1, 243, 243).
 
-        **Example**:
+        ** Example **:
             >>> k1 = extract_kernel_network()
             >>> t1 = torch.rand((1, 243, 243))
             >>> kernels = k1(t1)
@@ -85,11 +85,13 @@ if __name__ == '__main__':
     t1 = init_conv_network(r"logo_imgs/gray_label/Honda 1_GRAY.jpg").to(device)
     # path to source image Samples
     tst_pic = r"/home/gauthierli-org/data/data/vehicle-logos-dataset/Source Image Samples/logo thumb5.png"
+    print(cv2.imread(tst_pic, cv2.IMREAD_GRAYSCALE))
     tst_pic = cv2.imread(tst_pic, cv2.IMREAD_GRAYSCALE).astype("float32")
     tst_pic = torch.from_numpy(tst_pic).to(device)
     tst_pic = tst_pic.unsqueeze(dim=0)
     tst_pic = F.normalize(tst_pic)
 
+    print(tst_pic.size())
     fram = t1(tst_pic).cpu().data.numpy()[0]
     print(fram)
     cv2.imshow("fram", fram)

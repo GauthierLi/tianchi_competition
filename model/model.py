@@ -2,11 +2,18 @@
     @author: gauthierLi
     @date: 04/02/2022
 """
+import os
+import cv2
+import json
 import torch
 import argparse
+
 import torch.nn as nn
 import torch.nn.functional as F
+import numpy as np
+
 from base import BaseModel
+from parse_config import ConfigParser
 
 
 # ----------------------------------------------------------------------------------------------------------------------
@@ -186,7 +193,10 @@ class kernel_generator(nn.Module):
 
         self.chains = [self.chain0, self.chain1, self.chain2, self.chain3, self.chain4]
 
-        self.oneSizeConv = oneSizeConv(inchannel=363, outchannel=127)
+        self.oneSizeConv1 = oneSizeConv(inchannel=363, outchannel=127)
+
+        self.oneSizeConv2 = oneSizeConv(inchannel=127, outchannel=9)
+        self.oneSizeConv3 = oneSizeConv(inchannel=9, outchannel=127)
 
     def forward(self, x):
         heads = []
@@ -194,7 +204,10 @@ class kernel_generator(nn.Module):
             head = chain(x)
             heads.append(head)
         oup = torch.cat(heads, 1)
-        oup = self.oneSizeConv(oup)
+        oup = self.oneSizeConv1(oup)
+
+        oup = self.oneSizeConv2(oup)
+        oup = self.oneSizeConv3(oup)
 
         return oup
 
@@ -234,13 +247,15 @@ class load_kernel_network(nn.Module):
     initial the convNet with the specific kernel tensor
     """
 
-    def __init__(self, kernel_tensor, inchannel=127, outchannel=127):
+    def __init__(self, kernel_tensor, stride=1, padding=1):
         super(load_kernel_network, self).__init__()
         self.kernel_tensor = kernel_tensor
+        B, C, W, H = self.kernel_tensor.size()
         if not self.kernel_tensor.requires_grad:
             self.kernel_tensor.requires_grad = True
-        self.conv = nn.Conv2d(in_channels=inchannel, out_channels=outchannel, kernel_size=3, stride=1, padding=1)
-        self.bn = nn.BatchNorm2d(outchannel)
+        self.conv = nn.Conv2d(in_channels=C, out_channels=B, kernel_size=(W, H), stride=stride, padding=padding)
+        self.conv.weight.data = self.kernel_tensor
+        self.bn = nn.BatchNorm2d(B)
         self.relu = nn.LeakyReLU()
 
     def forward(self, x):
@@ -249,12 +264,76 @@ class load_kernel_network(nn.Module):
         out = self.relu(out)
         return out
 
+
 # ---------------------------------------------------  end  ------------------------------------------------------------
 # ----------------------------------------------------------------------------------------------------------------------
 """
-1， 127 张 feature map 太多了，需要去冗余，
+1， 127 张 feature map 太多了，需要去冗余
 2， 设计 detection 网络和 ground truth 
 """
+
+
 # ----------------------------------------------------------------------------------------------------------------------
 # ------------------------------------------- detection model ----------------------------------------------------------
+class initial_preprocess_networks(nn.Module):
+    """
+    generate b*50*H*W feature map
+    """
+    def __init__(self, config_path, resume, average_img_dir):
+        super(initial_preprocess_networks, self).__init__()
+        conf_file = open(config_path, 'r')
+        self.conf = json.load(conf_file)
+        self.model = eval(self.conf["arch"]["type"])()
+        self.eval_model = eval(self.conf["arch"]["type"])()
+        self.eval_model.encoder = kernel_generator(inchannel=3, stride=1, pad=1)
 
+        checkpoint = torch.load(resume)
+        state_dict = checkpoint['state_dict']
+        self.model.load_state_dict(state_dict)
+        self.eval_model.load_state_dict(state_dict)
+
+        self.model.decoder = nn.Sequential()
+        self.model.encoder.oneSizeConv3 = nn.Sequential()
+        self.eval_model.decoder = nn.Sequential()
+        self.eval_model.encoder.oneSizeConv3 = nn.Sequential()
+
+        self.img_dir = average_img_dir
+        self.generated_kernel = self._generate_kernel_from_imgs()
+        self.conv = load_kernel_network(self.generated_kernel)
+        self.bn = nn.BatchNorm2d(50)
+        self.relu = nn.LeakyReLU()
+
+
+    def _generate_kernel_from_imgs(self):
+        device = self.model.encoder.oneSizeConv2.CBR.conv.weight.device
+        _, _, img_lst = list(os.walk(self.img_dir))[0]
+        kernel_list = []
+        for img_path in img_lst:
+            abs_img_path = os.path.join(self.img_dir, img_path)
+            label = eval(img_path.split('_')[0])
+            img = cv2.imread(abs_img_path).astype(np.float32).transpose((2, 0, 1))
+            img = torch.from_numpy(img).unsqueeze(dim=0).to(device)
+            tmp_kernel = self.model(img)
+            kernel_list.append(tmp_kernel)
+        kernels = torch.cat(kernel_list, 0)
+        return kernels
+
+    def forward(self, x):
+        out = self.eval_model(x)
+        out = self.conv(out)
+        out = self.bn(out)
+        out = self.relu(out)
+        return out
+
+
+if __name__ == "__main__":
+    device = torch.device('cuda')
+    config = r"../saved/models/kernel_generator/0422_150723/config.json"
+    resume = r"../saved/models/kernel_generator/0422_150723/model_best.pth"
+    tst = initial_preprocess_networks(config, resume, r"../test_area/logo_imgs").to(device)
+
+    img = r"/media/gauthierli-org/GauLi/code/tainchi_competition/test_area/logo_imgs/3_RGB.jpg"
+    img = cv2.imread(img).astype(np.float32).transpose((2, 0, 1))
+    img = torch.from_numpy(img).unsqueeze(dim=0).to(device)
+
+    print(tst(img).size())
