@@ -17,6 +17,9 @@ class centerNetGT:
     def offset_gt(self):
         pass
 
+    def _caculate_r(self):
+        pass
+
     @property
     def _gt(self):
         return self.gt
