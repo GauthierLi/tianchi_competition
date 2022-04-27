@@ -23,6 +23,7 @@ class centerNetGT:
     def center_gt(self, label, x, y):
         self.gt[label][x][y] = 1
 
+
     def WH_gt(self, x, y, w, h):
         pass
 
