@@ -18,10 +18,10 @@ from data_loader.data_loaders import MnistDataLoader
 from data_loader.coco import coco_dataloader
 from data_loader.pretrain_coco import pretrain_coco_dataloader
 from data_loader.branch_data import *
+from utils.centerNetGT import centerNetGT
 
 from model.model import kernel_extract_network, kernel_generator, classify_decoder
 from torchvision.models import convnext_base
-
 
 
 def _get_format_bbox(label_info):
@@ -40,6 +40,8 @@ def draw_bbox(img, bboxAndlabel):
         text_info = str(boxandlabel[-1])
         text_len = len(text_info)
         x1, y1, x2, y2 = [int(box[0] - box[2]), int(box[1] - box[3]), int(box[0] + box[2]), int(box[1] + box[3])]
+        print(img.shape)
+        # img[y1:y2, x1:x2, :] = 0
         img = cv2.rectangle(img, (x1, y1),
                             (x2, y2), (255, 0, 0), 2)
         img = cv2.rectangle(img, (int(box[0] - box[2]), int(box[1] - box[3]) - 16),
@@ -54,15 +56,23 @@ def tst_dataLoader():
     device = torch.device("cuda")
     dataLoader = coco_dataloader(
         f"/home/gauthierli-org/data/data/fewshot", batch_size=1,
-        training=True, resize=False)
-    for img, bboxAndlabel in dataLoader:
-        print("img shape", img.shape)
+        training=True, resize=(729, 729))
+    for img, bboxAndlabel, gt in dataLoader:
         print("bbox shape", bboxAndlabel.shape)
         img = img.squeeze().numpy().astype(np.uint8).transpose((1, 2, 0))[:, :, ::-1]
         img = np.ascontiguousarray(img)
         # cv2.imshow("img", img)
         # cv2.waitKey()
+        label = int(bboxAndlabel[0][0][-1])
+        center = gt.numpy()[label - 1]
+        w = gt.numpy()[-4]
+        print("org", bboxAndlabel)
+        back = centerNetGT.parse_to_standard(0, gt)
+        print("back", back)
+        cv2.imshow("center", center)
+        cv2.imshow("w", w)
         draw_bbox(img, bboxAndlabel[0])
+        draw_bbox(img, back)
 
 
 def tst_MNist_dataLoader():

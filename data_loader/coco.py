@@ -13,17 +13,18 @@ import torchvision.transforms as T
 
 from base import BaseDataLoader
 from torch.utils.data import Dataset
+from utils.centerNetGT import centerNetGT
 from torch.utils.data.dataloader import default_collate
 
 
 def collate(batch):
     imgs, bboxes = [], []
-    for img, bbox in batch:
+    for img, bbox, gt in batch:
         imgs.append(np.array(img))
         bboxes.append(np.array(bbox))
     imgs = torch.from_numpy(np.array(imgs).transpose((0, 3, 1, 2))).float()
     bboxes = np.array(bboxes)
-    return imgs, bboxes
+    return imgs, bboxes, gt
 
 
 class cocoDataSet(Dataset):
@@ -61,9 +62,10 @@ class cocoDataSet(Dataset):
         # resize
         if self.resize:
             img, bboxAndlabel = self._img_label_transform(img, bboxAndlabel, self.resize[0], self.resize[1])
-
-        # gt = self._get_gt(bbox, label)
-        return img, bboxAndlabel
+            gt = self._get_gt(bboxAndlabel)
+        else:
+            gt = 0
+        return img, bboxAndlabel, gt
 
     def _img_label_transform(self, img, bbox, W_size, H_size):
         """
@@ -99,24 +101,9 @@ class cocoDataSet(Dataset):
         return np.array(bbox_lst)
 
     def _get_gt(self, bbox):
-        gt = torch.zeros((54, 243, 243))
-        for box in bbox:
-            label = box[-1]
-            center_w, center_h = bbox[0], bbox[1]
-            width, height = bbox[2], bbox[3]
-            gt[label - 1][center_w][center_h] = 1
-
-            gt[label - 1][center_w + 1][center_h] = 0.8
-            gt[label - 1][center_w - 1][center_h] = 0.8
-            gt[label - 1][center_w][center_h + 1] = 0.8
-            gt[label - 1][center_w][center_h - 1] = 0.8
-
-            gt[label - 1][center_w + 1][center_h + 1] = 0.5
-            gt[label - 1][center_w - 1][center_h - 1] = 0.5
-            gt[label - 1][center_w - 1][center_h + 1] = 0.5
-            gt[label - 1][center_w + 1][center_h - 1] = 0.5
-
-        pass
+        gt_maker = centerNetGT(self.resize)
+        gt = gt_maker(bbox)
+        return gt
 
     def draw_bbox(self, img_id, root_path, label_info, text=None):
         """
