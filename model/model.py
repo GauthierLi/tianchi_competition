@@ -14,6 +14,7 @@ import numpy as np
 
 from base import BaseModel
 from parse_config import ConfigParser
+from model.model_resnet import resnet50
 
 
 # ----------------------------------------------------------------------------------------------------------------------
@@ -279,6 +280,7 @@ class initial_preprocess_networks(nn.Module):
     """
     generate b*50*H*W feature map
     """
+
     def __init__(self, config_path, resume, average_img_dir):
         super(initial_preprocess_networks, self).__init__()
         conf_file = open(config_path, 'r')
@@ -303,7 +305,6 @@ class initial_preprocess_networks(nn.Module):
         self.bn = nn.BatchNorm2d(50)
         self.relu = nn.LeakyReLU()
 
-
     def _generate_kernel_from_imgs(self):
         device = self.model.encoder.oneSizeConv2.CBR.conv.weight.device
         _, _, img_lst = list(os.walk(self.img_dir))[0]
@@ -326,14 +327,32 @@ class initial_preprocess_networks(nn.Module):
         return out
 
 
+def res50():
+    return resnet50(include_top=False)
+
+class detector(nn.Module):
+    def __init__(self, config:str, resume:str, reference_path:str):
+        super(detector, self).__init__()
+        self.init_kernel_network = initial_preprocess_networks(config, resume, reference_path)
+        self.res50 = res50()
+
+    def forward(self, x):
+        out = self.init_kernel_network(x)
+        out = self.res50(out)
+        return out
+
 if __name__ == "__main__":
     device = torch.device('cuda')
     config = r"../saved/models/kernel_generator/0422_150723/config.json"
     resume = r"../saved/models/kernel_generator/0422_150723/model_best.pth"
-    tst = initial_preprocess_networks(config, resume, r"../test_area/logo_imgs").to(device)
+    reference_path = r"../test_area/logo_imgs"
+    tst = detector(config, resume, reference_path).to(device)
 
     img = r"/media/gauthierli-org/GauLi/code/tainchi_competition/test_area/logo_imgs/3_RGB.jpg"
     img = cv2.imread(img).astype(np.float32).transpose((2, 0, 1))
     img = torch.from_numpy(img).unsqueeze(dim=0).to(device)
+    print(img.shape)
 
-    print(tst(img).size())
+    img = tst(img)
+
+    print(img.size())

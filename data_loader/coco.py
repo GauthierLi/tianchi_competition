@@ -18,13 +18,15 @@ from torch.utils.data.dataloader import default_collate
 
 
 def collate(batch):
-    imgs, bboxes = [], []
+    imgs, bboxes, gtes = [], [], []
     for img, bbox, gt in batch:
         imgs.append(np.array(img))
         bboxes.append(np.array(bbox))
+        gtes.append(np.array(gt))
     imgs = torch.from_numpy(np.array(imgs).transpose((0, 3, 1, 2))).float()
+    gtes = torch.from_numpy(np.array(gtes))
     bboxes = np.array(bboxes)
-    return imgs, bboxes, gt
+    return imgs, bboxes, gtes
 
 
 class cocoDataSet(Dataset):
@@ -140,3 +142,4 @@ class coco_dataloader(BaseDataLoader):
             split = "val"
         self.data_set = cocoDataSet(data_dir, split, resize=resize)
         super().__init__(self.data_set, batch_size, shuffle, validation_split, num_workers, collate_fn=collate_fn)
+

@@ -43,14 +43,22 @@ class centerNetGT:
     def WH_gt(self, x, y, w, h):
         for i in range(2 * self.r + 1):
             for j in range(2 * self.r + 1):
-                self.gt[50][x - self.r + i][y - self.r + j] = h
-                self.gt[51][x - self.r + i][y - self.r + j] = w
+                x__ = max(0, x - self.r + i)
+                x__ = min(80, x__)
+                y__ = max(0, y - self.r + j)
+                y__ = min(80, y__)
+                self.gt[50][x__][y__] = h
+                self.gt[51][x__][y__] = w
 
     def offset_gt(self, x, y, x_, y_):
         for i in range(2 * self.r + 1):
             for j in range(2 * self.r + 1):
-                self.gt[52][x_ - self.r + i][y_ - self.r + j] = float(x) / float(self.R) - x_
-                self.gt[53][x_ - self.r + i][y_ - self.r + j] = float(y) / float(self.R) - y_
+                x__ = max(0, x_ - self.r + i)
+                x__ = min(80, x__)
+                y__ = max(0, y_ - self.r + j)
+                y__ = min(80, y__)
+                self.gt[52][x__][y__] = float(x) / float(self.R) - x_
+                self.gt[53][x__][y__] = float(y) / float(self.R) - y_
 
     def _caculate_r(self, w, h, IoU=0.7):
         delta = 4 * (w + h) ** 2 - 16 * w * h * (1 - IoU) / (1 + IoU)

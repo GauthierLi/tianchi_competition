@@ -1,4 +1,7 @@
 import os
+import sys
+
+sys.path.append("../")
 
 import cv2
 import json
@@ -8,6 +11,8 @@ import torchvision
 import numpy as np
 import torch.nn.functional as F
 import PIL.Image as Image
+
+from model.loss import focal_loss
 
 root = r"/home/gauthierli-org/data/data/fewshot/fewshotlogodetection_round1_train_202204/train/images"
 src_img_dict = json.load(open("category_slice_dict.json", "r"))
@@ -74,9 +79,8 @@ def generate_average_img():
         objection = objection.astype(np.uint8)[:, :, ::-1]
         cv2.imwrite(os.path.join("logo_imgs", label + "_RGB.jpg"), objection)
         print(objection.shape)
-        cv2.imshow("img " + label, objection)
+        cv2.imshow("img ", objection)
         cv2.waitKey(1)
-        cv2.destroyWindow("img " + label)
 
 
 def walk_imgs():

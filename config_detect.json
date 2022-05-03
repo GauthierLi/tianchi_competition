@@ -1,0 +1,53 @@
+{
+    "name": "detect network",
+    "n_gpu": 1,
+
+    "arch": {
+        "type": "detector",
+        "args": {
+            "config": "/media/gauthierli-org/GauLi/code/tainchi_competition/saved/models/kernel_generator/0422_150723/config.json",
+            "resume": "/media/gauthierli-org/GauLi/code/tainchi_competition/saved/models/kernel_generator/0422_150723/model_best.pth",
+            "reference_path": "/media/gauthierli-org/GauLi/code/tainchi_competition/test_area/logo_imgs"
+        }
+    },
+    "data_loader": {
+        "type": "coco_dataloader",
+        "args":{
+            "data_dir": "/home/gauthierli-org/data/data/fewshot",
+            "batch_size": 4,
+            "shuffle": true,
+            "validation_split": 0.1,
+            "num_workers": 2,
+            "training": true
+        }
+    },
+    "optimizer": {
+        "type": "Adam",
+        "args":{
+            "lr": 0.01,
+            "weight_decay": 0,
+            "amsgrad": true
+        }
+    },
+    "loss": "focal_loss",
+    "metrics": [],
+    "lr_scheduler": {
+        "type": "StepLR",
+        "args": {
+            "step_size": 50,
+            "gamma": 0.1
+        }
+    },
+    "trainer": {
+        "epochs": 100,
+
+        "save_dir": "saved/",
+        "save_period": 1,
+        "verbosity": 2,
+        
+        "monitor": "min val_loss",
+        "early_stop": 30,
+
+        "tensorboard": true
+    }
+}
