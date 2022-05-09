@@ -33,7 +33,7 @@ class centerNetGT:
         gaussian_conv = self._gaussian_kernel()
         tmp_gt = torch.zeros((int(self.W / self.R), int(self.H / self.R)))
         tmp_gt[x][y] = 1
-        tmp_gt = gaussian_conv(tmp_gt.unsqueeze(dim=0)).squeeze().numpy()
+        tmp_gt = gaussian_conv(tmp_gt.unsqueeze(dim=0).unsqueeze(dim=0)).squeeze().squeeze().numpy()
         gt = copy.deepcopy(self.gt[label]).numpy()
 
         # print(f"gt size: {tmp_gt.shape}, {gt.shape}")
@@ -92,7 +92,7 @@ class centerNetGT:
         return self.gt
 
     @staticmethod
-    def parse_to_standard(org_size, result, R=3, belief=0.3):
+    def parse_to_standard(org_size, result, R=3, belief=0.9):
         """
         format the predicted result to real picture
         @org_size: the origin size of picture_path (h, w)
@@ -111,7 +111,7 @@ class centerNetGT:
                     around = around < result[label][i][j]
                     count = around.sum()
                     around_count = around.shape[0] * around.shape[1]
-                    if count > around_count * 0.8:
+                    if count > around_count * 0.95:
                         x = j
                         y = i
                         x = (result[53][i][j] + x) * R

@@ -36,19 +36,19 @@ def _get_format_bbox(label_info):
 
 def draw_bbox(img, bboxAndlabel):
     for boxandlabel in bboxAndlabel:
+        print(boxandlabel)
         box = boxandlabel[:-1]
         text_info = str(boxandlabel[-1])
         text_len = len(text_info)
         x1, y1, x2, y2 = [int(box[0] - box[2]), int(box[1] - box[3]), int(box[0] + box[2]), int(box[1] + box[3])]
-        # img[y1:y2, x1:x2, :] = 0
         img = cv2.rectangle(img, (x1, y1),
                             (x2, y2), (255, 0, 0), 2)
         img = cv2.rectangle(img, (int(box[0] - box[2]), int(box[1] - box[3]) - 16),
                             (int(box[0] - box[2]) + text_len * 11, int(box[1] - box[3])), (250, 250, 20), -1)
         img = cv2.putText(img, text_info, (int(box[0] - box[2]), int(box[1] - box[3]) - 5), cv2.FONT_HERSHEY_COMPLEX,
                           0.5, (0, 0, 0))
-    cv2.imshow("img", img)
-    cv2.waitKey(0)
+        cv2.imshow("img", img)
+        cv2.waitKey(0)
 
 
 def tst_dataLoader():

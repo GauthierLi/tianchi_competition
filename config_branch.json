@@ -26,7 +26,6 @@
     },
     "loss": "focal_loss",
     "metrics": [
-        "accuracy", "top_k_acc"
     ],
     "lr_scheduler": {
         "type": "StepLR",

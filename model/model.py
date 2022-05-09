@@ -334,6 +334,7 @@ class detector(nn.Module):
     def __init__(self, config:str, resume:str, reference_path:str):
         super(detector, self).__init__()
         self.init_kernel_network = initial_preprocess_networks(config, resume, reference_path)
+        self.init_kernel_network.eval()
         self.res50 = res50()
 
     def forward(self, x):
